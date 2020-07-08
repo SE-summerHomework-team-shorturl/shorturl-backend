@@ -65,10 +65,10 @@
 }
 ```
 
-* `/short-url/find-all-my-short-urls` (`GET`)
+* `/short-url/find-all-my-short-urls?page={page}&size={size}` (`GET`)
 
-查找本用户的所有短链接, 返回的`status`为`SUCCESS`, `body`为本用户所有的短链接对象,
-格式如下.
+查找本用户的所有短链接, 参数`page`指定了要返回的页号(0-base), 参数`size`指定了每页的大小,
+返回的`status`为`SUCCESS`, `body`为一个Page对象, 格式如下.
 
 ```json
 [
@@ -77,12 +77,6 @@
         "url": "https://www.baidu.com",
         "userId": 1,
         "token": "1"
-    },
-    {
-        "id": 2,
-        "url": "https://www.baidu.com",
-        "userId": 1,
-        "token": "2"
     },
     {
         "id": 3,

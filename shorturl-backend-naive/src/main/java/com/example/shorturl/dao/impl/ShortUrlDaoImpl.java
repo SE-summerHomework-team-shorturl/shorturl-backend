@@ -4,6 +4,8 @@ import com.example.shorturl.dao.ShortUrlDao;
 import com.example.shorturl.entity.ShortUrl;
 import com.example.shorturl.repository.ShortUrlRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -18,13 +20,13 @@ public class ShortUrlDaoImpl implements ShortUrlDao {
     }
 
     @Override
-    public List<ShortUrl> findAllByUserId(int userId) {
-        return shortUrlRepo.findAllByUserId(userId);
+    public Page<ShortUrl> findAllByUserId(int userId, Pageable pageable) {
+        return shortUrlRepo.findAllByUserId(userId, pageable);
     }
 
     @Override
-    public ShortUrl saveAndFlush(ShortUrl shorturl) {
-        return shortUrlRepo.saveAndFlush(shorturl);
+    public ShortUrl saveAndFlush(ShortUrl shortUrl) {
+        return shortUrlRepo.saveAndFlush(shortUrl);
     }
 
     @Override

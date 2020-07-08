@@ -21,6 +21,10 @@ public class Base62Encoder {
     static public int decode(String token) throws Exception {
         int num = 0;
         int len = token.length();
+        if (len == 0)
+            throw new Exception("The token is empty");
+        if (token.charAt(0) == '0')
+            throw new Exception("Tokens cannot start with zero");
         for (int i = 0; i < len; ++i) {
             char c = token.charAt(i);
             num *= 62;
@@ -31,7 +35,7 @@ public class Base62Encoder {
             else if (c >= 'a' && c <= 'z')
                 num += (c - 'a') + 36;
             else
-                throw new Exception("Invalid token");
+                throw new Exception("The token contains invalid character");
         }
         return num;
     }
