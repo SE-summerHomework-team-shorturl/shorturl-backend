@@ -1,7 +1,7 @@
 package com.example.shorturl.service;
 
-import com.example.shorturl.entity.Shorturl;
+import com.example.shorturl.entity.ShortUrl;
 
 public interface RedirectService {
-    Shorturl findShorturlByToken(String token) throws Exception;
+    ShortUrl findShortUrlByToken(String token) throws Exception;
 }

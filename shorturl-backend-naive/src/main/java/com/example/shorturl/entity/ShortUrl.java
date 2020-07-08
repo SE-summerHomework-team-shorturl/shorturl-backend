@@ -5,8 +5,8 @@ import com.example.shorturl.util.Base62Encoder;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "`shorturls`")
-public class Shorturl {
+@Table(name = "`short_urls`")
+public class ShortUrl {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic
@@ -21,9 +21,9 @@ public class Shorturl {
     @Column(name = "`user`")
     private Integer userId;
 
-    public Shorturl() {}
+    public ShortUrl() {}
 
-    public Shorturl(String url, Integer userId) {
+    public ShortUrl(String url, Integer userId) {
         this.url = url;
         this.userId = userId;
     }

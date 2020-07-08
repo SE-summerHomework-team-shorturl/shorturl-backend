@@ -1,6 +1,6 @@
 package com.example.shorturl.controller;
 
-import com.example.shorturl.entity.Shorturl;
+import com.example.shorturl.entity.ShortUrl;
 import com.example.shorturl.service.RedirectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,8 +16,7 @@ public class RedirectController {
 
     @RequestMapping(value = "/r/{token}")
     public void redirect(HttpServletResponse response, @PathVariable String token) throws Exception {
-        Shorturl shorturl = redirectService.findShorturlByToken(token);
-        response.setStatus(HttpStatus.PERMANENT_REDIRECT.value());
-        response.setHeader("Location", shorturl.getUrl());
+        ShortUrl shortUrl = redirectService.findShortUrlByToken(token);
+        response.sendRedirect(shortUrl.getUrl());
     }
 }

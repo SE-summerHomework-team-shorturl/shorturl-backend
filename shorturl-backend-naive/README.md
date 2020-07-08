@@ -1,4 +1,4 @@
-# Shorturl Backend (Naive)
+# Short URL Backend (Naive)
 
 ## 数据库
 
@@ -50,7 +50,7 @@
 }
 ```
 
-* `/shorturl/add-to-my-shorturls?url={url}` (`GET`)
+* `/short-url/add-to-my-short-urls?url={url}` (`GET`)
 
 添加短链接. 参数`url`为要生成短链接的URL.
 
@@ -65,7 +65,7 @@
 }
 ```
 
-* `/shorturl/find-all-my-shorturls` (`GET`)
+* `/short-url/find-all-my-short-urls` (`GET`)
 
 查找本用户的所有短链接, 返回的`status`为`SUCCESS`, `body`为本用户所有的短链接对象,
 格式如下.
@@ -93,7 +93,7 @@
 ]
 ```
 
-* `/shorturl/delete-my-shorturl-by-id?id={id}` (`GET`)
+* `/short-url/delete-my-short-url-by-id?id={id}` (`GET`)
 
 删除本用户的短链接. 参数`id`为要删除的短链接的ID.
 

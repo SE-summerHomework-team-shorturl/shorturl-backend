@@ -11,8 +11,8 @@ create table `users` (
     unique key (`username`)
 );
 
-drop table if exists `shorturls`;
-create table `shorturls` (
+drop table if exists `short_urls`;
+create table `short_urls` (
     `id` int auto_increment,
     `url` varchar(255) not null,
     `user` int not null,

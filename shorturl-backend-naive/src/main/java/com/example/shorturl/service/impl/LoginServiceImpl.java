@@ -3,7 +3,7 @@ package com.example.shorturl.service.impl;
 import com.example.shorturl.dto.Message;
 import com.example.shorturl.entity.User;
 import com.example.shorturl.service.LoginService;
-import com.example.shorturl.misc.ShorturlUserDetails;
+import com.example.shorturl.misc.ShortUrlUserDetails;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class LoginServiceImpl implements LoginService {
     @Override
     public Message login() {
-        User user = ((ShorturlUserDetails) SecurityContextHolder.getContext()
+        User user = ((ShortUrlUserDetails) SecurityContextHolder.getContext()
                 .getAuthentication().getPrincipal()).getUser();
         return new Message("SUCCESS", user);
     }

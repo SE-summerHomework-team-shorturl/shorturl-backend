@@ -2,7 +2,7 @@ package com.example.shorturl.service.impl;
 
 import com.example.shorturl.dao.UserDao;
 import com.example.shorturl.entity.User;
-import com.example.shorturl.misc.ShorturlUserDetails;
+import com.example.shorturl.misc.ShortUrlUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -23,6 +23,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         User user = userDao.findOneByUsername(s);
         if (user == null)
             throw new UsernameNotFoundException("");
-        return new ShorturlUserDetails(user);
+        return new ShortUrlUserDetails(user);
     }
 }
