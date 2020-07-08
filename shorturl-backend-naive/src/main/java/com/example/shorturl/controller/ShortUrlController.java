@@ -12,17 +12,18 @@ public class ShortUrlController {
     @Autowired private ShortUrlService shortUrlService;
 
     @GetMapping(value = "/short-url/add-to-my-short-urls")
-    public Message addToMyShortUrls(@RequestParam String url) {
+    public Message addToMyShortUrls(@RequestParam(value = "url") String url) {
         return shortUrlService.addToMyShortUrls(url);
     }
 
     @GetMapping(value = "/short-url/find-all-my-short-urls")
-    public Message findAllMyShortUrls() {
-        return shortUrlService.findAllMyShortUrls();
+    public Message findAllMyShortUrls(@RequestParam(value = "page") int page,
+                                      @RequestParam(value = "size") int size) {
+        return shortUrlService.findAllMyShortUrls(page, size);
     }
 
     @GetMapping(value = "/short-url/delete-my-short-url-by-id")
-    public Message deleteMyShortUrlById(@RequestParam int id) {
+    public Message deleteMyShortUrlById(@RequestParam(value = "id") int id) {
         return shortUrlService.deleteMyShortUrlById(id);
     }
 }

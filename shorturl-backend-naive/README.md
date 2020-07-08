@@ -2,7 +2,7 @@
 
 ## 数据库
 
-数据库建表脚本为`/src/main/resources/static/shorturl.sql`.
+数据库建表脚本为`/src/main/database/shorturl.sql`.
 
 ## Message
 
@@ -15,7 +15,7 @@
 若用户名为`bill`, 密码为`1234`, 将用户名与密码用冒号连缀得到`bill:1234`, 对这个字符串做base64转码,
 得到`YmlsbDoxMjM0`, 在request header中添加`Authorization`字段, 其值为`Basic YmlsbDoxMjM0`.
 
-访问需要用户认证的服务, 但未提供正确的basic token, response status code为401 (Unauthorized).
+访问需要用户认证的服务, 但未提供正确的basic token, response code为401 (Unauthorized).
 
 ## 不需要用户认证的服务
 
@@ -65,10 +65,10 @@
 }
 ```
 
-* `/short-url/find-all-my-short-urls` (`GET`)
+* `/short-url/find-all-my-short-urls?page={page}&size={size}` (`GET`)
 
-查找本用户的所有短链接, 返回的`status`为`SUCCESS`, `body`为本用户所有的短链接对象,
-格式如下.
+查找本用户的所有短链接, 参数`page`指定了要返回的页号(0-base), 参数`size`指定了每页的大小,
+返回的`status`为`SUCCESS`, `body`为一个Page对象, 格式如下.
 
 ```json
 [
@@ -77,12 +77,6 @@
         "url": "https://www.baidu.com",
         "userId": 1,
         "token": "1"
-    },
-    {
-        "id": 2,
-        "url": "https://www.baidu.com",
-        "userId": 1,
-        "token": "2"
     },
     {
         "id": 3,
