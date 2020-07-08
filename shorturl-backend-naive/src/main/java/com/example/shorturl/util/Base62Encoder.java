@@ -23,8 +23,8 @@ public class Base62Encoder {
         int len = token.length();
         if (len == 0)
             throw new Exception("The token is empty");
-        if (token.charAt(0) == '0')
-            throw new Exception("Tokens cannot start with zero");
+        if (len > 1 && token.charAt(0) == '0')
+            throw new Exception("The token contains prefix zero");
         for (int i = 0; i < len; ++i) {
             char c = token.charAt(i);
             num *= 62;
