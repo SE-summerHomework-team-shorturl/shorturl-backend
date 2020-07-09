@@ -7,6 +7,16 @@ spring:
     username: root
     password: chenyang
     driver-class-name: com.mysql.cj.jdbc.Driver
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    httptrace:
+      enabled: true
 server:
   port: 8080
   servlet:
