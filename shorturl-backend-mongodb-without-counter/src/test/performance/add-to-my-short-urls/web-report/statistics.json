@@ -1,0 +1,34 @@
+{
+  "Total" : {
+    "transaction" : "Total",
+    "sampleCount" : 25000,
+    "errorCount" : 5633,
+    "errorPct" : 22.532,
+    "meanResTime" : 59019.443479999834,
+    "medianResTime" : 72840.5,
+    "minResTime" : 4009.0,
+    "maxResTime" : 108822.0,
+    "pct1ResTime" : 105573.0,
+    "pct2ResTime" : 106294.65000000001,
+    "pct3ResTime" : 107255.99,
+    "throughput" : 63.284730660186305,
+    "receivedKBytesPerSec" : 70.82042670916236,
+    "sentKBytesPerSec" : 10.193481692518478
+  },
+  "Add To My Short URLs Request" : {
+    "transaction" : "Add To My Short URLs Request",
+    "sampleCount" : 25000,
+    "errorCount" : 5633,
+    "errorPct" : 22.532,
+    "meanResTime" : 59019.443479999834,
+    "medianResTime" : 72840.5,
+    "minResTime" : 4009.0,
+    "maxResTime" : 108822.0,
+    "pct1ResTime" : 105573.0,
+    "pct2ResTime" : 106294.65000000001,
+    "pct3ResTime" : 107255.99,
+    "throughput" : 63.284730660186305,
+    "receivedKBytesPerSec" : 70.82042670916236,
+    "sentKBytesPerSec" : 10.193481692518478
+  }
+}
