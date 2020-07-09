@@ -5,7 +5,7 @@ import com.example.sharedentity.util.Base62Encoder;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "`shorturls`")
+@Table(name = "`short_urls`")
 public class Shorturl {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
