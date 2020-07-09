@@ -6,7 +6,7 @@ spring:
 
 #服务端口
 server:
-  port: 8761
+  port: 10211
 
 #注册中心相关配置
 eureka:
@@ -21,6 +21,6 @@ eureka:
     fetch-registry: false        #true： Cannot execute request on any know server
     # 注册中心的地址
     service-url:
-      defaultZone: http://localhost:8761/eureka/eureka/
+      defaultZone: http://localhost:10211/eureka/
   instance:
     prefer-ip-address: true
