@@ -13,6 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -21,7 +24,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-@Transactional(isolation = Isolation.REPEATABLE_READ, rollbackFor = Exception.class)
 public class ShortUrlServiceImpl implements ShortUrlService {
     @Autowired private ShortUrlDao shortUrlDao;
     @Autowired private CounterDao counterDao;
@@ -33,11 +35,11 @@ public class ShortUrlServiceImpl implements ShortUrlService {
         UrlValidator validator = new UrlValidator();
         if (!validator.isValid(url))
             return new Message("INVALID_URL", null);
-        Counter counter = counterDao.findById(Counter.CounterId.SHORT_URL_ID.ordinal());
+        Query query = new Query(Criteria.where("_id").is(Counter.CounterId.SHORT_URL_ID.ordinal()));
+        Update update = new Update().inc("seq", 1);
+        Counter counter = counterDao.findAndModify(query, update);
         ShortUrl shortUrl = new ShortUrl(counter.getSeq(), url, user.getId());
-        counter.setSeq(counter.getSeq() + 1);
         shortUrl = shortUrlDao.save(shortUrl);
-        counterDao.save(counter);
         return new Message("SUCCESS", shortUrl);
     }
 

@@ -7,7 +7,7 @@ import javax.persistence.Id;
 
 @Document(collection = "counters")
 public class Counter {
-    public enum CounterId {USER_ID, SHORT_URL_ID};
+    public enum CounterId {DUMMY, USER_ID, SHORT_URL_ID};
 
     @Id
     private Integer id;

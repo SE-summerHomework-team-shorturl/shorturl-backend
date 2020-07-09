@@ -9,5 +9,5 @@ db.createCollection('users');
 db.createCollection('short_urls');
 db.createCollection('counters');
 
-db.counters.insert({ _id: 0, seq: 1 });
 db.counters.insert({ _id: 1, seq: 1 });
+db.counters.insert({ _id: 2, seq: 1 });
