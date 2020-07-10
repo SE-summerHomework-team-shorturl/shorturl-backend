@@ -8,17 +8,21 @@
         <outputRelativeToContentRoot value="true" />
         <module name="zuul" />
         <module name="sharedentity" />
+        <module name="config-server" />
+        <module name="addurlservice" />
         <module name="shorturl-springcloud" />
-        <module name="cloudsecurity" />
         <module name="eureka" />
         <module name="redirectservice" />
-        <module name="addurlservice" />
+        <module name="cloudsecurity" />
+        <module name="config-client" />
         <module name="consumer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="addurlservice" target="1.8" />
       <module name="cloudsecurity" target="1.8" />
+      <module name="config-client" target="1.8" />
+      <module name="config-server" target="1.8" />
       <module name="consumer" target="1.8" />
       <module name="eureka" target="1.8" />
       <module name="redirectservice" target="1.8" />
@@ -31,6 +35,8 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="addurlservice" options="-parameters" />
       <module name="cloudsecurity" options="-parameters" />
+      <module name="config-client" options="-parameters" />
+      <module name="config-server" options="-parameters" />
       <module name="consumer" options="-parameters" />
       <module name="eureka" options="-parameters" />
       <module name="redirectservice" options="-parameters" />
