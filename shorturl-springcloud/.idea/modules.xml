@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/addurlservice/addurlservice.iml" filepath="$PROJECT_DIR$/addurlservice/addurlservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/addurl-service/addurl-service.iml" filepath="$PROJECT_DIR$/addurl-service/addurl-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/config-client/config-client.iml" filepath="$PROJECT_DIR$/config-client/config-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/config-server/config-server.iml" filepath="$PROJECT_DIR$/config-server/config-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/consumer/consumer.iml" filepath="$PROJECT_DIR$/consumer/consumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka/eureka.iml" filepath="$PROJECT_DIR$/eureka/eureka.iml" />
-      <module fileurl="file://$PROJECT_DIR$/redirectservice/redirectservice.iml" filepath="$PROJECT_DIR$/redirectservice/redirectservice.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sharedentity/sharedentity.iml" filepath="$PROJECT_DIR$/sharedentity/sharedentity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/redirect-service/redirect-service.iml" filepath="$PROJECT_DIR$/redirect-service/redirect-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shared-entity/shared-entity.iml" filepath="$PROJECT_DIR$/shared-entity/shared-entity.iml" />
       <module fileurl="file://$PROJECT_DIR$/shorturl-springcloud.iml" filepath="$PROJECT_DIR$/shorturl-springcloud.iml" />
     </modules>
   </component>

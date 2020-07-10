@@ -45,12 +45,13 @@
             </plugin>
         </plugins>
     </build>
-    <modules>
-        <module>eureka</module>
-        <module>consumer</module>
-        <module>config-server</module>
-        <module>config-client</module>
-        <module>redirectservice</module>
-    </modules>
-
+<modules>
+    <module>addurl-service</module>
+    <module>consumer</module>
+    <module>config-client</module>
+    <module>config-server</module>
+    <module>redirect-service</module>
+    <module>eureka</module>
+    <module>shared-entity</module>
+</modules>
 </project>
