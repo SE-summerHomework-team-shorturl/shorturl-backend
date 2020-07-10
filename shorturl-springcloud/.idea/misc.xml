@@ -7,6 +7,8 @@
         <option value="$PROJECT_DIR$/eureka/pom.xml" />
         <option value="$PROJECT_DIR$/redirectservice/pom.xml" />
         <option value="$PROJECT_DIR$/consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/sharedentity/pom.xml" />
+        <option value="$PROJECT_DIR$/addurlservice/pom.xml" />
       </list>
     </option>
   </component>

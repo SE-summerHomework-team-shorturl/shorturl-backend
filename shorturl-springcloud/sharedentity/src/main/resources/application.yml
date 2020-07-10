@@ -1,13 +1,7 @@
-server:
-  port: 8080
-
-eureka:
-  client:
-    register-with-eureka: false  # 当前微服务不注册到eureka中(消费端)
-    service-url:
-      defaultZone: http://localhost:7001/eureka/
 
 spring:
+  application:
+    name: shared-entity
   datasource:
     url: jdbc:mysql://localhost:3306/shorturl?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
     username: root
