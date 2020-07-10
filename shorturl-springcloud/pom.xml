@@ -45,5 +45,12 @@
             </plugin>
         </plugins>
     </build>
+    <modules>
+        <module>eureka</module>
+        <module>consumer</module>
+        <module>config-server</module>
+        <module>config-client</module>
+        <module>redirectservice</module>
+    </modules>
 
 </project>
