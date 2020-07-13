@@ -15,6 +15,11 @@ public class ConsumerController {
     @Autowired
     private RestTemplate restTemplate;
 
+    @RequestMapping(value = "/print")
+    public String print()  {
+        return "prints";
+    }
+
     @RequestMapping(value = "/r/{token}")
     public void redirect(HttpServletResponse response, @PathVariable String token) throws Exception {
         String url = restTemplate.getForObject(redirectServiceUrl+ "/r/"+token, String.class);

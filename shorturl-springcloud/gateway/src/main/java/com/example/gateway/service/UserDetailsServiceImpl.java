@@ -5,25 +5,28 @@ import com.example.sharedentity.dao.UserDao;
 import com.example.gateway.misc.ShortUrlUserDetails;
 import com.example.sharedentity.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.core.userdetails.ReactiveUserDetailsService;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import reactor.core.publisher.Mono;
 
 @Service
-@Primary
-@Transactional(rollbackFor = Exception.class)
-public class UserDetailsServiceImpl implements UserDetailsService {
+public class UserDetailsServiceImpl implements ReactiveUserDetailsService {
     @Autowired private UserDao userDao;
 
-
     @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+    public Mono<UserDetails> findByUsername(String s) {
         User user = userDao.findOneByUsername(s);
         if (user == null)
-            throw new UsernameNotFoundException("");
-        return new ShortUrlUserDetails(user);
+            return Mono.error(new UsernameNotFoundException("User Not Found"));
+        else{
+            return Mono.just(new ShortUrlUserDetails(user));
+        }
     }
 }
