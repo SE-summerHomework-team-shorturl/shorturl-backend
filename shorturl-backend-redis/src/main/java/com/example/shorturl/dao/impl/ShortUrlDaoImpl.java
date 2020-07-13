@@ -10,7 +10,6 @@ import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Repository
@@ -78,7 +77,7 @@ public class ShortUrlDaoImpl implements ShortUrlDao {
         ZSetOperations<String, String> zSetOps = template.opsForZSet();
 
         Long cnt = zSetOps.remove(
-                "user.short.url.ids:" + userId,Long.toString(id));
+                "user.short.url.ids:" + userId, Long.toString(id));
         assert cnt != null;
         if (cnt == 0)
             return false;

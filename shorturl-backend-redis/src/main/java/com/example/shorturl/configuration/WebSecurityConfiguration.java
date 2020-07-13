@@ -1,4 +1,4 @@
-package com.example.shorturl.config;
+package com.example.shorturl.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -18,7 +18,7 @@ import java.util.Collections;
 
 @Configuration
 @EnableWebSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired private UserDetailsService userDetailsService;
 
     @Override
