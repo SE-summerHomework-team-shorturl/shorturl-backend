@@ -1,6 +1,6 @@
 package com.example.redirectservice.service;
 
-import com.example.redirectservice.dao.ShortUrlDao;
+import com.example.sharedentity.dao.ShortUrlDao;
 import com.example.sharedentity.entity.ShortUrl;
 import com.example.sharedentity.util.Base62Encoder;
 import org.springframework.beans.factory.annotation.Autowired;

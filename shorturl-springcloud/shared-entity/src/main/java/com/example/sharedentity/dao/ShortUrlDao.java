@@ -1,4 +1,4 @@
-package com.example.redirectservice.dao;
+package com.example.sharedentity.dao;
 
 import com.example.sharedentity.entity.ShortUrl;
 import org.springframework.data.domain.Page;

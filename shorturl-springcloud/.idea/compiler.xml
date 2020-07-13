@@ -7,15 +7,26 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="zuul" />
-        <module name="addurl-service" />
-        <module name="shared-entity" />
         <module name="config-server" />
         <module name="shorturl-springcloud" />
         <module name="cloudsecurity" />
         <module name="eureka" />
         <module name="redirect-service" />
+        <module name="gateway" />
         <module name="config-client" />
         <module name="consumer" />
+      </profile>
+      <profile name="Annotation profile for sharedentity" enabled="true">
+        <sourceOutputDir name="../sharedentity/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../sharedentity/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="shared-entity" />
+      </profile>
+      <profile name="Annotation profile for addurlservice" enabled="true">
+        <sourceOutputDir name="../addurlservice/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../addurlservice/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="addurl-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -25,6 +36,7 @@
       <module name="config-server" target="1.8" />
       <module name="consumer" target="1.8" />
       <module name="eureka" target="1.8" />
+      <module name="gateway" target="1.8" />
       <module name="redirect-service" target="1.8" />
       <module name="shared-entity" target="1.8" />
       <module name="shorturl-springcloud" target="1.8" />
@@ -39,6 +51,7 @@
       <module name="config-server" options="-parameters" />
       <module name="consumer" options="-parameters" />
       <module name="eureka" options="-parameters" />
+      <module name="gateway" options="-parameters" />
       <module name="redirect-service" options="-parameters" />
       <module name="shared-entity" options="-parameters" />
       <module name="shorturl-springcloud" options="-parameters" />

@@ -1,8 +1,9 @@
-package com.example.redirectservice.dao;
+package com.example.sharedentity.dao;
 
 
-import com.example.redirectservice.repository.ShortUrlRepository;
+
 import com.example.sharedentity.entity.ShortUrl;
+import com.example.sharedentity.repository.ShortUrlRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

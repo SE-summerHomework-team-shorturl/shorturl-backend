@@ -1,0 +1,15 @@
+server:
+  port: 7800
+
+spring:
+  application:
+    name: gateway
+  datasource:
+    url: jdbc:mysql://localhost:3306/shorturl?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  security:
+    user:
+      name : admin
+      password : 123456
