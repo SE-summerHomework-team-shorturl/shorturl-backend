@@ -2,6 +2,8 @@ package com.example.shorturl.entity;
 
 import com.example.shorturl.util.Base62Encoder;
 
+import java.util.Objects;
+
 public class ShortUrl {
     private Long id;
     private String url;
@@ -34,5 +36,20 @@ public class ShortUrl {
     public String getToken() throws Exception {
         Base62Encoder encoder = new Base62Encoder();
         return id == null ? "" : encoder.encode(id);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        ShortUrl shortUrl = (ShortUrl) o;
+        return id.equals(shortUrl.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

@@ -1,7 +1,7 @@
 package com.example.shorturl.util;
 
 public class Base62Encoder {
-    public String encode(long num) throws Exception {
+    public String encode(long num) {
         if (num < 0)
             throw new IllegalArgumentException("Input should be non-negative");
         StringBuilder builder = new StringBuilder();
@@ -18,7 +18,7 @@ public class Base62Encoder {
         return builder.length() == 0 ? "0" : builder.reverse().toString();
     }
 
-    public int decode(String token) throws Exception {
+    public int decode(String token) {
         int num = 0;
         int len = token.length();
         if (len == 0)

@@ -2,6 +2,7 @@ package com.example.shorturl.dao.impl;
 
 import com.example.shorturl.dao.UserDao;
 import com.example.shorturl.entity.User;
+import com.example.shorturl.misc.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -19,12 +20,11 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User findByUsername(String username) {
         HashOperations<String, String, String> hashOps = template.opsForHash();
-        ValueOperations<String, String> valueOps = template.opsForValue();
 
-        String userIdStr = valueOps.get("username.index:" + username);
-        if (userIdStr == null)
+        String userIdString = hashOps.get("username.index", username);
+        if (userIdString == null)
             return null;
-        long userId = Long.parseLong(userIdStr);
+        long userId = Long.parseLong(userIdString);
 
         Map<String, String> entries = hashOps.entries("user:" + userId);
         if (entries.isEmpty())
@@ -45,17 +45,18 @@ public class UserDaoImpl implements UserDao {
         HashOperations<String, String, String> hashOps = template.opsForHash();
         ValueOperations<String, String> valueOps = template.opsForValue();
 
-        Boolean usernameNotExists = valueOps.
-                setIfAbsent("username.index:" + user.getUsername(), "0");
-        assert usernameNotExists != null;
+        Boolean usernameNotExists = hashOps.
+                putIfAbsent("username.index", user.getUsername(), "0");
         if (!usernameNotExists)
             return null;
 
         Long userId = valueOps.increment("seq:user.id");
         assert userId != null;
+        if (userId > Constant.SAFE_INT_MAX)
+            throw new RuntimeException("User id space has run out");
         user.setId(userId);
 
-        valueOps.set("username.index:" + user.getUsername(), userId.toString());
+        hashOps.put("username.index", user.getUsername(), userId.toString());
 
         Map<String, String> map = new HashMap<>();
         map.put("username", user.getUsername());
