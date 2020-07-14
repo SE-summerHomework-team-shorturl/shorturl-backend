@@ -1,5 +1,6 @@
-package com.example.shorturl.util;
+package com.example.shorturl.unit;
 
+import com.example.shorturl.util.Base62Encoder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
