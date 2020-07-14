@@ -19,7 +19,6 @@ import java.util.List;
 import java.util.Set;
 
 @Service
-@Transactional(rollbackFor = Exception.class)
 public class ShortUrlServiceImpl implements ShortUrlService {
     @Autowired
     private ShortUrlDao shortUrlDao;

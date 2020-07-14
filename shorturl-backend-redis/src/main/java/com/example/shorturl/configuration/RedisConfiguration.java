@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisClusterConfiguration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
-import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
+import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 
 @Configuration
 public class RedisConfiguration {
@@ -14,8 +14,9 @@ public class RedisConfiguration {
 
     @Bean
     public RedisConnectionFactory redisConnectionFactory() {
-        LettuceConnectionFactory factory = new LettuceConnectionFactory(
-                new RedisClusterConfiguration(props.getNodes()));
+        RedisClusterConfiguration config =
+                new RedisClusterConfiguration(props.getNodes());
+        JedisConnectionFactory factory = new JedisConnectionFactory(config);
         factory.afterPropertiesSet();
         return factory;
     }
