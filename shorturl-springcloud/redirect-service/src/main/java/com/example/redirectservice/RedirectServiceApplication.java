@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "com.example.sharedentity")
+@ComponentScan(basePackages = {"com.example.sharedentity","com.example.redirectservice"})
 @EntityScan(basePackages = "com.example.sharedentity")
 @EnableJpaRepositories(basePackages = "com.example.sharedentity")
 public class RedirectserviceApplication {

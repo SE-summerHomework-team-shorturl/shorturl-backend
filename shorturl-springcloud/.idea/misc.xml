@@ -5,13 +5,16 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/eureka/pom.xml" />
+        <option value="$PROJECT_DIR$/shared-entity/pom.xml" />
         <option value="$PROJECT_DIR$/redirectservice/pom.xml" />
-        <option value="$PROJECT_DIR$/consumer/pom.xml" />
-        <option value="$PROJECT_DIR$/sharedentity/pom.xml" />
-        <option value="$PROJECT_DIR$/addurlservice/pom.xml" />
+        <option value="$PROJECT_DIR$/register-service/pom.xml" />
         <option value="$PROJECT_DIR$/config-client/pom.xml" />
         <option value="$PROJECT_DIR$/config-server/pom.xml" />
-        <option value="$PROJECT_DIR$/gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/security-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/addurl-service/pom.xml" />
+        <option value="$PROJECT_DIR$/userurl-service/pom.xml" />
+        <option value="$PROJECT_DIR$/login-service/pom.xml" />
       </list>
     </option>
   </component>

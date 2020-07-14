@@ -1,6 +1,6 @@
 package com.example.addurlservice.service;
 
-import com.example.addurlservice.dao.ShortUrlDao;
+import com.example.sharedentity.dao.ShortUrlDao;
 import com.example.sharedentity.dto.Message;
 import com.example.sharedentity.entity.ShortUrl;
 import com.example.sharedentity.entity.User;
@@ -15,13 +15,8 @@ public class AddUrlServiceImpl implements AddUrlService {
     @Autowired private ShortUrlDao shortUrlDao;
 
     @Override
-    public Message addToMyShortUrls(String url) {
-        User user = ((ShortUrlUserDetails) SecurityContextHolder.getContext()
-                .getAuthentication().getPrincipal()).getUser();
-        UrlValidator validator = new UrlValidator();
-        if (!validator.isValid(url))
-            return new Message("INVALID_URL", null);
-        ShortUrl shortUrl = new ShortUrl(url, user.getId());
+    public Message addToMyShortUrls(String url,Integer id) {
+        ShortUrl shortUrl = new ShortUrl(url, id);
         shortUrl = shortUrlDao.saveAndFlush(shortUrl);
         return new Message("SUCCESS", shortUrl);
     }
