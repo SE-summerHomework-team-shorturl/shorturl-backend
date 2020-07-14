@@ -8,5 +8,5 @@ public interface ShortUrlDao {
     String findUrlByShortUrlId(long shortUrlId);
     Set<ShortUrl> findAllByUserId(long userId, int page, int size);
     ShortUrl add(ShortUrl shortUrl);
-    boolean delete(long id, long userId);
+    boolean delete(long shortUrlId, long userId);
 }

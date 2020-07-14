@@ -1,12 +1,10 @@
 package com.example.shorturl.service.impl;
 
 import com.example.shorturl.dao.ShortUrlDao;
-import com.example.shorturl.entity.ShortUrl;
 import com.example.shorturl.service.RedirectService;
 import com.example.shorturl.util.Base62Encoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class RedirectServiceImpl implements RedirectService {

@@ -70,18 +70,15 @@ public class ShortUrlDaoImpl implements ShortUrlDao {
     }
 
     @Override
-    public boolean delete(long id, long userId) {
-        if (id <= 0 || id > Constant.SAFE_INT_MAX)
-            return true;
-
+    public boolean delete(long shortUrlId, long userId) {
         ZSetOperations<String, String> zSetOps = template.opsForZSet();
 
         Long cnt = zSetOps.remove(
-                "user.short.url.ids:" + userId, Long.toString(id));
+                "user.short.url.ids:" + userId, Long.toString(shortUrlId));
         assert cnt != null;
         if (cnt == 0)
             return false;
-        template.delete("url:" + id);
+        template.delete("url:" + shortUrlId);
 
         return true;
     }
