@@ -6,23 +6,23 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="userurl-service" />
-        <module name="shared-entity" />
+        <module name="userurlservice" />
+        <module name="sharedentity" />
         <module name="config-server" />
-        <module name="register-service" />
+        <module name="securitygateway" />
         <module name="shorturl-springcloud" />
-        <module name="addurl-service" />
         <module name="eureka" />
-        <module name="login-service" />
+        <module name="registerservice" />
         <module name="loginservice" />
-        <module name="redirect-service" />
+        <module name="redirectservice" />
+        <module name="addurlservice" />
         <module name="config-client" />
         <module name="consumer" />
-        <module name="security-gateway" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="addurl-service" target="1.8" />
+      <module name="addurlservice" target="1.8" />
       <module name="config-client" target="1.8" />
       <module name="config-server" target="1.8" />
       <module name="consumer" target="1.8" />
@@ -31,16 +31,22 @@
       <module name="login-service" target="1.8" />
       <module name="loginservice" target="1.8" />
       <module name="redirect-service" target="1.8" />
+      <module name="redirectservice" target="1.8" />
       <module name="register-service" target="1.8" />
+      <module name="registerservice" target="1.8" />
       <module name="security-gateway" target="1.8" />
+      <module name="securitygateway" target="1.8" />
       <module name="shared-entity" target="1.8" />
+      <module name="sharedentity" target="1.8" />
       <module name="shorturl-springcloud" target="1.8" />
       <module name="userurl-service" target="1.8" />
+      <module name="userurlservice" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="addurl-service" options="-parameters" />
+      <module name="addurlservice" options="-parameters" />
       <module name="config-client" options="-parameters" />
       <module name="config-server" options="-parameters" />
       <module name="consumer" options="-parameters" />
@@ -49,11 +55,16 @@
       <module name="login-service" options="-parameters" />
       <module name="loginservice" options="-parameters" />
       <module name="redirect-service" options="-parameters" />
+      <module name="redirectservice" options="-parameters" />
       <module name="register-service" options="-parameters" />
+      <module name="registerservice" options="-parameters" />
       <module name="security-gateway" options="-parameters" />
+      <module name="securitygateway" options="-parameters" />
       <module name="shared-entity" options="-parameters" />
+      <module name="sharedentity" options="-parameters" />
       <module name="shorturl-springcloud" options="-parameters" />
       <module name="userurl-service" options="-parameters" />
+      <module name="userurlservice" options="-parameters" />
     </option>
   </component>
 </project>

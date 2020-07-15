@@ -10,10 +10,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan(basePackages = {"com.example.sharedentity","com.example.redirectservice"})
 @EntityScan(basePackages = "com.example.sharedentity")
 @EnableJpaRepositories(basePackages = "com.example.sharedentity")
-public class RedirectserviceApplication {
+public class RedirectServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(RedirectserviceApplication.class, args);
+        SpringApplication.run(RedirectServiceApplication.class, args);
     }
 
 }
