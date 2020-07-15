@@ -17,7 +17,9 @@ public class RedirectServiceImpl implements RedirectService {
         int shortUrlId = Base62Encoder.decode(token);
         ShortUrl shortUrl = shortUrlDao.findById(shortUrlId);
         if (shortUrl == null)
+        {
             throw new Exception("Short url not found");
+        }
         return shortUrl;
     }
 }

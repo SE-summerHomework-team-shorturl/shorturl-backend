@@ -3,6 +3,7 @@ package com.example.redirectservice.controller;
 import com.example.redirectservice.service.RedirectService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -21,15 +22,10 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 @AutoConfigureMockMvc
-@Profile("test")
 @SpringBootTest
 class RedirectControllerTest {
     @Autowired
     private MockMvc mockMvc;
-    @Autowired
-    private RedirectController redirectController;
-    @MockBean
-    private RedirectService redirectService;
 
     @BeforeEach
     void setUp() {
@@ -41,15 +37,21 @@ class RedirectControllerTest {
         System.out.println("tearDown");
     }
     @Test
-    void redirect() throws Exception {
-        String token="2";
-        redirectController.print();
-     //   verify(redirectController, times(1)).print();
-    //    MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/r/2"))
-     //           .andDo(MockMvcResultHandlers.print())
-       //         .andExpect(MockMvcResultMatchers.status().is4xxClientError())
-//
-       //         .andExpect(MockMvcResultMatchers.jsonPath("$.errors").exists())
-       ///         .andReturn();
+    @DisplayName("shouldSuccessWhenRightRequest")
+    void test1() throws Exception {
+
+       MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/r/2"))
+               .andExpect(MockMvcResultMatchers.status().isOk())
+               .andDo(MockMvcResultHandlers.print())
+               .andExpect(MockMvcResultMatchers.content().string("http://www.baidu.com"))
+               .andReturn();
+    }
+    @Test
+    @DisplayName("shouldGet500WhenWrongRequest")
+    void test2() throws Exception {
+
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/r/0"))
+                .andExpect(MockMvcResultMatchers.status().isBadRequest())
+                .andReturn();
     }
 }
