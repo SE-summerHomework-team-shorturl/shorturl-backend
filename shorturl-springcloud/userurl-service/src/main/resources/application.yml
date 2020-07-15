@@ -4,11 +4,7 @@ server:
 spring:
   application:
     name: userurl-service # 应用名称
-  datasource:
-    url: jdbc:mysql://localhost:3306/shorturl?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
-    username: root
-    password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
+
 eureka:
   client: #客户端注册进eureka服务列表内
     service-url:
