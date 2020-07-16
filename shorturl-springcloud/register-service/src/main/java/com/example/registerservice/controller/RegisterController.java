@@ -20,12 +20,12 @@ public class RegisterController {
     @Autowired private RegisterService registerService;
 
     @PostMapping(value = "/user/register")
-    public Message register(@RequestBody MultiValueMap<String, String> map)
+    public Message register(@RequestBody Map<String, String> map)
     {
         User user = new User();
-        user.setEmail(map.get("email").get(0));
-        user.setUsername(map.get("username").get(0));
-        user.setPassword(map.get("password").get(0));
+        user.setEmail(map.get("email"));
+        user.setUsername(map.get("username"));
+        user.setPassword(map.get("password"));
         return registerService.register(user);
     }
 }

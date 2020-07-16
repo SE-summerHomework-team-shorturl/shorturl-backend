@@ -17,7 +17,9 @@ public class AddUrlServiceImpl implements AddUrlService {
     @Override
     public Message addToMyShortUrls(String url,Integer id) {
         ShortUrl shortUrl = new ShortUrl(url, id);
+        // TODO: 2020/7/16  need to check the shortUrl after return from saveAndFlush
         shortUrl = shortUrlDao.saveAndFlush(shortUrl);
+        System.out.println( shortUrl);
         return new Message("SUCCESS", shortUrl);
-    }
+}
 }

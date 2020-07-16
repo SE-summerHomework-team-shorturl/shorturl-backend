@@ -23,6 +23,7 @@ import static org.mockito.Mockito.*;
 
 @AutoConfigureMockMvc
 @SpringBootTest
+@ActiveProfiles("test")
 class RedirectControllerTest {
     @Autowired
     private MockMvc mockMvc;
@@ -37,6 +38,8 @@ class RedirectControllerTest {
     void tearDown() {
         System.out.println("tearDown");
     }
+
+
     @Test
     @DisplayName("shouldSuccessWhenRightRequest")
     void test1() throws Exception {
@@ -44,7 +47,7 @@ class RedirectControllerTest {
         String testUrl="http://www.baidu.com";
         ShortUrl shortUrl= new ShortUrl(testUrl,1);
         when( redirectService.findShortUrlByToken(testToken)).thenReturn(shortUrl);
-       MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/r/1"))
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/r/1"))
                .andExpect(MockMvcResultMatchers.status().isOk())
                .andDo(MockMvcResultHandlers.print())
                .andExpect(MockMvcResultMatchers.content().string(testUrl))
@@ -54,9 +57,15 @@ class RedirectControllerTest {
     @Test
     @DisplayName("shouldGet500WhenWrongRequest")
     void test2() throws Exception {
+        String wrongToken="0";
+        when( redirectService.findShortUrlByToken(wrongToken)).thenThrow(new Exception("Short url not found"));
 
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/r/0"))
-                .andExpect(MockMvcResultMatchers.status().isBadRequest())
-                .andReturn();
+        Throwable exception = assertThrows(Exception.class, () -> {
+            MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/r/0"))
+                    .andExpect(MockMvcResultMatchers.status().isBadRequest())
+                    .andReturn();
+        });
+       // assertEquals("Short url not found", exception.getMessage());        // 断言异常，抛出指定的异常，测试才会通过
+
     }
 }

@@ -1,16 +1,17 @@
 server:
-  port: 8001
+  port: 8011
+
 spring:
+  application:
+    name: addurl-service # 应用名称
   cloud:
     config:
       name: sql
-      profile: dev
+      profile: prod
       label: master
       discovery:
         enabled: true
         service-id: config-server
-  application:
-    name: redirect-service # 应用名称
 eureka:
   client: #客户端注册进eureka服务列表内
     service-url:

@@ -18,6 +18,7 @@ public class RedirectServiceImpl implements RedirectService {
         ShortUrl shortUrl = shortUrlDao.findById(shortUrlId);
         if (shortUrl == null)
         {
+            // TODO: 2020/7/16 throw 400 exception when bad request
             throw new Exception("Short url not found");
         }
         return shortUrl;
