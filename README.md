@@ -3,7 +3,8 @@
 # spring cloud 版本
 将所有service 作为微服务嵌入 spring cloud
 
-##module列表：
+## module列表：
+
 	eureka：服务注册中心
 	shared-entity：共享基本类（**未做单元测试**）
 	config-server：配置中心
