@@ -1,15 +1,3 @@
-/*******************************************************************************
- *     Cloud Foundry
- *     Copyright (c) [2009-2014] Pivotal Software, Inc. All Rights Reserved.
- *
- *     This product is licensed to you under the Apache License, Version 2.0 (the "License").
- *     You may not use this product except in compliance with the License.
- *
- *     This product includes a number of subcomponents with
- *     separate copyright notices and license terms. Your use of these
- *     subcomponents is subject to the terms and conditions of the
- *     subcomponent's license, as noted in the LICENSE file.
- *******************************************************************************/
 package com.example.urlshortener.shortener.misc;
 
 import org.apache.commons.logging.Log;
@@ -20,7 +8,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.crypto.codec.Base64;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.common.exceptions.InvalidTokenException;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
@@ -35,6 +22,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 import java.util.Map;
 
 public class UrlShortenerRemoteTokenServices implements ResourceServerTokenServices {
@@ -117,7 +105,7 @@ public class UrlShortenerRemoteTokenServices implements ResourceServerTokenServi
 //            logger.debug("check_token returned active attribute: " + map.get("active"));
 //            throw new InvalidTokenException(accessToken);
 //        }
-        if (!"true".equals(map.get("active"))) {
+        if (!Boolean.parseBoolean((String) map.get("active"))) {
             logger.debug("check_token returned active attribute: " + map.get("active"));
             throw new InvalidTokenException(accessToken);
         }
@@ -132,12 +120,12 @@ public class UrlShortenerRemoteTokenServices implements ResourceServerTokenServi
 
     private String getAuthorizationHeader(String clientId, String clientSecret) {
 
-        if(clientId == null || clientSecret == null) {
+        if (clientId == null || clientSecret == null) {
             logger.warn("Null Client ID or Client Secret detected. Endpoint that requires authentication will reject request with 401 error.");
         }
 
         String creds = String.format("%s:%s", clientId, clientSecret);
-        return "Basic " + new String(Base64.encode(creds.getBytes(StandardCharsets.UTF_8)));
+        return "Basic " + new String(Base64.getEncoder().encode(creds.getBytes(StandardCharsets.UTF_8)));
     }
 
     private Map<String, Object> postForMap(String path, MultiValueMap<String, String> formData, HttpHeaders headers) {

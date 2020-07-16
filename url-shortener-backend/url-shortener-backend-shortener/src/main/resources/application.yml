@@ -1,14 +1,8 @@
-spring:
-  redis:
-    host: localhost
-    port: 6385
 security:
   oauth2:
     client:
       client-id: client
       client-secret: client-secret
-      user-authorization-uri: http://localhost:8081/oauth/authorize
-      access-token-uri: http://localhost:8081/oauth/token
     authorization:
       check-token-access: http://localhost:8081/oauth/check_token
     resource:

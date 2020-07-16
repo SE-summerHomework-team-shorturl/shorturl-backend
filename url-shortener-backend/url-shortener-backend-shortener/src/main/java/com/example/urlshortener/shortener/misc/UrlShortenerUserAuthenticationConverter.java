@@ -32,7 +32,7 @@ public class UrlShortenerUserAuthenticationConverter implements UserAuthenticati
         User user = new User();
         user.setId(Integer.parseInt((String) userMap.get("id")));
         user.setUsername((String) userMap.get("username"));
-        user.setAdmin(Boolean.valueOf((String) userMap.get("admin")));
+        user.setAdmin(Boolean.parseBoolean((String) userMap.get("admin")));
         user.setEmail((String) userMap.get("email"));
         List<GrantedAuthority> authorities = user.getAdmin() ?
                 Collections.singletonList(new SimpleGrantedAuthority("ADMIN")) : Collections.emptyList();
