@@ -1,6 +1,7 @@
 package com.example.redirectservice.controller;
 
 import com.example.redirectservice.service.RedirectService;
+import com.example.sharedentity.entity.ShortUrl;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -18,15 +19,15 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 @AutoConfigureMockMvc
 @SpringBootTest
 class RedirectControllerTest {
     @Autowired
     private MockMvc mockMvc;
-
+    @MockBean
+    private RedirectService redirectService;
     @BeforeEach
     void setUp() {
         System.out.println("setUp");
@@ -39,13 +40,17 @@ class RedirectControllerTest {
     @Test
     @DisplayName("shouldSuccessWhenRightRequest")
     void test1() throws Exception {
-
-       MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/r/2"))
+        String testToken="1";
+        String testUrl="http://www.baidu.com";
+        ShortUrl shortUrl= new ShortUrl(testUrl,1);
+        when( redirectService.findShortUrlByToken(testToken)).thenReturn(shortUrl);
+       MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/r/1"))
                .andExpect(MockMvcResultMatchers.status().isOk())
                .andDo(MockMvcResultHandlers.print())
-               .andExpect(MockMvcResultMatchers.content().string("http://www.baidu.com"))
+               .andExpect(MockMvcResultMatchers.content().string(testUrl))
                .andReturn();
     }
+    // TODO: 2020/7/16 get400WhenWrongRequest
     @Test
     @DisplayName("shouldGet500WhenWrongRequest")
     void test2() throws Exception {
