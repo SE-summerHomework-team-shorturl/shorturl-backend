@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: url-shortener-auth
+  jpa:
+    database: mysql
+    open-in-view: false
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost/url_shortener_user_db?useSSL=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+  redis:
+    host: localhost
+    port: 6385
+server:
+  port: 8081
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka
+    register-with-eureka: false
+    fetch-registry: false

@@ -1,0 +1,15 @@
+server:
+  port: 8082
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: url-shortener-auth
+          uri: lb://URL-SHORTENER-AUTH
+          predicates:
+            - Path=/**
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka
+    register-with-eureka: false
