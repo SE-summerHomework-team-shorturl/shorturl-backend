@@ -9,6 +9,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 import static org.junit.jupiter.api.Assertions.*;
 @AutoConfigureMockMvc
 @SpringBootTest
@@ -18,15 +23,13 @@ class RegisterServiceTest {
     @Autowired
     private RegisterService  registerService;
 
+    private Map<String,String> map = new HashMap<String, String>();
     private User user = new User();
     @BeforeEach
     void setUp() {
-        String testEmail = "testEmail@sjtu.edu.cn";
-        user.setEmail(testEmail);
-        String testName = "testname1111111";
-        user.setUsername(testName);
-        String testPassword = "123456";
-        user.setPassword(testPassword);
+        map.put("email","testEmail@sjtu.edu.cn");
+        map.put("username","testname1111111");
+        map.put("password","123456");
     }
 
     @AfterEach
@@ -39,7 +42,7 @@ class RegisterServiceTest {
     @Order(1)
     @DisplayName("shouldSuccessWhenFirstRegister")
     void registerTest1() {
-        Message firstMessage= registerService.register(user);
+        Message firstMessage= registerService.register(map);
         assertEquals("SUCCESS",firstMessage.getStatus());
 
     }
@@ -47,9 +50,9 @@ class RegisterServiceTest {
     @Order(2)
     @DisplayName("shouldDupWhenDupRegister")
     void registerTest2() {
-        Message firstMessage= registerService.register(user);
+        Message firstMessage= registerService.register(map);
         assertEquals("SUCCESS",firstMessage.getStatus());
-        Message DupMessage= registerService.register(user);
+        Message DupMessage= registerService.register(map);
         assertEquals("DUP_USERNAME",DupMessage.getStatus());
     }
 }
