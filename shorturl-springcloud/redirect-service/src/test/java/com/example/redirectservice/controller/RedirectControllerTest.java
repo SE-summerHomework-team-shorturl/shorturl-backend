@@ -48,24 +48,25 @@ class RedirectControllerTest {
         ShortUrl shortUrl= new ShortUrl(testUrl,1);
         when( redirectService.findShortUrlByToken(testToken)).thenReturn(shortUrl);
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/r/1"))
-               .andExpect(MockMvcResultMatchers.status().isOk())
+               .andExpect(MockMvcResultMatchers.status().is3xxRedirection())
                .andDo(MockMvcResultHandlers.print())
-               .andExpect(MockMvcResultMatchers.content().string(testUrl))
                .andReturn();
     }
     // TODO: 2020/7/16 get400WhenWrongRequest
     @Test
-    @DisplayName("shouldGet500WhenWrongRequest")
+    @DisplayName("shouldGet400WhenWrongRequest")
     void test2() throws Exception {
         String wrongToken="0";
-        when( redirectService.findShortUrlByToken(wrongToken)).thenThrow(new Exception("Short url not found"));
+        when( redirectService.findShortUrlByToken(wrongToken)).thenReturn(null);
 
-        Throwable exception = assertThrows(Exception.class, () -> {
+      //  Throwable exception = assertThrows(Exception.class, () -> {
             MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/r/0"))
                     .andExpect(MockMvcResultMatchers.status().isBadRequest())
+                    .andExpect(MockMvcResultMatchers.status().reason(RedirectController.err_Message_url_not_found))
+                    .andDo(MockMvcResultHandlers.print())
                     .andReturn();
-        });
-       // assertEquals("Short url not found", exception.getMessage());        // 断言异常，抛出指定的异常，测试才会通过
+      //  });
+      //  assertEquals("Short url not found", exception.getMessage());        // 断言异常，抛出指定的异常，测试才会通过
 
     }
 }
