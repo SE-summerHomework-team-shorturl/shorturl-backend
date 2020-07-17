@@ -45,5 +45,16 @@
 			</plugin>
 		</plugins>
 	</build>
-
+<modules>
+	<module>eureka</module>
+	<module>config-server</module>
+	<module>auth-server</module>
+	<module>gateway</module>
+	<module>misc</module>
+	<module>shared-entity</module>
+	<module>addurl-service</module>
+	<module>userurl-service</module>
+	<module>redirect-service</module>
+	<module>register-service</module>
+</modules>
 </project>

@@ -16,18 +16,11 @@ public class AddUrlServiceImpl implements AddUrlService {
     @Autowired private ShortUrlDao shortUrlDao;
 
     @Override
-<<<<<<< HEAD
-    public Message addToMyShortUrls(String url,Integer id) {
-        ShortUrl shortUrl = new ShortUrl(url, id);
-        // TODO: 2020/7/16  need to check the shortUrl after return from saveAndFlush
-=======
     public Message addToMyShortUrls(String url) {
         User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         ShortUrl shortUrl = new ShortUrl(url, user.getId());
->>>>>>> springcloud
         shortUrl = shortUrlDao.saveAndFlush(shortUrl);
-        System.out.println( shortUrl);
         return new Message("SUCCESS", shortUrl);
-}
+    }
 }
