@@ -1,0 +1,11 @@
+spring:
+  jpa:
+    database: mysql
+    open-in-view: false
+  datasource:
+    url: jdbc:mysql://localhost/short_url_db?useSSL=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+server:
+  port: 8080

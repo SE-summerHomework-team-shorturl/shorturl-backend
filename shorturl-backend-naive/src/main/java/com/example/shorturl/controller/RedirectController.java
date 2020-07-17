@@ -12,11 +12,15 @@ import javax.servlet.http.HttpServletResponse;
 
 @RestController
 public class RedirectController {
-    @Autowired private RedirectService redirectService;
+    @Autowired
+    private RedirectService redirectService;
 
     @RequestMapping(value = "/r/{token}")
     public void redirect(HttpServletResponse response, @PathVariable String token) throws Exception {
         ShortUrl shortUrl = redirectService.findShortUrlByToken(token);
-        response.sendRedirect(shortUrl.getUrl());
+        if (shortUrl != null)
+            response.sendRedirect(shortUrl.getUrl());
+        else
+            response.sendError(HttpStatus.NOT_FOUND.value());
     }
 }

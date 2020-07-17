@@ -2,7 +2,7 @@
 
 ## 数据库
 
-数据库建表脚本为`/src/main/database/shorturl.sql`.
+数据库建表脚本为`/src/main/database/short_url_db.sql`.
 
 ## Message
 
@@ -67,24 +67,29 @@
 
 * `/short-url/find-all-my-short-urls?page={page}&size={size}` (`GET`)
 
-查找本用户的所有短链接, 参数`page`指定了要返回的页号(0-base), 参数`size`指定了每页的大小,
-返回的`status`为`SUCCESS`, `body`为一个Page对象, 格式如下.
+查找本用户的所有短链接, 参数`page`指定了要查询的页号(0-base), 参数`size`指定了每页的大小,
+返回的`status`为`SUCCESS`, `body`为要查询的页, 格式如下.
 
 ```json
-[
-    {
-        "id": 1,
-        "url": "https://www.baidu.com",
-        "userId": 1,
-        "token": "1"
-    },
-    {
-        "id": 3,
-        "url": "https://www.baidu.com",
-        "userId": 1,
-        "token": "3"
-    }
-]
+{
+    "number": 0,
+    "size": 2,
+    "totalElements": 3,
+    "content": [
+        {
+            "id": 4,
+            "url": "http://www.example.com",
+            "userId": 2,
+            "token": "4"
+        },
+        {
+            "id": 2,
+            "url": "http://www.example.com",
+            "userId": 2,
+            "token": "2"
+        }
+    ]
+}
 ```
 
 * `/short-url/delete-my-short-url-by-id?id={id}` (`GET`)
@@ -92,4 +97,4 @@
 删除本用户的短链接. 参数`id`为要删除的短链接的ID.
 
 若删除成功或要删除的短链接不存在, 返回的`status`为`SUCCESS`, 若参数`id`指定的短链接不是本用户的,
-返回的`status`为`NOT_YOUR_SHORTURL`.
+返回的`status`为`NOT_YOUR_SHORT_URL`.

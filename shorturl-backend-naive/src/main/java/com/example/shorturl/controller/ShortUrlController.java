@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ShortUrlController {
-    @Autowired private ShortUrlService shortUrlService;
+    @Autowired
+    private ShortUrlService shortUrlService;
 
     @GetMapping(value = "/short-url/add-to-my-short-urls")
     public Message addToMyShortUrls(@RequestParam(value = "url") String url) {
@@ -23,7 +24,7 @@ public class ShortUrlController {
     }
 
     @GetMapping(value = "/short-url/delete-my-short-url-by-id")
-    public Message deleteMyShortUrlById(@RequestParam(value = "id") int id) {
+    public Message deleteMyShortUrlById(@RequestParam(value = "id") long id) {
         return shortUrlService.deleteMyShortUrlById(id);
     }
 }

@@ -4,7 +4,7 @@ drop table if exists `users`;
 create table `users` (
     `id` int auto_increment,
     `username` varchar(31) not null,
-    `password` varchar(31) not null,
+    `password` varchar(127) not null,
     `email` varchar(31) not null,
     `admin` bool not null,
     primary key (`id`),
@@ -13,7 +13,7 @@ create table `users` (
 
 drop table if exists `short_urls`;
 create table `short_urls` (
-    `id` int auto_increment,
+    `id` bigint auto_increment,
     `url` varchar(255) not null,
     `user` int not null,
     primary key (`id`),

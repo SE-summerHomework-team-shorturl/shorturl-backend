@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class LoginController {
-    @Autowired private LoginService loginService;
+    @Autowired
+    private LoginService loginService;
 
     @GetMapping(value = "/login")
     public Message login() {
