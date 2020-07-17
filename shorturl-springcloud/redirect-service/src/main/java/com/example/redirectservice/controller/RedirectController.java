@@ -25,9 +25,4 @@ public class RedirectController {
         else
             response.sendError(HttpStatus.SC_BAD_REQUEST,err_Message_url_not_found);
     }
-
-  //  @RequestMapping(value = "/print")
-   // public String print() {
-  //      return "print";
-   // }
 }

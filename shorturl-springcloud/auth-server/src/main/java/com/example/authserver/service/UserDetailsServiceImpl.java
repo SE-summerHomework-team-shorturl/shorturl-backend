@@ -23,7 +23,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         User user = userDao.findOneByUsername(s);
         if (user == null)
-            throw new UsernameNotFoundException("");
+            throw new UsernameNotFoundException("Username Not Found");
         return new UrlShortenerUserDetails(user);
     }
 }
