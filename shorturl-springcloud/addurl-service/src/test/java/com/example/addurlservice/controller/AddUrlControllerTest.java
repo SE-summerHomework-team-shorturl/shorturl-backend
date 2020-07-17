@@ -47,7 +47,7 @@ class AddUrlControllerTest {
         ShortUrl shortUrl=new ShortUrl(testUrl,1);
         shortUrl.setId(6);
         Message SuccessMessage=new Message("SUCCESS", shortUrl);
-        when( addUrlService.addToMyShortUrls(testUrl,1)).thenReturn(SuccessMessage);
+        when( addUrlService.addToMyShortUrls(testUrl)).thenReturn(SuccessMessage);
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/urlmanage/addurl")
                 .param("url",testUrl)
                 .param("userId",testUserId)

@@ -17,10 +17,10 @@ public class RegisterController {
     @PostMapping(value = "/user/register")
     public Message register(@RequestBody Map<String, String> map)
     {
-        User user = new User();
-        user.setEmail(map.get("email"));
-        user.setUsername(map.get("username"));
-        user.setPassword(map.get("password"));
+    //    User user = new User();
+       // user.setEmail(map.get("email"));
+      // user.setUsername(map.get("username"));
+      //  user.setPassword(map.get("password"));
         return registerService.register(map);
     }
 }

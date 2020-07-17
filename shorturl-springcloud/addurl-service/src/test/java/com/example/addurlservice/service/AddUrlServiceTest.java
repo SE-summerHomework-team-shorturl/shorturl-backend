@@ -40,7 +40,7 @@ class AddUrlServiceTest {
         ShortUrl shortUrl=new ShortUrl(testUrl,1);
 
     //    when( shortUrlDao.saveAndFlush(shortUrl)).thenReturn(shortUrl);
-        ShortUrl afterUrl=(ShortUrl)addUrlService.addToMyShortUrls(testUrl,testUserId).getBody();
+        ShortUrl afterUrl=(ShortUrl)addUrlService.addToMyShortUrls(testUrl).getBody();
         assertEquals(shortUrl.getUrl(), afterUrl.getUrl());
      //   assertEquals("SUCCESS", addUrlService.addToMyShortUrls(testUrl,testUserId).getStatus());
     }
