@@ -1,5 +1,6 @@
 package com.example.addurlservice.service;
 
+import com.example.misc.UrlShortenerUserDetails;
 import com.example.sharedentity.dao.ShortUrlDao;
 import com.example.sharedentity.dto.Message;
 import com.example.sharedentity.entity.ShortUrl;
@@ -17,8 +18,7 @@ public class AddUrlServiceImpl implements AddUrlService {
 
     @Override
     public Message addToMyShortUrls(String url) {
-        User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
+        User user = ((UrlShortenerUserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser();
         ShortUrl shortUrl = new ShortUrl(url, user.getId());
         shortUrl = shortUrlDao.saveAndFlush(shortUrl);
         return new Message("SUCCESS", shortUrl);

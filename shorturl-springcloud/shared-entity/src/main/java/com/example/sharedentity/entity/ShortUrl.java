@@ -3,6 +3,7 @@ package com.example.sharedentity.entity;
 import com.example.sharedentity.util.Base62Encoder;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "`short_urls`")
@@ -54,5 +55,26 @@ public class ShortUrl {
 
     public String getToken() throws Exception {
         return Base62Encoder.encode(id);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ShortUrl shortUrl = (ShortUrl) o;
+        return Objects.equals(id, shortUrl.id) &&
+                Objects.equals(url, shortUrl.url) &&
+                Objects.equals(userId, shortUrl.userId);
+    }
+
+    public ShortUrl(Integer id, String url, Integer userId) {
+        this.id = id;
+        this.url = url;
+        this.userId = userId;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, url, userId);
     }
 }

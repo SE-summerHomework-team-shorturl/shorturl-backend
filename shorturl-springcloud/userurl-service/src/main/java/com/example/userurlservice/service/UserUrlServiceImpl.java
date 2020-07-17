@@ -1,5 +1,6 @@
 package com.example.userurlservice.service;
 
+import com.example.misc.UrlShortenerUserDetails;
 import com.example.sharedentity.dao.ShortUrlDao;
 import com.example.sharedentity.dto.Message;
 import com.example.sharedentity.entity.ShortUrl;
@@ -21,18 +22,18 @@ public class UserUrlServiceImpl implements UserUrlService {
 
     @Override
     public Message findAllMyShortUrls(int page, int size) {
-        Integer userId = ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
+        Integer userId = ((UrlShortenerUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser().getId();
         Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Order.desc("id")));
-        List<ShortUrl> shortUrls = shortUrlDao.findAllByUserId(userId, pageable).toList();
+        List<ShortUrl> shortUrls = shortUrlDao.findAllByUserId(userId, pageable);
         return new Message("SUCCESS", shortUrls);
     }
 
     @Override
     public Message deleteMyShortUrlById(int id) {
-        Integer userId = ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
+        Integer userId = ((UrlShortenerUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser().getId();
         ShortUrl shortUrl = shortUrlDao.findById(id);
         if (shortUrl == null)
-            return new Message("SUCCESS", null);
+            return new Message("NO_SUCH_URL", null);
         if (!shortUrl.getUserId().equals(userId))
             return new Message("NOT_YOUR_SHORT_URL", null);
         shortUrlDao.deleteById(id);

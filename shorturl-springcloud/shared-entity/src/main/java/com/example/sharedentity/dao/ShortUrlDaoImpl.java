@@ -9,6 +9,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class ShortUrlDaoImpl implements ShortUrlDao {
     @Autowired private ShortUrlRepository shortUrlRepo;
@@ -19,8 +21,8 @@ public class ShortUrlDaoImpl implements ShortUrlDao {
     }
 
     @Override
-    public Page<ShortUrl> findAllByUserId(int userId, Pageable pageable) {
-        return shortUrlRepo.findAllByUserId(userId, pageable);
+    public List<ShortUrl> findAllByUserId(int userId, Pageable pageable) {
+        return shortUrlRepo.findAllByUserId(userId, pageable).toList();
     }
 
     @Override

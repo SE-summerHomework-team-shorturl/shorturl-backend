@@ -6,6 +6,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.oauth2.provider.token.UserAuthenticationConverter;
 
 import java.util.Collections;
@@ -36,6 +37,6 @@ public class UrlShortenerUserAuthenticationConverter implements UserAuthenticati
         user.setEmail((String) userMap.get("email"));
         List<GrantedAuthority> authorities = user.getAdmin() ?
                 Collections.singletonList(new SimpleGrantedAuthority("ADMIN")) : Collections.emptyList();
-        return new UsernamePasswordAuthenticationToken(user, "N/A", authorities);
+        return new UsernamePasswordAuthenticationToken(new UrlShortenerUserDetails(user), "N/A", authorities);
     }
 }
