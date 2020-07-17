@@ -1,17 +1,10 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: register-service # 应用名称
 server:
   port: 8031
-
-spring:
-  application:
-    name: register-service
-  cloud:
-    config:
-      name: sql
-      profile: prod
-      label: master
-      discovery:
-        enabled: true
-        service-id: config-server
 eureka:
   client: #客户端注册进eureka服务列表内
     service-url:

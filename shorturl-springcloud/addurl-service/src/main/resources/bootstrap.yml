@@ -2,16 +2,10 @@ server:
   port: 8011
 
 spring:
+  profiles:
+    active: dev
   application:
     name: addurl-service
-  cloud:
-    config:
-      name: sql
-      profile: prod
-      label: master
-      discovery:
-        enabled: true
-        service-id: config-server
   security:
     oauth2:
       client:

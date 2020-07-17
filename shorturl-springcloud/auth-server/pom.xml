@@ -11,7 +11,7 @@
     <groupId>com.example</groupId>
     <artifactId>authserver</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>authserver</name>
+    <name>auth-server</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -59,6 +59,12 @@
         <dependency>
             <groupId>com.example</groupId>
             <artifactId>sharedentity</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>misc</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

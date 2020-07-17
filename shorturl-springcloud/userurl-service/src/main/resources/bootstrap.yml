@@ -3,7 +3,9 @@ server:
 
 spring:
   application:
-    name: userurl-service
+    name: userurl-service # 应用名称
+  profiles:
+    active: dev
   cloud:
     config:
       name: sql

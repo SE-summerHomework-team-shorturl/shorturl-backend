@@ -11,7 +11,7 @@
     <groupId>com.example</groupId>
     <artifactId>redirectservice</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>redirectservice</name>
+    <name>redirect-service</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -48,6 +48,18 @@
             <artifactId>sharedentity</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
         </dependency>
     </dependencies>
 
