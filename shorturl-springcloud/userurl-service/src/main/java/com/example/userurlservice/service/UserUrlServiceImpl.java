@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,14 +20,16 @@ public class UserUrlServiceImpl implements UserUrlService {
     @Autowired private ShortUrlDao shortUrlDao;
 
     @Override
-    public Message findAllMyShortUrls(int page, int size,int userId) {
+    public Message findAllMyShortUrls(int page, int size) {
+        Integer userId = ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
         Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Order.desc("id")));
         List<ShortUrl> shortUrls = shortUrlDao.findAllByUserId(userId, pageable).toList();
         return new Message("SUCCESS", shortUrls);
     }
 
     @Override
-    public Message deleteMyShortUrlById(int id,int userId) {
+    public Message deleteMyShortUrlById(int id) {
+        Integer userId = ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
         ShortUrl shortUrl = shortUrlDao.findById(id);
         if (shortUrl == null)
             return new Message("SUCCESS", null);

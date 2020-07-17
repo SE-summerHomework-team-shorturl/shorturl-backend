@@ -10,7 +10,5 @@ eureka:
     service-url:
       defaultZone: http://localhost:7001/eureka/
     instance:
-      instance-id: redirect-service   # 在eureka中显示对应的服务名字
+      instance-id: register-service   # 在eureka中显示对应的服务名字
       prefer-ip-address: true
-
-

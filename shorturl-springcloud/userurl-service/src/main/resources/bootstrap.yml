@@ -6,11 +6,29 @@ spring:
     name: userurl-service # 应用名称
   profiles:
     active: dev
+  cloud:
+    config:
+      name: sql
+      profile: prod
+      label: master
+      discovery:
+        enabled: true
+        service-id: config-server
+  security:
+    oauth2:
+      client:
+        client-id: client
+        client-secret: client-secret
+        user-authorization-uri: http://localhost:8000/oauth/authorize
+        access-token-uri: http://localhost:8000/oauth/token
+      authorization:
+        check-token-access: http://localhost:8000/oauth/check_token
+      resource:
+        token-info-uri: http://localhost:8000/oauth/check_token
 eureka:
   client: #客户端注册进eureka服务列表内
     service-url:
       defaultZone: http://localhost:7001/eureka/
     instance:
       instance-id: userurl-service   # 在eureka中显示对应的服务名字
-      prefer-ip-address: true     #在eureka中下边的访问路径可以显示IP地址 #false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
-
+      prefer-ip-address: true

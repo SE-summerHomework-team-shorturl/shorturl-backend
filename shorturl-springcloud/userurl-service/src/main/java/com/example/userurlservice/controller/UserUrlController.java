@@ -14,14 +14,12 @@ public class UserUrlController {
 
     @GetMapping(value = "/urlmanage/findurl")
     public Message findAllMyShortUrls(@RequestParam(value = "page") int page,
-                                      @RequestParam(value = "size") int size,
-                                      @RequestParam(value = "userId") int userId) {
-        return userUrlService.findAllMyShortUrls(page, size,userId);
+                                      @RequestParam(value = "size") int size) {
+        return userUrlService.findAllMyShortUrls(page, size);
     }
 
     @GetMapping(value = "/urlmanage/deleteurl")
-    public Message deleteMyShortUrlById(@RequestParam(value = "id") int id,
-                                        @RequestParam(value = "userId") int userId) {
-        return userUrlService.deleteMyShortUrlById(id,userId);
+    public Message deleteMyShortUrlById(@RequestParam(value = "id") int id) {
+        return userUrlService.deleteMyShortUrlById(id);
     }
 }

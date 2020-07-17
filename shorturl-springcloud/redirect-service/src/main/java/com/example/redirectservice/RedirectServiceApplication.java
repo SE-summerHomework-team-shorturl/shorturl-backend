@@ -12,10 +12,10 @@ import org.springframework.test.context.ActiveProfiles;
 @ComponentScan(basePackages = {"com.example.sharedentity","com.example.redirectservice"})
 @EntityScan(basePackages = "com.example.sharedentity")
 @EnableJpaRepositories(basePackages = "com.example.sharedentity")
-public class RedirectServiceApplication {
+public class RedirectserviceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(RedirectServiceApplication.class, args);
+        SpringApplication.run(RedirectserviceApplication.class, args);
     }
 
 }

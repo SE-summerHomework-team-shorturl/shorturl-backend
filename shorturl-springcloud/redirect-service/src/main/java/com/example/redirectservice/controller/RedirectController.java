@@ -7,15 +7,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 @RestController
 public class RedirectController {
     @Autowired
     private RedirectService redirectService;
 
     @RequestMapping(value = "/r/{token}")
-    public String redirect(@PathVariable String token) throws Exception {
+    public void redirect(HttpServletResponse response, @PathVariable String token) throws Exception {
         ShortUrl shortUrl = redirectService.findShortUrlByToken(token);
-        return shortUrl.getUrl();
+        response.sendRedirect(shortUrl.getUrl());
     }
 
     @RequestMapping(value = "/print")
