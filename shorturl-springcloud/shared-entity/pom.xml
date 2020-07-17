@@ -11,7 +11,7 @@
     <groupId>com.example</groupId>
     <artifactId>sharedentity</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>sharedentity</name>
+    <name>shared-entity</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

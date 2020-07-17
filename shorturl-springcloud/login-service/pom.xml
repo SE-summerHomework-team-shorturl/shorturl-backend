@@ -11,7 +11,7 @@
     <groupId>com.example</groupId>
     <artifactId>loginservice</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>loginservice</name>
+    <name>login-service</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

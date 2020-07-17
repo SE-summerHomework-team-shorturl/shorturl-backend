@@ -2,18 +2,18 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/addurl-service/addurlservice.iml" filepath="$PROJECT_DIR$/addurl-service/addurlservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/addurl-service/addurl-service.iml" filepath="$PROJECT_DIR$/addurl-service/addurl-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/config-client/config-client.iml" filepath="$PROJECT_DIR$/config-client/config-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/config-server/config-server.iml" filepath="$PROJECT_DIR$/config-server/config-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/consumer/consumer.iml" filepath="$PROJECT_DIR$/consumer/consumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka/eureka.iml" filepath="$PROJECT_DIR$/eureka/eureka.iml" />
-      <module fileurl="file://$PROJECT_DIR$/login-service/loginservice.iml" filepath="$PROJECT_DIR$/login-service/loginservice.iml" />
-      <module fileurl="file://$PROJECT_DIR$/redirect-service/redirectservice.iml" filepath="$PROJECT_DIR$/redirect-service/redirectservice.iml" />
-      <module fileurl="file://$PROJECT_DIR$/register-service/registerservice.iml" filepath="$PROJECT_DIR$/register-service/registerservice.iml" />
-      <module fileurl="file://$PROJECT_DIR$/security-gateway/securitygateway.iml" filepath="$PROJECT_DIR$/security-gateway/securitygateway.iml" />
-      <module fileurl="file://$PROJECT_DIR$/shared-entity/sharedentity.iml" filepath="$PROJECT_DIR$/shared-entity/sharedentity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/login-service/login-service.iml" filepath="$PROJECT_DIR$/login-service/login-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/redirect-service/redirect-service.iml" filepath="$PROJECT_DIR$/redirect-service/redirect-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/register-service/register-service.iml" filepath="$PROJECT_DIR$/register-service/register-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/security-gateway/security-gateway.iml" filepath="$PROJECT_DIR$/security-gateway/security-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shared-entity/shared-entity.iml" filepath="$PROJECT_DIR$/shared-entity/shared-entity.iml" />
       <module fileurl="file://$PROJECT_DIR$/shorturl-springcloud.iml" filepath="$PROJECT_DIR$/shorturl-springcloud.iml" />
-      <module fileurl="file://$PROJECT_DIR$/userurl-service/userurlservice.iml" filepath="$PROJECT_DIR$/userurl-service/userurlservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/userurl-service/userurl-service.iml" filepath="$PROJECT_DIR$/userurl-service/userurl-service.iml" />
     </modules>
   </component>
 </project>
