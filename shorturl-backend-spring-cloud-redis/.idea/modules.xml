@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/short-url-config/short-url-config.iml" filepath="$PROJECT_DIR$/short-url-config/short-url-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/short-url-redirect/short-url-redirect.iml" filepath="$PROJECT_DIR$/short-url-redirect/short-url-redirect.iml" />
+      <module fileurl="file://$PROJECT_DIR$/short-url-util/short-url-util.iml" filepath="$PROJECT_DIR$/short-url-util/short-url-util.iml" />
+    </modules>
+  </component>
+</project>
