@@ -18,20 +18,20 @@ public class GatewayConfig {
                                 .uri("lb://register-service/"))
                 .route(r ->
                         r.path("/login")
-                                .filters(f->f
-                                        .addRequestParameter("scope","all")
-                                        .addRequestParameter("grant_type","password")
-                                        .rewritePath("/login","/oauth/token"))
+                                .filters(f -> f
+                                        .addRequestParameter("scope", "all")
+                                        .addRequestParameter("grant_type", "password")
+                                        .rewritePath("/login", "/oauth/token"))
                                 .uri("lb://auth-server/"))
-                                   .route(r ->
-                                   r.path("/urlmanage/addurl")
-                                   .uri("lb://addurl-service/"))
-                                   .route(r ->
-                                   r.path("/urlmanage/findurl")
-                                   .uri("lb://userurl-service/"))
-                                   .route(r ->
-                                   r.path("/urlmanage/deleteurl")
-                                   .uri("lb://userurl-service/"))
-                                   .build();
-                                   }
-                                   }
+                .route(r ->
+                        r.path("/urlmanage/addurl")
+                                .uri("lb://addurl-service/"))
+                .route(r ->
+                        r.path("/urlmanage/findurl")
+                                .uri("lb://userurl-service/"))
+                .route(r ->
+                        r.path("/urlmanage/deleteurl")
+                                .uri("lb://userurl-service/"))
+                .build();
+    }
+}

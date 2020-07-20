@@ -21,8 +21,8 @@ public class ShortUrlDaoImpl implements ShortUrlDao {
     }
 
     @Override
-    public List<ShortUrl> findAllByUserId(int userId, Pageable pageable) {
-        return shortUrlRepo.findAllByUserId(userId, pageable).toList();
+    public List<ShortUrl> findAllByUserId(int userId) {
+        return shortUrlRepo.findAllByUserId(userId);
     }
 
     @Override

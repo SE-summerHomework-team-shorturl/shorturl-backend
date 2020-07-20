@@ -21,10 +21,9 @@ public class UserUrlServiceImpl implements UserUrlService {
     @Autowired private ShortUrlDao shortUrlDao;
 
     @Override
-    public Message findAllMyShortUrls(int page, int size) {
+    public Message findAllMyShortUrls() {
         Integer userId = ((UrlShortenerUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser().getId();
-        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Order.desc("id")));
-        List<ShortUrl> shortUrls = shortUrlDao.findAllByUserId(userId, pageable);
+        List<ShortUrl> shortUrls = shortUrlDao.findAllByUserId(userId);
         return new Message("SUCCESS", shortUrls);
     }
 

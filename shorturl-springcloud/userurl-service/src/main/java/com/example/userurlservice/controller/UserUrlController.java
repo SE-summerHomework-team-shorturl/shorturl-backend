@@ -13,9 +13,8 @@ public class UserUrlController {
     private UserUrlService userUrlService;
 
     @GetMapping(value = "/urlmanage/findurl")
-    public Message findAllMyShortUrls(@RequestParam(value = "page") int page,
-                                      @RequestParam(value = "size") int size) {
-        return userUrlService.findAllMyShortUrls(page, size);
+    public Message findAllMyShortUrls() {
+        return userUrlService.findAllMyShortUrls();
     }
 
     @GetMapping(value = "/urlmanage/deleteurl")

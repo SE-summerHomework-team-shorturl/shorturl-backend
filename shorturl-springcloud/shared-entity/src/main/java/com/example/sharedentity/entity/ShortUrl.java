@@ -22,11 +22,18 @@ public class ShortUrl {
     @Column(name = "`user`")
     private Integer userId;
 
-    public ShortUrl() {}
+    @Basic
+    @Column(name = "`clicks`")
+    private Integer clicks;
+
+    public ShortUrl() {
+        this.clicks = 0;
+    }
 
     public ShortUrl(String url, Integer userId) {
         this.url = url;
         this.userId = userId;
+        this.clicks = 0;
     }
 
     public Integer getId() {
@@ -71,6 +78,14 @@ public class ShortUrl {
         this.id = id;
         this.url = url;
         this.userId = userId;
+    }
+
+    public Integer getClicks() {
+        return clicks;
+    }
+
+    public void setClicks(Integer clicks) {
+        this.clicks = clicks;
     }
 
     @Override
