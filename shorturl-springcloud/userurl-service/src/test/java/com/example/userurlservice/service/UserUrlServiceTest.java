@@ -53,8 +53,8 @@ class UserUrlServiceTest {
         String testUrl="http://www.baidu.com";
         List<ShortUrl> shortUrls = new ArrayList<ShortUrl>();
         shortUrls.add(0,new ShortUrl(1,testUrl,1));
-        when(shortUrlDao.findAllByUserId(1, PageRequest.of(0, 20, Sort.by(Sort.Order.desc("id"))))).thenReturn(shortUrls);
-        List<ShortUrl> afterUrls=(List<ShortUrl>)(userUrlService.findAllMyShortUrls(0,20)).getBody();
+        when(shortUrlDao.findAllByUserId(1)).thenReturn(shortUrls);
+        List<ShortUrl> afterUrls=(List<ShortUrl>)(userUrlService.findAllMyShortUrls()).getBody();
         assertEquals(shortUrls, afterUrls);
     }
 

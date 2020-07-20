@@ -46,7 +46,7 @@ class UserUrlControllerTest {
         int size=1;
         int userId=1;
         String testInfo="test info";
-        when( userUrlService.findAllMyShortUrls(page,size)).thenReturn(new Message(testInfo,null));
+        when( userUrlService.findAllMyShortUrls()).thenReturn(new Message(testInfo,null));
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/urlmanage/findurl")
                 .param("page",String.valueOf(page))
                 .param("size",String.valueOf(size))

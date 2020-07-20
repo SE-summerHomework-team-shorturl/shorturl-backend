@@ -1,4 +1,3 @@
-
 spring:
   cloud:
     config:
@@ -9,4 +8,4 @@ spring:
         enabled: true
         service-id: config-server
   application:
-    name: redirect-service # 应用名称
+    name: register-service # 应用名称
