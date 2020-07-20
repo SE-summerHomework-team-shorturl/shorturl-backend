@@ -1,5 +1,6 @@
 package com.example.userurlservice.controller;
 
+import com.example.misc.AuthTokenTests;
 import com.example.sharedentity.dto.Message;
 import com.example.userurlservice.service.UserUrlService;
 import org.junit.jupiter.api.AfterEach;
@@ -26,7 +27,7 @@ import static org.mockito.Mockito.when;
 @SpringBootTest
 @ActiveProfiles("test")
 @Transactional
-class UserUrlControllerTest {
+class UserUrlControllerTest extends AuthTokenTests {
     @Autowired
     private MockMvc mockMvc;
     @MockBean
@@ -51,6 +52,7 @@ class UserUrlControllerTest {
                 .param("page",String.valueOf(page))
                 .param("size",String.valueOf(size))
                 .param("userId",String.valueOf(userId))
+                .header("Authorization", "Bearer " +test_token)
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
