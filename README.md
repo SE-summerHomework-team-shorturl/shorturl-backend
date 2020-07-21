@@ -15,5 +15,6 @@
 	register-service：注册服务
 	userurl-service：查询url服务
 	addurl-service：url添加服务
+	admin-service：业务管理服务
 
 
