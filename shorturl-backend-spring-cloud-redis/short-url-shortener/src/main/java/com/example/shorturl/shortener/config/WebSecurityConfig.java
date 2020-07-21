@@ -10,8 +10,8 @@ import org.springframework.security.oauth2.server.resource.authentication.JwtGra
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.oauth2ResourceServer(
-                oauth2 -> oauth2.jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthenticationConverter())));
+        http.authorizeRequests().mvcMatchers("/urlmanage/addurl").authenticated();
+        http.oauth2ResourceServer().jwt().jwtAuthenticationConverter(jwtAuthenticationConverter());
     }
 
     private JwtAuthenticationConverter jwtAuthenticationConverter() {
