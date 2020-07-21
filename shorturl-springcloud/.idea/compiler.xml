@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="userurl-service" />
+        <module name="gateway" />
+        <module name="config-server" />
+        <module name="register-service" />
+        <module name="shorturl-springcloud" />
+        <module name="addurl-service" />
+        <module name="eureka" />
+        <module name="loginservice" />
+        <module name="redirect-service" />
+        <module name="auth-server" />
+        <module name="shared-entity" />
+        <module name="misc" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="addurl-service" target="1.8" />
+      <module name="auth-server" target="1.8" />
+      <module name="config-client" target="1.8" />
+      <module name="config-server" target="1.8" />
+      <module name="consumer" target="1.8" />
+      <module name="eureka" target="1.8" />
+      <module name="gateway" target="1.8" />
+      <module name="login-service" target="1.8" />
+      <module name="loginservice" target="1.8" />
+      <module name="misc" target="1.8" />
+      <module name="redirect-service" target="1.8" />
+      <module name="register-service" target="1.8" />
+      <module name="security-gateway" target="1.8" />
+      <module name="shared-entity" target="1.8" />
+      <module name="shorturl-springcloud" target="1.8" />
+      <module name="userurl-service" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="addurl-service" options="-parameters" />
+      <module name="auth-server" options="-parameters" />
+      <module name="config-client" options="-parameters" />
+      <module name="config-server" options="-parameters" />
+      <module name="consumer" options="-parameters" />
+      <module name="eureka" options="-parameters" />
+      <module name="gateway" options="-parameters" />
+      <module name="login-service" options="-parameters" />
+      <module name="loginservice" options="-parameters" />
+      <module name="misc" options="-parameters" />
+      <module name="redirect-service" options="-parameters" />
+      <module name="register-service" options="-parameters" />
+      <module name="security-gateway" options="-parameters" />
+      <module name="shared-entity" options="-parameters" />
+      <module name="shorturl-springcloud" options="-parameters" />
+      <module name="userurl-service" options="-parameters" />
+    </option>
+  </component>
+</project>

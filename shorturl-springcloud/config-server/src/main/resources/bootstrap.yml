@@ -1,0 +1,23 @@
+server:
+  port: 8888
+spring:
+  profiles:
+    active: dev
+  application:
+    name: config-server
+  config:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/SE-summerHomework-team-shorturl/shorturl-backend-config
+          username: JerryCrab
+          password: bayun3383youzi
+          default-label: master
+          search-paths: config-dev-cy
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:7001/eureka/
+

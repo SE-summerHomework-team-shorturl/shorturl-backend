@@ -1,0 +1,34 @@
+server:
+  port: 8021
+
+spring:
+  application:
+    name: userurl-service # 应用名称
+  profiles:
+    active: dev
+  cloud:
+    config:
+      name: sql
+      profile: prod
+      label: master
+      discovery:
+        enabled: true
+        service-id: config-server
+  security:
+    oauth2:
+      client:
+        client-id: client
+        client-secret: client-secret
+        user-authorization-uri: http://localhost:8000/oauth/authorize
+        access-token-uri: http://localhost:8000/oauth/token
+      authorization:
+        check-token-access: http://localhost:8000/oauth/check_token
+      resource:
+        token-info-uri: http://localhost:8000/oauth/check_token
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+    instance:
+      instance-id: userurl-service   # 在eureka中显示对应的服务名字
+      prefer-ip-address: true
