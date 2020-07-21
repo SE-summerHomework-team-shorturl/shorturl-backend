@@ -34,4 +34,9 @@ public class ShortUrlDaoImpl implements ShortUrlDao {
     public void deleteById(int id) {
         shortUrlRepo.deleteById(id);
     }
+
+    @Override
+    public List<ShortUrl> findAll() {
+        return shortUrlRepo.findAll();
+    }
 }

@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="userurl-service" />
         <module name="gateway" />
+        <module name="admin-service" />
         <module name="config-server" />
         <module name="register-service" />
         <module name="shorturl-springcloud" />
@@ -22,6 +23,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="addurl-service" target="1.8" />
+      <module name="admin-service" target="1.8" />
       <module name="auth-server" target="1.8" />
       <module name="config-client" target="1.8" />
       <module name="config-server" target="1.8" />
@@ -42,6 +44,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="addurl-service" options="-parameters" />
+      <module name="admin-service" options="-parameters" />
       <module name="auth-server" options="-parameters" />
       <module name="config-client" options="-parameters" />
       <module name="config-server" options="-parameters" />

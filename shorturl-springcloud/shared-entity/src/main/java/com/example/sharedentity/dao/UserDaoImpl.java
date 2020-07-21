@@ -6,6 +6,8 @@ import com.example.sharedentity.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class UserDaoImpl implements UserDao {
     @Autowired private UserRepository userRepo;
@@ -23,5 +25,10 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void save(User user) {
         userRepo.save(user);
+    }
+
+    @Override
+    public List<User> findAll() {
+        return userRepo.findAll();
     }
 }

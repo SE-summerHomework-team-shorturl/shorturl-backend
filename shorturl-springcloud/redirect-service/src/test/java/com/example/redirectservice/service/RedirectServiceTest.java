@@ -19,7 +19,6 @@ class RedirectServiceTest {
     @Autowired
     private RedirectService redirectService;
 
-
     @MockBean
     private ShortUrlDao shortUrlDao;
 

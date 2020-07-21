@@ -24,6 +24,11 @@ public class GatewayConfig {
                                         .rewritePath("/login", "/oauth/token"))
                                 .uri("lb://auth-server/"))
                 .route(r ->
+                        r.path("/logout")
+                                .filters(f -> f
+                                        .rewritePath("/logout", "/oauth/revoke_token"))
+                                .uri("lb://auth-server/"))
+                .route(r ->
                         r.path("/urlmanage/addurl")
                                 .uri("lb://addurl-service/"))
                 .route(r ->
