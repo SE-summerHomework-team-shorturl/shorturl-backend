@@ -8,6 +8,13 @@ public class SimplePage<T> {
     private long totalElements;
     private List<T> content;
 
+    public SimplePage(int number, int size, long totalElements, List<T> content) {
+        this.number = number;
+        this.size = size;
+        this.totalElements = totalElements;
+        this.content = content;
+    }
+
     public int getNumber() {
         return number;
     }

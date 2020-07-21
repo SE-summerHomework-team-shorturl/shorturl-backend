@@ -1,4 +1,4 @@
-package com.example.shorturl.shortener.config;
+package com.example.shorturl.manager.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

@@ -1,3 +1,5 @@
+server:
+  port: 8888
 spring:
   application:
     name: config
@@ -11,5 +13,3 @@ spring:
           uri: file:///C://Users/dell/Documents/Git/shorturl-backend-config
           search-paths: config-dev-sjc
           default-label: master
-server:
-  port: 8888
