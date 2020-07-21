@@ -26,7 +26,8 @@ public class GatewayConfig {
                 .route(r ->
                         r.path("/logout")
                                 .filters(f -> f
-                                        .rewritePath("/logout", "/oauth/revoke_token"))
+                                        .rewritePath("/logout", "/oauth/revoke_token")
+                                .dedupeResponseHeader("Access-Control-Allow-Origin","RETAIN_UNIQUE"))
                                 .uri("lb://auth-server/"))
                 .route(r ->
                         r.path("/urlmanage/addurl")
