@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/short-url-redirect/pom.xml" />
         <option value="$PROJECT_DIR$/short-url-util/pom.xml" />
         <option value="$PROJECT_DIR$/short-url-auth/pom.xml" />
+        <option value="$PROJECT_DIR$/short-url-gateway/pom.xml" />
       </list>
     </option>
   </component>

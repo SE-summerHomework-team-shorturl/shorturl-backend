@@ -1,10 +1,12 @@
 spring:
   application:
-    name: shortener
+    name: gateway
   cloud:
     consul:
       host: localhost
       port: 8500
+      discovery:
+        register: false
     config:
       discovery:
         enabled: true
