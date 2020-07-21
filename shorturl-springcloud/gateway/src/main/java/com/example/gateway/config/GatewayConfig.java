@@ -38,6 +38,9 @@ public class GatewayConfig {
                 .route(r ->
                         r.path("/urlmanage/deleteurl")
                                 .uri("lb://userurl-service/"))
+                .route(r ->
+                        r.path("/admin/**")
+                                .uri("lb://admin-service/"))
                 .build();
     }
 }
