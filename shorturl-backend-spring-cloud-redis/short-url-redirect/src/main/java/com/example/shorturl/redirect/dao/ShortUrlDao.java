@@ -1,4 +1,4 @@
-package com.example.shorturl.util.dao;
+package com.example.shorturl.redirect.dao;
 
 public interface ShortUrlDao {
     String findUrlByShortUrlId(long shortUrlId);

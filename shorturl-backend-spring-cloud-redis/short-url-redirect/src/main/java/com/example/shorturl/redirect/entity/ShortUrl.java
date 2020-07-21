@@ -1,6 +1,6 @@
-package com.example.shorturl.util.entity;
+package com.example.shorturl.redirect.entity;
 
-import com.example.shorturl.util.misc.Base62Encoder;
+import com.example.shorturl.util.algorithm.Base62Encoder;
 
 import java.util.Objects;
 
@@ -40,8 +40,10 @@ public class ShortUrl {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         ShortUrl shortUrl = (ShortUrl) o;
         return id.equals(shortUrl.id);
     }

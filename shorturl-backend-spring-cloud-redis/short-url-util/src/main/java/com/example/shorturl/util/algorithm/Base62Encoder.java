@@ -1,4 +1,4 @@
-package com.example.shorturl.util.misc;
+package com.example.shorturl.util.algorithm;
 
 public class Base62Encoder {
     public String encode(long num) {

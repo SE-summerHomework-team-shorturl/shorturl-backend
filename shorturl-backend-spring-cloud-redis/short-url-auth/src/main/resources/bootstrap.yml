@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: auth
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+    config:
+      discovery:
+        enabled: true
+        service-id: config

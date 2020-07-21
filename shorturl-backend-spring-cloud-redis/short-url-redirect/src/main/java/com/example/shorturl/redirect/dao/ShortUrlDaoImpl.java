@@ -1,4 +1,4 @@
-package com.example.shorturl.util.dao;
+package com.example.shorturl.redirect.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
