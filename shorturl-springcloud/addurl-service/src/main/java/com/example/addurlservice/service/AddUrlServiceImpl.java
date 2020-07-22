@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
+import org.apache.commons.validator.routines.UrlValidator;
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class AddUrlServiceImpl implements AddUrlService {
@@ -19,8 +19,11 @@ public class AddUrlServiceImpl implements AddUrlService {
     @Override
     public Message addToMyShortUrls(String url) {
         User user = ((UrlShortenerUserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser();
+        UrlValidator validator = new UrlValidator();
+        if (!validator.isValid(url))
+            return new Message(Message.Invalid_Url_Msg, null);
         ShortUrl shortUrl = new ShortUrl(url, user.getId());
         shortUrl = shortUrlDao.saveAndFlush(shortUrl);
-        return new Message("SUCCESS", shortUrl);
+        return new Message(Message.Success_Msg, shortUrl);
     }
 }

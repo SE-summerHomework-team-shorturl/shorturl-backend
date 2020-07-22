@@ -24,7 +24,7 @@ public class UserUrlServiceImpl implements UserUrlService {
     public Message findAllMyShortUrls() {
         Integer userId = ((UrlShortenerUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser().getId();
         List<ShortUrl> shortUrls = shortUrlDao.findAllByUserId(userId);
-        return new Message("SUCCESS", shortUrls);
+        return new Message(Message.Success_Msg, shortUrls);
     }
 
     @Override
@@ -32,10 +32,10 @@ public class UserUrlServiceImpl implements UserUrlService {
         Integer userId = ((UrlShortenerUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser().getId();
         ShortUrl shortUrl = shortUrlDao.findById(id);
         if (shortUrl == null)
-            return new Message("NO_SUCH_URL", null);
+            return new Message(Message.No_URL_Msg, null);
         if (!shortUrl.getUserId().equals(userId))
-            return new Message("NOT_YOUR_SHORT_URL", null);
+            return new Message(Message.Not_Your_URL_Msg, null);
         shortUrlDao.deleteById(id);
-        return new Message("SUCCESS", null);
+        return new Message(Message.Success_Msg, null);
     }
 }

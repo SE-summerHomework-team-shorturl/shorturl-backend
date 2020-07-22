@@ -2,6 +2,7 @@ package com.example.adminservice.service;
 
 import com.example.sharedentity.dao.ShortUrlDao;
 import com.example.sharedentity.dao.UserDao;
+import com.example.sharedentity.dto.Message;
 import com.example.sharedentity.entity.ShortUrl;
 import com.example.sharedentity.entity.User;
 import org.junit.jupiter.api.AfterEach;
@@ -53,7 +54,7 @@ class AdminServiceTest {
         List<User> users = new ArrayList<User>();
         users.add(new User(1,"bill","1234","bill@1234.com",false));
         when(userDao.findAll()).thenReturn(users);
-        assertEquals("SUCCESS",adminService.findAllUsers().getStatus());
+        assertEquals(Message.Success_Msg,adminService.findAllUsers().getStatus());
         assertEquals(users,adminService.findAllUsers().getBody());
     }
 
@@ -63,7 +64,7 @@ class AdminServiceTest {
         List<ShortUrl> shorturls = new ArrayList<ShortUrl>();
         shorturls.add(new ShortUrl(1,"http://www.baidu.com",1));
         when(shortUrlDao.findAll()).thenReturn(shorturls);
-        assertEquals("SUCCESS",adminService.findAllShortUrls().getStatus());
+        assertEquals(Message.Success_Msg,adminService.findAllShortUrls().getStatus());
         assertEquals(shorturls,adminService.findAllShortUrls().getBody());
     }
 
@@ -71,6 +72,6 @@ class AdminServiceTest {
     @DisplayName("returnSucessWhenDelete")
     void deleteUserShortUrlsOthers() {
         String status=adminService.deleteShortUrlById(1).getStatus();
-        assertEquals("SUCCESS", status);
+        assertEquals(Message.Success_Msg, status);
     }
 }

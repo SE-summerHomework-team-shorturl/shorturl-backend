@@ -22,18 +22,18 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public Message findAllUsers() {
         List<User> users = userDao.findAll();
-        return new Message("SUCCESS", users);
+        return new Message(Message.Success_Msg, users);
     }
 
     @Override
     public Message findAllShortUrls() {
         List<ShortUrl> shortUrls = shortUrlDao.findAll();
-        return new Message("SUCCESS", shortUrls);
+        return new Message(Message.Success_Msg, shortUrls);
     }
 
     @Override
     public Message deleteShortUrlById(Integer id) {
         shortUrlDao.deleteById(id);
-        return new Message("SUCCESS", null);
+        return new Message(Message.Success_Msg, null);
     }
 }

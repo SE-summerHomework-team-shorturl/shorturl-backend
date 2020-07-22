@@ -48,7 +48,7 @@ class UserDetailServiceTest {
 
     @Test
     @Order(2)
-    @DisplayName("shouldSuccessWhenRightToken")
+    @DisplayName("shouldExceptionWhenWrongToken")
     void findShortUrlByTokenFailed() throws Exception {
         String testToken="1";
         int testId=1;

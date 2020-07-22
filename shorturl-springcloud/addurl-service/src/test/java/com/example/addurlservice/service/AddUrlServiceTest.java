@@ -70,8 +70,20 @@ class AddUrlServiceTest {
         String testUrl="http://www.baidu.com";
         ShortUrl shortUrl=new ShortUrl(testUrl,1);
         when(shortUrlDao.saveAndFlush(shortUrl)).thenReturn(shortUrl);
-        ShortUrl afterUrl=(ShortUrl)(addUrlService.addToMyShortUrls(testUrl)).getBody();
+        Message retMessage = addUrlService.addToMyShortUrls(testUrl);
+        assertEquals(Message.Success_Msg, retMessage.getStatus());
+        ShortUrl afterUrl=(ShortUrl)(retMessage).getBody();
         assertEquals(shortUrl.getUserId(), afterUrl.getUserId());
         assertEquals(shortUrl.getUrl(), afterUrl.getUrl());
+    }
+    @Test
+    @DisplayName("returnNullWhenInvalidAdd")
+    @WithUserDetails(value = "test",userDetailsServiceBeanName = "userDetailsService")
+    void test2() throws Exception {
+        String testUrl="www.baidu.com";
+        ShortUrl shortUrl=new ShortUrl(testUrl,1);
+        when(shortUrlDao.saveAndFlush(shortUrl)).thenReturn(shortUrl);
+        Message retMessage = addUrlService.addToMyShortUrls(testUrl);
+        assertEquals(Message.Invalid_Url_Msg, retMessage.getStatus());
     }
 }

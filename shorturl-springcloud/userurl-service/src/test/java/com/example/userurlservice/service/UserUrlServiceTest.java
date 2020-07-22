@@ -1,6 +1,7 @@
 package com.example.userurlservice.service;
 
 import com.example.sharedentity.dao.ShortUrlDao;
+import com.example.sharedentity.dto.Message;
 import com.example.sharedentity.entity.ShortUrl;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -66,7 +67,7 @@ class UserUrlServiceTest {
         ShortUrl shortUrl = new ShortUrl(1,testUrl,1);
         when(shortUrlDao.findById(1)).thenReturn(shortUrl);
         String status=userUrlService.deleteMyShortUrlById(1).getStatus();
-        assertEquals("SUCCESS", status);
+        assertEquals(Message.Success_Msg, status);
     }
 
     @Test
@@ -77,7 +78,7 @@ class UserUrlServiceTest {
         ShortUrl shortUrl = new ShortUrl(1,testUrl,1);
         when(shortUrlDao.findById(1)).thenReturn(null);
         String status=userUrlService.deleteMyShortUrlById(1).getStatus();
-        assertEquals("NO_SUCH_URL", status);
+        assertEquals(Message.No_URL_Msg, status);
     }
 
     @Test
@@ -88,6 +89,6 @@ class UserUrlServiceTest {
         ShortUrl shortUrl = new ShortUrl(1,testUrl,2);
         when(shortUrlDao.findById(1)).thenReturn(shortUrl);
         String status=userUrlService.deleteMyShortUrlById(1).getStatus();
-        assertEquals("NOT_YOUR_SHORT_URL", status);
+        assertEquals(Message.Not_Your_URL_Msg, status);
     }
 }
