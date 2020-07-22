@@ -1,0 +1,20 @@
+server:
+  port: 8004
+spring:
+  cloud:
+    config:
+      name: sql
+      profile: dev
+      label: master
+      discovery:
+        enabled: true
+        service-id: config-server
+  application:
+    name: redirect-service # 应用名称
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+    instance:
+      instance-id: redirect-service   # 在eureka中显示对应的服务名字
+      prefer-ip-address: true
