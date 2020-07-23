@@ -17,11 +17,10 @@ class ISendeServiceTest {
 
     @Test
     public void testStream(){
-        String msg = "hello stream ...";
+        Integer id=1;
         // 将需要发送的消息封装为Message对象
-        Message message = MessageBuilder
-                .withPayload(msg.getBytes())
-                .build();
-        sendService.send().send(message );
+        sendService.send().send(MessageBuilder
+                .withPayload(id)
+                .build());
     }
 }
