@@ -8,7 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="userurl-service" />
         <module name="gateway" />
-        <module name="admin-service" />
+        <module name="shared-entity" />
         <module name="config-server" />
         <module name="register-service" />
         <module name="shorturl-springcloud" />
@@ -17,7 +17,7 @@
         <module name="loginservice" />
         <module name="redirect-service" />
         <module name="auth-server" />
-        <module name="shared-entity" />
+        <module name="admin-service" />
         <module name="misc" />
       </profile>
     </annotationProcessing>
