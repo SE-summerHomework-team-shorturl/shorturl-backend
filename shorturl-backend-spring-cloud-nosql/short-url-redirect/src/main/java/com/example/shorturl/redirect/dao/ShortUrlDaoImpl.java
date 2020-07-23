@@ -12,11 +12,11 @@ public class ShortUrlDaoImpl implements ShortUrlDao {
     @Autowired
     private ShortUrlRepository shortUrlRepository;
     @Autowired
-    private StringRedisTemplate redisTemplate;
+    private StringRedisTemplate stringRedisTemplate;
 
     @Override
     public String findUrlByShortUrlId(long shortUrlId) {
-        ValueOperations<String, String> valueOps = redisTemplate.opsForValue();
+        ValueOperations<String, String> valueOps = stringRedisTemplate.opsForValue();
 
         String url = valueOps.get("url:" + shortUrlId);
 

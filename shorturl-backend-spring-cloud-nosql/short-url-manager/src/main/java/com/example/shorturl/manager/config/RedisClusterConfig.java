@@ -1,4 +1,4 @@
-package com.example.shorturl.redirect.config;
+package com.example.shorturl.manager.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

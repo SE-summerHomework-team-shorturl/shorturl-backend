@@ -21,7 +21,7 @@ public class ShortUrlServiceImpl implements ShortUrlService {
 
     @Override
     public Message addToMyShortUrls(String url) {
-        long userId = Integer.parseInt((String) ((Jwt) SecurityContextHolder.getContext()
+        long userId = Long.parseLong((String) ((Jwt) SecurityContextHolder.getContext()
                 .getAuthentication().getCredentials()).getClaims().get("user_name"));
 
         UrlValidator urlValidator = new UrlValidator();

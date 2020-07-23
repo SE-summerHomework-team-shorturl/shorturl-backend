@@ -1,13 +1,13 @@
-package com.example.shorturl.util;
+package com.example.shorturl.manager;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ShortUrlUtilApplication {
+public class ShortUrlManagerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ShortUrlUtilApplication.class, args);
+        SpringApplication.run(ShortUrlManagerApplication.class, args);
     }
 
 }
