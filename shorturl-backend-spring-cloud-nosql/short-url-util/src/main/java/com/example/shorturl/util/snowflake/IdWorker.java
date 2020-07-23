@@ -12,7 +12,7 @@ public class IdWorker {
     static private final long TIMESTAMP_SHIFT = SEQUENCE_BITS + WORKER_ID_BITS + DATA_CENTER_ID_BITS;
     static private final long SEQUENCE_MASK = ~(-1L << SEQUENCE_BITS);
 
-    static private final long EPOCH = 1595504274000L;
+    static private final long EPOCH = 1595525258000L;
 
     private final long workerId;
     private final long dataCenterId;

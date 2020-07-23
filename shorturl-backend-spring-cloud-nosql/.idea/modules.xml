@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/short-url-auth/short-url-auth.iml" filepath="$PROJECT_DIR$/short-url-auth/short-url-auth.iml" />
       <module fileurl="file://$PROJECT_DIR$/short-url-config/short-url-config.iml" filepath="$PROJECT_DIR$/short-url-config/short-url-config.iml" />
       <module fileurl="file://$PROJECT_DIR$/short-url-gateway/short-url-gateway.iml" filepath="$PROJECT_DIR$/short-url-gateway/short-url-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/short-url-redirect/short-url-redirect.iml" filepath="$PROJECT_DIR$/short-url-redirect/short-url-redirect.iml" />
       <module fileurl="file://$PROJECT_DIR$/short-url-shortener/short-url-shortener.iml" filepath="$PROJECT_DIR$/short-url-shortener/short-url-shortener.iml" />
       <module fileurl="file://$PROJECT_DIR$/short-url-util/short-url-util.iml" filepath="$PROJECT_DIR$/short-url-util/short-url-util.iml" />
     </modules>

@@ -6,17 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="short-url-shortener" />
-        <module name="short-url-util" />
-        <module name="short-url-auth" />
-        <module name="short-url-config" />
         <module name="short-url-gateway" />
+        <module name="short-url-shortener" />
+        <module name="short-url-redirect" />
+        <module name="short-url-config" />
+        <module name="short-url-auth" />
+        <module name="short-url-util" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="short-url-auth" target="1.8" />
       <module name="short-url-config" target="1.8" />
       <module name="short-url-gateway" target="1.8" />
+      <module name="short-url-redirect" target="11" />
       <module name="short-url-shortener" target="1.8" />
       <module name="short-url-util" target="1.8" />
     </bytecodeTargetLevel>
@@ -26,6 +28,7 @@
       <module name="short-url-auth" options="-parameters" />
       <module name="short-url-config" options="-parameters" />
       <module name="short-url-gateway" options="-parameters" />
+      <module name="short-url-redirect" options="-parameters" />
       <module name="short-url-shortener" options="-parameters" />
       <module name="short-url-util" options="-parameters" />
     </option>

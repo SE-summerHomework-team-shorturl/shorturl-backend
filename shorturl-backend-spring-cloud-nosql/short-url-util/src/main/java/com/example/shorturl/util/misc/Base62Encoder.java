@@ -18,8 +18,8 @@ public class Base62Encoder {
         return builder.length() == 0 ? "0" : builder.reverse().toString();
     }
 
-    public int decode(String token) {
-        int num = 0;
+    public long decode(String token) {
+        long num = 0;
         int len = token.length();
         if (len == 0)
             throw new IllegalArgumentException("token is empty");
@@ -27,13 +27,13 @@ public class Base62Encoder {
             throw new IllegalArgumentException("token contains prefix zero");
         for (int i = 0; i < len; ++i) {
             char c = token.charAt(i);
-            num *= 62;
+            num = Math.multiplyExact(num, 62L);
             if (c >= '0' && c <= '9')
-                num += c - '0';
+                num = Math.addExact(num, c - '0');
             else if (c >= 'A' && c <= 'Z')
-                num += (c - 'A') + 10;
+                num = Math.addExact(num, (c - 'A') + 10);
             else if (c >= 'a' && c <= 'z')
-                num += (c - 'a') + 36;
+                num = Math.addExact(num, (c - 'a') + 36);
             else
                 throw new IllegalArgumentException("token contains invalid character");
         }
