@@ -4,6 +4,7 @@ import com.example.sharedentity.dao.ShortUrlDao;
 import com.example.sharedentity.entity.ShortUrl;
 import com.example.sharedentity.util.Base62Encoder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.SubscribableChannel;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,5 +20,10 @@ public class RedirectServiceImpl implements RedirectService {
         shortUrl.setClicks(shortUrl.getClicks()+1);
         shortUrlDao.saveAndFlush(shortUrl);
         return shortUrl;
+    }
+
+    @Override
+    public SubscribableChannel send() {
+        return null;
     }
 }
