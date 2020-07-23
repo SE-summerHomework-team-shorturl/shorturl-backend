@@ -13,7 +13,7 @@ spring:
           username: JerryCrab
           password: bayun3383youzi
           default-label: master
-          search-paths: config-dev-cy
+          search-paths: config-dev-rty
 eureka:
   client:
     serviceUrl:

@@ -10,6 +10,7 @@ public interface ShortUrlDao {
     ShortUrl findById(int id);
     List<ShortUrl> findAllByUserId(int userId);
     ShortUrl saveAndFlush(ShortUrl shorturl);
+    ShortUrl save(ShortUrl shorturl);
     void deleteById(int id);
     List<ShortUrl> findAll();
 }
