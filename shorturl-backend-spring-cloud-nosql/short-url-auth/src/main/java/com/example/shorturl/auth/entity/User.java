@@ -2,23 +2,25 @@ package com.example.shorturl.auth.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.data.annotation.AccessType;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Objects;
 
 @Document(value = "users")
+@AccessType(value = AccessType.Type.FIELD)
 public class User {
-    private String id;
+    private Long id;
     private String username;
     private String password;
     private String email;
     private Boolean admin;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
