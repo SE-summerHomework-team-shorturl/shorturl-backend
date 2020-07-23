@@ -15,11 +15,11 @@
         <module name="userurl-service" />
         <module name="redirect-service" />
         <module name="auth-server" />
-        <module name="statstic-service" />
         <module name="register-service" />
         <module name="shorturl-springcloud" />
         <module name="eureka" />
         <module name="shared-entity" />
+        <module name="statistic-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -39,7 +39,7 @@
       <module name="security-gateway" target="1.8" />
       <module name="shared-entity" target="1.8" />
       <module name="shorturl-springcloud" target="1.8" />
-      <module name="statstic-service" target="1.8" />
+      <module name="statistic-service" target="1.8" />
       <module name="userurl-service" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -61,7 +61,7 @@
       <module name="security-gateway" options="-parameters" />
       <module name="shared-entity" options="-parameters" />
       <module name="shorturl-springcloud" options="-parameters" />
-      <module name="statstic-service" options="-parameters" />
+      <module name="statistic-service" options="-parameters" />
       <module name="userurl-service" options="-parameters" />
     </option>
   </component>
