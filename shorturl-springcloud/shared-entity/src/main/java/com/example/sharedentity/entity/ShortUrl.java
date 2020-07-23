@@ -3,11 +3,12 @@ package com.example.sharedentity.entity;
 import com.example.sharedentity.util.Base62Encoder;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "`short_urls`")
-public class ShortUrl {
+public class ShortUrl implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic

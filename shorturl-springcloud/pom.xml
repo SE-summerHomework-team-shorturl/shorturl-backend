@@ -57,5 +57,6 @@
 	<module>redirect-service</module>
 	<module>register-service</module>
 	<module>admin-service</module>
+	<module>statistic-service</module>
 </modules>
 </project>
