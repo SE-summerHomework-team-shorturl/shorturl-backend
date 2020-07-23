@@ -20,7 +20,8 @@ public class RedirectServiceImpl implements RedirectService {
     public ShortUrl findShortUrlByToken(String token) throws Exception {
         int shortUrlId = Base62Encoder.decode(token);
         ShortUrl shortUrl = shortUrlDao.findById(shortUrlId);
-        sendService.send().send(MessageBuilder
+        System.out.println("sender:"+ shortUrlId);
+        sendService.output().send(MessageBuilder
                 .withPayload(shortUrlId)
                 .build());
    //     shortUrl.setClicks(shortUrl.getClicks()+1);

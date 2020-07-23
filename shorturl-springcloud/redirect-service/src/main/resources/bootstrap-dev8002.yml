@@ -1,10 +1,11 @@
+server:
+  port: 8002
 spring:
   cloud:
     config:
       name: sql
-      profile: test
+      profile: dev
       label: master
       discovery:
         enabled: true
         service-id: config-server
-

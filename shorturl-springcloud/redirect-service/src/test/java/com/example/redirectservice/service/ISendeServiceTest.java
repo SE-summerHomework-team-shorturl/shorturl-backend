@@ -19,7 +19,7 @@ class ISendeServiceTest {
     public void testStream(){
         Integer id=1;
         // 将需要发送的消息封装为Message对象
-        sendService.send().send(MessageBuilder
+        sendService.output().send(MessageBuilder
                 .withPayload(id)
                 .build());
     }

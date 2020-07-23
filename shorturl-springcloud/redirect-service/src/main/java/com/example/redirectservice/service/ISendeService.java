@@ -7,5 +7,5 @@ import org.springframework.stereotype.Service;
 @Service
 public interface ISendeService {
     @Output("dpb-exchange")
-    SubscribableChannel send();
+    SubscribableChannel output();
 }
