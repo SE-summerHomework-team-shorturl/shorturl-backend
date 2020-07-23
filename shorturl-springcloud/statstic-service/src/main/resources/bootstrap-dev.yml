@@ -1,20 +1,19 @@
-server:
-  port: 8001
+
 spring:
   cloud:
     config:
       name: sql
-      profile: test
+      profile: dev
       label: master
       discovery:
         enabled: true
         service-id: config-server
   application:
-    name: redirect-service # 应用名称
+    name: statistic-service # 应用名称
   rabbitmq:
-    host: 192.168.88.150:5672
-    username: dpb
-    password: 123
+    host: localhost
+    username: guest
+    password: guest
     virtual-host: /
     port: 5672
 eureka:
@@ -22,5 +21,5 @@ eureka:
     service-url:
       defaultZone: http://localhost:7001/eureka/
     instance:
-      instance-id: redirect-service   # 在eureka中显示对应的服务名字
+      instance-id: statistic-service   # 在eureka中显示对应的服务名字
       prefer-ip-address: true

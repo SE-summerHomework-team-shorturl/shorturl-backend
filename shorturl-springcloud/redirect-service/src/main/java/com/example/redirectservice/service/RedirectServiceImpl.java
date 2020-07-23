@@ -22,8 +22,4 @@ public class RedirectServiceImpl implements RedirectService {
         return shortUrl;
     }
 
-    @Override
-    public SubscribableChannel send() {
-        return null;
-    }
 }

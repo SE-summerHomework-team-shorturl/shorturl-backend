@@ -1,5 +1,6 @@
 package com.example.redirectservice;
 
+import com.example.redirectservice.service.ISendeService;
 import com.example.redirectservice.service.RedirectService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,7 +14,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan(basePackages = {"com.example.sharedentity","com.example.redirectservice"})
 @EntityScan(basePackages = "com.example.sharedentity")
 @EnableJpaRepositories(basePackages = "com.example.sharedentity")
-@EnableBinding(value={RedirectService.class})
+@EnableBinding(value={ISendeService.class})
 public class RedirectServiceApplication {
 
     public static void main(String[] args) {

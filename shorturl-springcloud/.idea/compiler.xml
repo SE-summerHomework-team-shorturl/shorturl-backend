@@ -6,19 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="userurl-service" />
-        <module name="gateway" />
-        <module name="admin-service" />
-        <module name="config-server" />
-        <module name="register-service" />
-        <module name="shorturl-springcloud" />
         <module name="addurl-service" />
-        <module name="eureka" />
+        <module name="config-server" />
+        <module name="misc" />
+        <module name="gateway" />
         <module name="loginservice" />
+        <module name="admin-service" />
+        <module name="userurl-service" />
         <module name="redirect-service" />
         <module name="auth-server" />
+        <module name="statstic-service" />
+        <module name="register-service" />
+        <module name="shorturl-springcloud" />
+        <module name="eureka" />
         <module name="shared-entity" />
-        <module name="misc" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -38,6 +39,7 @@
       <module name="security-gateway" target="1.8" />
       <module name="shared-entity" target="1.8" />
       <module name="shorturl-springcloud" target="1.8" />
+      <module name="statstic-service" target="1.8" />
       <module name="userurl-service" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -59,6 +61,7 @@
       <module name="security-gateway" options="-parameters" />
       <module name="shared-entity" options="-parameters" />
       <module name="shorturl-springcloud" options="-parameters" />
+      <module name="statstic-service" options="-parameters" />
       <module name="userurl-service" options="-parameters" />
     </option>
   </component>
