@@ -10,6 +10,7 @@
         <module name="short-url-manager" />
         <module name="short-url-shortener" />
         <module name="short-url-redirect" />
+        <module name="short-url-user" />
         <module name="short-url-config" />
         <module name="short-url-auth" />
         <module name="short-url-util" />
@@ -22,6 +23,7 @@
       <module name="short-url-manager" target="11" />
       <module name="short-url-redirect" target="11" />
       <module name="short-url-shortener" target="1.8" />
+      <module name="short-url-user" target="11" />
       <module name="short-url-util" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -33,6 +35,7 @@
       <module name="short-url-manager" options="-parameters" />
       <module name="short-url-redirect" options="-parameters" />
       <module name="short-url-shortener" options="-parameters" />
+      <module name="short-url-user" options="-parameters" />
       <module name="short-url-util" options="-parameters" />
     </option>
   </component>

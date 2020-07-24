@@ -2,44 +2,56 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36857797-d49e-4e0e-b8b7-14a526b4821c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shorturl-backend-spring-cloud-nosql.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/short-url-util/src/main/java/com/example/shorturl/util/ShortUrlUtilApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/short-url-util/src/main/java/com/example/shorturl/util/misc/DataCenter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/short-url-util/src/main/java/com/example/shorturl/util/misc/IdWorker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/short-url-user/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/short-url-user/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/short-url-user/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/short-url-user/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/short-url-user/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/short-url-user/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/short-url-user/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/short-url-user/src/main/java/com/example/shorturl/user/ShortUrlUserApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/short-url-user/src/main/java/com/example/shorturl/user/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/short-url-user/src/main/java/com/example/shorturl/user/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/short-url-user/src/main/java/com/example/shorturl/user/dao/UserDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/short-url-user/src/main/java/com/example/shorturl/user/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/short-url-user/src/main/java/com/example/shorturl/user/misc/DataCenterFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/short-url-user/src/main/java/com/example/shorturl/user/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/short-url-user/src/main/java/com/example/shorturl/user/service/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/short-url-user/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/short-url-user/src/test/java/com/example/shorturl/user/ShortUrlUserApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/short-url-auth/src/main/java/com/example/shorturl/auth/config/AuthorizationServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/short-url-auth/src/main/java/com/example/shorturl/auth/config/AuthorizationServerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/short-url-auth/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/short-url-auth/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/short-url-config/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/short-url-config/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/short-url-manager/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/short-url-manager/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/short-url-redirect/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/short-url-redirect/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/short-url-shortener/src/main/java/com/example/shorturl/shortener/misc/DataCenterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/short-url-shortener/src/main/java/com/example/shorturl/shortener/misc/DataCenterFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/short-url-shortener/src/main/java/com/example/shorturl/shortener/service/ShortUrlServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/short-url-shortener/src/main/java/com/example/shorturl/shortener/service/ShortUrlServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/short-url-shortener/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/short-url-shortener/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/short-url-shortener/src/test/java/com/example/shorturl/shortener/ShortUrlShortenerApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/short-url-shortener/src/test/java/com/example/shorturl/shortener/ShortUrlUtilApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/short-url-util/src/main/java/com/example/shorturl/util/snowflake/DataCenter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/short-url-util/src/main/java/com/example/shorturl/util/snowflake/IdWorker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1f7kHztPTT1wfJO9ZRMi1YWw9ul" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -59,7 +71,13 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
-  <component name="RunManager" selected="Spring Boot.ShortUrlGatewayApplication">
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.shorturl.user.misc" />
+      <recent name="com.example.shorturl.user.entity" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ShortUrlUserApplication">
     <configuration name="ShortUrlAuthApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" singleton="false">
       <module name="short-url-auth" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.shorturl.auth.ShortUrlAuthApplication" />
@@ -107,6 +125,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ShortUrlUserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" singleton="false">
+      <module name="short-url-user" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.shorturl.user.ShortUrlUserApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShortUrlUtilApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="short-url-util" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.shorturl.util.ShortUrlUtilApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Spring Boot.ShortUrlAuthApplication" />
       <item itemvalue="Spring Boot.ShortUrlConfigApplication" />
@@ -114,6 +147,8 @@
       <item itemvalue="Spring Boot.ShortUrlManagerApplication" />
       <item itemvalue="Spring Boot.ShortUrlRedirectApplication" />
       <item itemvalue="Spring Boot.ShortUrlShortenerApplication" />
+      <item itemvalue="Spring Boot.ShortUrlUserApplication" />
+      <item itemvalue="Spring Boot.ShortUrlUtilApplication" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -126,49 +161,60 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1595576434537</updated>
-      <workItem from="1595576438555" duration="2602000" />
+      <workItem from="1595576438555" duration="7304000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595578519752">
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595582674823">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1595578519752" />
-    <state width="1237" height="235" key="GridCell.Tab.0.bottom" timestamp="1595579104739">
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1595582674823" />
+    <state x="446" y="46" key="#com.intellij.ide.util.MemberChooser" timestamp="1595582001845">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="235" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1595579104739" />
-    <state width="1237" height="235" key="GridCell.Tab.0.center" timestamp="1595579104739">
+    <state x="446" y="46" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1595582001845" />
+    <state width="1237" height="235" key="GridCell.Tab.0.bottom" timestamp="1595583847267">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="235" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1595579104739" />
-    <state width="1237" height="235" key="GridCell.Tab.0.left" timestamp="1595579104738">
+    <state width="1237" height="235" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1595583847267" />
+    <state width="1237" height="235" key="GridCell.Tab.0.center" timestamp="1595583847267">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="235" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1595579104738" />
-    <state width="1237" height="235" key="GridCell.Tab.0.right" timestamp="1595579104739">
+    <state width="1237" height="235" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1595583847267" />
+    <state width="1237" height="235" key="GridCell.Tab.0.left" timestamp="1595583847267">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="235" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1595579104739" />
-    <state width="1237" height="235" key="GridCell.Tab.1.bottom" timestamp="1595579104739">
+    <state width="1237" height="235" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1595583847267" />
+    <state width="1237" height="235" key="GridCell.Tab.0.right" timestamp="1595583847267">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="235" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1595579104739" />
-    <state width="1237" height="235" key="GridCell.Tab.1.center" timestamp="1595579104739">
+    <state width="1237" height="235" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1595583847267" />
+    <state width="1237" height="235" key="GridCell.Tab.1.bottom" timestamp="1595583847267">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="235" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1595579104739" />
-    <state width="1237" height="235" key="GridCell.Tab.1.left" timestamp="1595579104739">
+    <state width="1237" height="235" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1595583847267" />
+    <state width="1237" height="235" key="GridCell.Tab.1.center" timestamp="1595583847267">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="235" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1595579104739" />
-    <state width="1237" height="235" key="GridCell.Tab.1.right" timestamp="1595579104739">
+    <state width="1237" height="235" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1595583847267" />
+    <state width="1237" height="235" key="GridCell.Tab.1.left" timestamp="1595583847267">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="235" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1595579104739" />
+    <state width="1237" height="235" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1595583847267" />
+    <state width="1237" height="235" key="GridCell.Tab.1.right" timestamp="1595583847267">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="235" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1595583847267" />
+    <state x="41" y="2" key="new project wizard" timestamp="1595580234527">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="41" y="2" key="new project wizard/0.0.1280.680@0.0.1280.680" timestamp="1595580234527" />
   </component>
 </project>

@@ -13,6 +13,7 @@
         <option value="$PROJECT_DIR$/short-url-manager/pom.xml" />
         <option value="$PROJECT_DIR$/short-url-redirect/pom.xml" />
         <option value="$PROJECT_DIR$/short-url-shortener/pom.xml" />
+        <option value="$PROJECT_DIR$/short-url-user/pom.xml" />
       </list>
     </option>
   </component>
