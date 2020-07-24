@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/short-url-redirect/short-url-redirect.iml" filepath="$PROJECT_DIR$/short-url-redirect/short-url-redirect.iml" />
       <module fileurl="file://$PROJECT_DIR$/short-url-shortener/short-url-shortener.iml" filepath="$PROJECT_DIR$/short-url-shortener/short-url-shortener.iml" />
       <module fileurl="file://$PROJECT_DIR$/short-url-util/short-url-util.iml" filepath="$PROJECT_DIR$/short-url-util/short-url-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/shorturl-backend-spring-cloud-nosql.iml" filepath="$PROJECT_DIR$/.idea/shorturl-backend-spring-cloud-nosql.iml" />
     </modules>
   </component>
 </project>

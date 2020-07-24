@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="36857797-d49e-4e0e-b8b7-14a526b4821c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shorturl-backend-spring-cloud-nosql.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/short-url-util/src/main/java/com/example/shorturl/util/ShortUrlUtilApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/short-url-util/src/main/java/com/example/shorturl/util/misc/DataCenter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/short-url-util/src/main/java/com/example/shorturl/util/misc/IdWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/short-url-auth/src/main/java/com/example/shorturl/auth/config/AuthorizationServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/short-url-auth/src/main/java/com/example/shorturl/auth/config/AuthorizationServerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/short-url-auth/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/short-url-auth/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/short-url-config/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/short-url-config/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/short-url-manager/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/short-url-manager/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/short-url-redirect/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/short-url-redirect/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/short-url-shortener/src/main/java/com/example/shorturl/shortener/misc/DataCenterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/short-url-shortener/src/main/java/com/example/shorturl/shortener/misc/DataCenterFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/short-url-shortener/src/main/java/com/example/shorturl/shortener/service/ShortUrlServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/short-url-shortener/src/main/java/com/example/shorturl/shortener/service/ShortUrlServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/short-url-shortener/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/short-url-shortener/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/short-url-shortener/src/test/java/com/example/shorturl/shortener/ShortUrlShortenerApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/short-url-shortener/src/test/java/com/example/shorturl/shortener/ShortUrlUtilApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/short-url-util/src/main/java/com/example/shorturl/util/snowflake/DataCenter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/short-url-util/src/main/java/com/example/shorturl/util/snowflake/IdWorker.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1f7kHztPTT1wfJO9ZRMi1YWw9ul" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RunManager" selected="Spring Boot.ShortUrlGatewayApplication">
+    <configuration name="ShortUrlAuthApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" singleton="false">
+      <module name="short-url-auth" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.shorturl.auth.ShortUrlAuthApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShortUrlConfigApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" singleton="false">
+      <module name="short-url-config" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.shorturl.config.ShortUrlConfigApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShortUrlGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="short-url-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.shorturl.gateway.ShortUrlGatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShortUrlManagerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" singleton="false">
+      <module name="short-url-manager" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.shorturl.manager.ShortUrlManagerApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShortUrlRedirectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" singleton="false">
+      <module name="short-url-redirect" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.shorturl.redirect.ShortUrlRedirectApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShortUrlShortenerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" singleton="false">
+      <module name="short-url-shortener" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.shorturl.shortener.ShortUrlShortenerApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.ShortUrlAuthApplication" />
+      <item itemvalue="Spring Boot.ShortUrlConfigApplication" />
+      <item itemvalue="Spring Boot.ShortUrlGatewayApplication" />
+      <item itemvalue="Spring Boot.ShortUrlManagerApplication" />
+      <item itemvalue="Spring Boot.ShortUrlRedirectApplication" />
+      <item itemvalue="Spring Boot.ShortUrlShortenerApplication" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="36857797-d49e-4e0e-b8b7-14a526b4821c" name="Default Changelist" comment="" />
+      <created>1595576434537</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1595576434537</updated>
+      <workItem from="1595576438555" duration="2602000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595578519752">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1595578519752" />
+    <state width="1237" height="235" key="GridCell.Tab.0.bottom" timestamp="1595579104739">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="235" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1595579104739" />
+    <state width="1237" height="235" key="GridCell.Tab.0.center" timestamp="1595579104739">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="235" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1595579104739" />
+    <state width="1237" height="235" key="GridCell.Tab.0.left" timestamp="1595579104738">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="235" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1595579104738" />
+    <state width="1237" height="235" key="GridCell.Tab.0.right" timestamp="1595579104739">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="235" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1595579104739" />
+    <state width="1237" height="235" key="GridCell.Tab.1.bottom" timestamp="1595579104739">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="235" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1595579104739" />
+    <state width="1237" height="235" key="GridCell.Tab.1.center" timestamp="1595579104739">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="235" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1595579104739" />
+    <state width="1237" height="235" key="GridCell.Tab.1.left" timestamp="1595579104739">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="235" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1595579104739" />
+    <state width="1237" height="235" key="GridCell.Tab.1.right" timestamp="1595579104739">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="235" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1595579104739" />
+  </component>
+</project>
