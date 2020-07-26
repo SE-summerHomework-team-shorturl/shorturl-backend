@@ -12,6 +12,6 @@ spring:
     config:
       server:
         git:
-          uri: file:///C://Users/dell/Desktop/config
-          search-paths: config-dev-sjc
+          uri: file:///C://Users/dell/Documents/Git/shorturl-backend-config
+          search-paths: config-dev-sjc/spring-cloud-nosql
           default-label: master

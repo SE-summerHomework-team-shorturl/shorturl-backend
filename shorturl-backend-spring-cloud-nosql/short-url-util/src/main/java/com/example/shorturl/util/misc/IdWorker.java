@@ -2,8 +2,8 @@ package com.example.shorturl.util.misc;
 
 public class IdWorker {
     static private final long WORKER_ID_BITS = 5L;
-    static private final long DATA_CENTER_ID_BITS = 5L;
-    static private final long SEQUENCE_BITS = 64L - WORKER_ID_BITS - DATA_CENTER_ID_BITS;
+    static private final long DATA_CENTER_ID_BITS = 1L;
+    static private final long SEQUENCE_BITS = 63L - WORKER_ID_BITS - DATA_CENTER_ID_BITS;
 
     static private final long MAX_WORKER_ID = ~(-1L << WORKER_ID_BITS);
     static private final long MAX_DATA_CENTER_ID = ~(-1L << DATA_CENTER_ID_BITS);
