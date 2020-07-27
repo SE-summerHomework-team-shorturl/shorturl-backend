@@ -58,7 +58,6 @@ class RedirectControllerTest {
     void test2() throws Exception {
         String wrongToken="0";
         when( redirectService.findShortUrlByToken(wrongToken)).thenReturn(null);
-
       //  Throwable exception = assertThrows(Exception.class, () -> {
             MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/r/0"))
                     .andExpect(MockMvcResultMatchers.status().isBadRequest())

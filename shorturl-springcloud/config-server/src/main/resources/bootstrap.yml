@@ -16,8 +16,18 @@ spring:
           password: bayun3383youzi
           default-label: master
           search-paths: config-dev-rty
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:7001/eureka/
-
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        service-name: config-server
+        healthCheckPath: /actuator/health
+        healthCheckInterval: 5s
+        health-check-critical-timeout: 20s
+        instanceId: config-server:8888
+        enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

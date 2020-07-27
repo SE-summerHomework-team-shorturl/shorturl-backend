@@ -1,4 +1,4 @@
-spring:
+pring:
   cloud:
     config:
       name: sql

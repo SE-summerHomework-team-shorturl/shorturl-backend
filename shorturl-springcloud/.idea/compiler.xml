@@ -6,20 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="addurl-service" />
-        <module name="config-server" />
-        <module name="misc" />
-        <module name="gateway" />
-        <module name="loginservice" />
-        <module name="admin-service" />
         <module name="userurl-service" />
-        <module name="redirect-service" />
-        <module name="auth-server" />
+        <module name="gateway" />
+        <module name="shared-entity" />
+        <module name="config-server" />
         <module name="register-service" />
         <module name="shorturl-springcloud" />
-        <module name="eureka" />
-        <module name="shared-entity" />
+        <module name="addurl-service" />
         <module name="statistic-service" />
+        <module name="loginservice" />
+        <module name="redirect-service" />
+        <module name="auth-server" />
+        <module name="admin-service" />
+        <module name="misc" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

@@ -1,25 +1,7 @@
 server:
   port: 8000
-
 spring:
   application:
     name: auth-server
-  cloud:
-    config:
-      name: sql
-      profile: prod
-      label: master
-      discovery:
-        enabled: true
-        service-id: config-server
-  redis:
-    host: localhost
-    port: 6379
-
-eureka:
-  client: #客户端注册进eureka服务列表内
-    service-url:
-      defaultZone: http://localhost:7001/eureka/
-    instance:
-      instance-id: auth-server  # 在eureka中显示对应的服务名字
-      prefer-ip-address: true
+  profiles:
+    active: dev

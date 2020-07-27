@@ -1,7 +1,8 @@
 server:
-  port: 8021
+  port: 8080
+
 spring:
   application:
-    name: userurl-service # 应用名称
+    name: gateway
   profiles:
     active: dev

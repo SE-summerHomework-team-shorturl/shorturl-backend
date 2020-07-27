@@ -9,6 +9,7 @@ import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.messaging.SubscribableChannel;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 
@@ -20,10 +21,9 @@ public class ReceiverService {
     private ShortUrlDao shortUrlDao;
     @StreamListener("dpb-exchange")
     public void onReceiver(Integer shortUrlId){
-        System.out.println("消费者:"+ shortUrlId);
+        //System.out.println("消费者:"+ shortUrlId);
         ShortUrl shortUrl = shortUrlDao.findById(shortUrlId);
         shortUrl.setClicks(shortUrl.getClicks()+1);
         shortUrlDao.saveAndFlush(shortUrl);
-
     }
 }
