@@ -1,0 +1,49 @@
+version: "3.8"
+services:
+  consul:
+    image: consul:latest
+    ports:
+      - "8500:8500"
+      - "8600:8600/udp"
+    command: agent -server -ui -node=server-1 -bootstrap-expect=1 -client=0.0.0.0
+  config:
+    build: ./short-url-config
+    network_mode: host
+    depends_on:
+      - consul
+  gateway:
+    build: ./short-url-gateway
+    network_mode: host
+    depends_on:
+      - consul
+      - config
+  redirect:
+    build: ./short-url-redirect
+    network_mode: host
+    depends_on:
+      - consul
+      - config
+  auth:
+    build: ./short-url-auth
+    network_mode: host
+    depends_on:
+      - consul
+      - config
+  user:
+    build: ./short-url-user
+    network_mode: host
+    depends_on:
+      - consul
+      - config
+  shortener:
+    build: ./short-url-shortener
+    network_mode: host
+    depends_on:
+      - consul
+      - config
+  manager:
+    build: ./short-url-manager
+    network_mode: host
+    depends_on:
+      - consul
+      - config
