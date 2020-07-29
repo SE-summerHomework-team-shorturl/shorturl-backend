@@ -18,3 +18,13 @@ spring:
           password: bayun3383youzi
           default-label: master
           search-paths: config-test-sjc/spring-cloud-nosql
+management:
+  endpoint:
+    health:
+      show-details: always
+    metrics:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'

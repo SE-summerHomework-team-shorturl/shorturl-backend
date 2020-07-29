@@ -6,6 +6,21 @@ services:
       - "8500:8500"
       - "8600:8600/udp"
     command: agent -server -ui -node=server-1 -bootstrap-expect=1 -client=0.0.0.0
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - type: bind
+        source: /root/prometheus/prometheus.yml
+        target: /etc/prometheus/prometheus.yml
+        read_only: true
+    ports:
+      - "9090:9090"
+    depends_on:
+      - consul
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
   config:
     build: ./short-url-config
     network_mode: host
