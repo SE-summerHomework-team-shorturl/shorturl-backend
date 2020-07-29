@@ -23,8 +23,6 @@ public class RedirectServiceImpl implements RedirectService {
         sendService.send().send(MessageBuilder
                 .withPayload(shortUrlId)
                 .build());
-   //     shortUrl.setClicks(shortUrl.getClicks()+1);
-     //   shortUrlDao.saveAndFlush(shortUrl);
         return shortUrl;
     }
 

@@ -18,16 +18,6 @@ import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
-import org.springframework.security.oauth2.common.OAuth2AccessToken;
-import org.springframework.security.oauth2.provider.OAuth2Authentication;
-import org.springframework.security.oauth2.provider.OAuth2Request;
-import org.springframework.security.oauth2.provider.token.TokenEnhancer;
-import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
@@ -56,7 +46,7 @@ class AddUrlControllerTest {
     private AddUrlService addUrlService;
 
     static public String test_token = "fake-token";
-
+/*
     @BeforeAll
     static public void beforeAll() {
         RedisStandaloneConfiguration config = new RedisStandaloneConfiguration("localhost", 6379);
@@ -106,5 +96,5 @@ class AddUrlControllerTest {
                 .andDo(MockMvcResultHandlers.print())
 
                 .andReturn();
-    }
+    }*/
 }

@@ -10,6 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,14 +23,16 @@ public class UserUrlServiceImpl implements UserUrlService {
 
     @Override
     public Message findAllMyShortUrls() {
-        Integer userId = ((UrlShortenerUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser().getId();
+        int userId = Integer.parseInt((String) ((Jwt) SecurityContextHolder.getContext()
+                .getAuthentication().getCredentials()).getClaims().get("user_name"));
         List<ShortUrl> shortUrls = shortUrlDao.findAllByUserId(userId);
         return new Message(Message.Success_Msg, shortUrls);
     }
 
     @Override
     public Message deleteMyShortUrlById(int id) {
-        Integer userId = ((UrlShortenerUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser().getId();
+        int userId = Integer.parseInt((String) ((Jwt) SecurityContextHolder.getContext()
+                .getAuthentication().getCredentials()).getClaims().get("user_name"));
         ShortUrl shortUrl = shortUrlDao.findById(id);
         if (shortUrl == null)
             return new Message(Message.No_URL_Msg, null);

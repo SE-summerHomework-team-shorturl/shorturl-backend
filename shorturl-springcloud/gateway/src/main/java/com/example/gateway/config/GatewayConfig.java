@@ -23,12 +23,13 @@ public class GatewayConfig {
                                         .addRequestParameter("grant_type", "password")
                                         .rewritePath("/login", "/oauth/token"))
                                 .uri("lb://auth-server/"))
+                /*
                 .route(r ->
                         r.path("/logout")
                                 .filters(f -> f
                                         .rewritePath("/logout", "/oauth/revoke_token")
                                 .dedupeResponseHeader("Access-Control-Allow-Origin","RETAIN_UNIQUE"))
-                                .uri("lb://auth-server/"))
+                                .uri("lb://auth-server/"))*/
                 .route(r ->
                         r.path("/urlmanage/addurl")
                                 .uri("lb://addurl-service/"))

@@ -36,22 +36,18 @@ class UserDetailServiceTest {
     @Test
     @Order(1)
     @DisplayName("shouldSuccessWhenRightToken")
-    void findShortUrlByToken() throws Exception {
-        String testToken="1";
-        int testId=1;
+    void findShortUrlByToken(){
         User user= new User();
         user.setId(1);
         user.setUsername("1");
         when(userDao.findOneByUsername("1")).thenReturn(user);
-        assertEquals(user,((UrlShortenerUserDetails)userDetailsService.loadUserByUsername("1")).getUser());
+        assertEquals("1", userDetailsService.loadUserByUsername("1").getUsername());
     }
 
     @Test
     @Order(2)
     @DisplayName("shouldExceptionWhenWrongToken")
-    void findShortUrlByTokenFailed() throws Exception {
-        String testToken="1";
-        int testId=1;
+    void findShortUrlByTokenFailed(){
         User user= new User();
         user.setId(1);
         user.setUsername("1");
