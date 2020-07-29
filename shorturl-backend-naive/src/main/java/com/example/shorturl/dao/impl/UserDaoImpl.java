@@ -8,7 +8,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class UserDaoImpl implements UserDao {
-    @Autowired private UserRepository userRepo;
+    @Autowired
+    private UserRepository userRepo;
 
     @Override
     public boolean existsByUsername(String username) {

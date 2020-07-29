@@ -12,10 +12,11 @@ import java.util.List;
 
 @Repository
 public class ShortUrlDaoImpl implements ShortUrlDao {
-    @Autowired private ShortUrlRepository shortUrlRepo;
+    @Autowired
+    private ShortUrlRepository shortUrlRepo;
 
     @Override
-    public ShortUrl findById(int id) {
+    public ShortUrl findById(long id) {
         return shortUrlRepo.findById(id).orElse(null);
     }
 
@@ -30,7 +31,9 @@ public class ShortUrlDaoImpl implements ShortUrlDao {
     }
 
     @Override
-    public void deleteById(int id) {
-        shortUrlRepo.deleteById(id);
+    public void deleteById(long id) {
+        try {
+            shortUrlRepo.deleteById(id);
+        } catch (Exception ignore) {}
     }
 }

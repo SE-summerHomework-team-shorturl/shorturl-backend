@@ -6,19 +6,19 @@ import com.example.shorturl.service.RedirectService;
 import com.example.shorturl.util.Base62Encoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional(rollbackFor = Exception.class)
 public class RedirectServiceImpl implements RedirectService {
-    @Autowired private ShortUrlDao shortUrlDao;
+    @Autowired
+    private ShortUrlDao shortUrlDao;
 
     @Override
+    @Transactional(isolation = Isolation.READ_COMMITTED, rollbackFor = Exception.class)
     public ShortUrl findShortUrlByToken(String token) throws Exception {
-        int shortUrlId = Base62Encoder.decode(token);
-        ShortUrl shortUrl = shortUrlDao.findById(shortUrlId);
-        if (shortUrl == null)
-            throw new Exception("Short url not found");
-        return shortUrl;
+        Base62Encoder base62Encoder = new Base62Encoder();
+        int shortUrlId = base62Encoder.decode(token);
+        return shortUrlDao.findById(shortUrlId);
     }
 }

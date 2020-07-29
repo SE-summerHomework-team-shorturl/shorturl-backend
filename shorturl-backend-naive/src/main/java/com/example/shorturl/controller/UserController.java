@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UserController {
-    @Autowired private UserService userService;
+    @Autowired
+    private UserService userService;
 
     @PostMapping(value = "/user/register")
     public Message register(@RequestBody User user) {

@@ -3,6 +3,7 @@ package com.example.shorturl.entity;
 import com.example.shorturl.util.Base62Encoder;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "`short_urls`")
@@ -11,7 +12,7 @@ public class ShortUrl {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic
     @Column(name = "`id`")
-    private Integer id;
+    private Long id;
 
     @Basic
     @Column(name = "`url`")
@@ -28,11 +29,11 @@ public class ShortUrl {
         this.userId = userId;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -52,7 +53,23 @@ public class ShortUrl {
         this.userId = userId;
     }
 
-    public String getToken() throws Exception {
-        return Base62Encoder.encode(id);
+    public String getToken() {
+        Base62Encoder base62Encoder = new Base62Encoder();
+        return base62Encoder.encode(id);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        ShortUrl shortUrl = (ShortUrl) o;
+        return id.equals(shortUrl.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

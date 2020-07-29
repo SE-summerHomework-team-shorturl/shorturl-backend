@@ -1,12 +1,12 @@
 package com.example.shorturl.util;
 
 public class Base62Encoder {
-    static public String encode(int num) throws Exception {
+    public String encode(long num) {
         if (num < 0)
-            throw new Exception("Input should be non-negative");
+            throw new IllegalArgumentException("num should be non-negative");
         StringBuilder builder = new StringBuilder();
         while (num > 0) {
-            int digit = num % 62;
+            long digit = num % 62;
             if (digit < 10)
                 builder.append((char) ('0' + digit));
             else if (digit < 36)
@@ -18,13 +18,13 @@ public class Base62Encoder {
         return builder.length() == 0 ? "0" : builder.reverse().toString();
     }
 
-    static public int decode(String token) throws Exception {
+    public int decode(String token) {
         int num = 0;
         int len = token.length();
         if (len == 0)
-            throw new Exception("The token is empty");
+            throw new IllegalArgumentException("token is empty");
         if (len > 1 && token.charAt(0) == '0')
-            throw new Exception("The token contains prefix zero");
+            throw new IllegalArgumentException("token contains prefix zero");
         for (int i = 0; i < len; ++i) {
             char c = token.charAt(i);
             num *= 62;
@@ -35,7 +35,7 @@ public class Base62Encoder {
             else if (c >= 'a' && c <= 'z')
                 num += (c - 'a') + 36;
             else
-                throw new Exception("The token contains invalid character");
+                throw new IllegalArgumentException("token contains invalid character");
         }
         return num;
     }

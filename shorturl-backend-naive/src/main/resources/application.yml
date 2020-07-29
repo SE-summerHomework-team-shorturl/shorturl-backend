@@ -1,0 +1,11 @@
+spring:
+  jpa:
+    database: mysql
+    open-in-view: false
+  datasource:
+    url: jdbc:mysql://100.24.238.9/short_url_db?serverTimezone=GMT
+    username: root
+    password: 741852
+    driver-class-name: com.mysql.cj.jdbc.Driver
+server:
+  port: 8080
