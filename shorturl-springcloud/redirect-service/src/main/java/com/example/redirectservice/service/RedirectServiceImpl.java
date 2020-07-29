@@ -18,7 +18,7 @@ public class RedirectServiceImpl implements RedirectService {
     private ISendeService sendService;
     @Override
     public ShortUrl findShortUrlByToken(String token) throws Exception {
-        int shortUrlId = Base62Encoder.decode(token);
+        long shortUrlId = Base62Encoder.decode(token);
         ShortUrl shortUrl = shortUrlDao.findById(shortUrlId);
         sendService.send().send(MessageBuilder
                 .withPayload(shortUrlId)

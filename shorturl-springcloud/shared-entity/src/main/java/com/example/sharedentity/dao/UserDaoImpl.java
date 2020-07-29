@@ -17,7 +17,6 @@ public class UserDaoImpl implements UserDao {
     @Autowired private UserRepository userRepo;
 
     @Override
-    @Cacheable(key="#username")
     public boolean existsByUsername(String username) {
         return userRepo.existsByUsername(username);
     }
@@ -29,7 +28,6 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    @CachePut(key="#user.getUsername()")
     public void save(User user) {
         userRepo.save(user);
     }

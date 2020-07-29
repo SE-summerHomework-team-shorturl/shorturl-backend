@@ -22,30 +22,28 @@ public class ShortUrlDaoImpl implements ShortUrlDao {
 
     @Override
     @Cacheable(key="#id")
-    public ShortUrl findById(int id) {
+    public ShortUrl findById(long id) {
         return shortUrlRepo.findById(id).orElse(null);
     }
 
     @Override
-    public List<ShortUrl> findAllByUserId(int userId) {
+    public List<ShortUrl> findAllByUserId(long userId) {
         return shortUrlRepo.findAllByUserId(userId);
     }
 
     @Override
-    @CachePut(key="#shortUrl.getId()")
     public ShortUrl saveAndFlush(ShortUrl shortUrl) {
         return shortUrlRepo.saveAndFlush(shortUrl);
     }
 
     @Override
-    @CachePut(key="#shortUrl.getId()")
     public ShortUrl save(ShortUrl shortUrl) {
         return shortUrlRepo.save(shortUrl);
     }
 
     @Override
     @CacheEvict(key="#id")
-    public void deleteById(int id) {
+    public void deleteById(long id) {
         shortUrlRepo.deleteById(id);
     }
 

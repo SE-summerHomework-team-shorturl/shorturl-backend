@@ -21,7 +21,6 @@ public class RegisterServiceImpl implements RegisterService {
         User user = new User();
         user.setEmail(map.get("email"));
         user.setUsername(map.get("username"));
-
         user.setPassword(new BCryptPasswordEncoder().encode(map.get("password")));
 
         if (userDao.existsByUsername(user.getUsername()))

@@ -25,7 +25,7 @@ public class MyUserDetailsService implements UserDetailsService {
     @Transactional(isolation = Isolation.READ_COMMITTED, rollbackFor = Exception.class)
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         User user = new User();
-        user.setId(1);
+        user.setId(1L);
         user.setUsername("test");
         user.setPassword("test");
         user.setAdmin(false);

@@ -52,7 +52,7 @@ class AdminServiceTest {
     @DisplayName("returnSucessWhenRightFindUsers")
     void findAllUsers() throws Exception {
         List<User> users = new ArrayList<User>();
-        users.add(new User(1,"bill","1234","bill@1234.com",false));
+        users.add(new User(1L,"bill","1234","bill@1234.com",false));
         when(userDao.findAll()).thenReturn(users);
         assertEquals(Message.Success_Msg,adminService.findAllUsers().getStatus());
         assertEquals(users,adminService.findAllUsers().getBody());
@@ -62,7 +62,7 @@ class AdminServiceTest {
     @DisplayName("returnSucessWhenRightFindShortUrls")
     void findAllShortUrls() throws Exception {
         List<ShortUrl> shorturls = new ArrayList<ShortUrl>();
-        shorturls.add(new ShortUrl(1,"http://www.baidu.com",1));
+        shorturls.add(new ShortUrl(1L,"http://www.baidu.com",1L));
         when(shortUrlDao.findAll()).thenReturn(shorturls);
         assertEquals(Message.Success_Msg,adminService.findAllShortUrls().getStatus());
         assertEquals(shorturls,adminService.findAllShortUrls().getBody());

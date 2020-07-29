@@ -45,7 +45,7 @@ class RedirectControllerTest {
     void test1() throws Exception {
         String testToken="1";
         String testUrl="http://www.baidu.com";
-        ShortUrl shortUrl= new ShortUrl(testUrl,1);
+        ShortUrl shortUrl= new ShortUrl(testUrl,1L);
         when( redirectService.findShortUrlByToken(testToken)).thenReturn(shortUrl);
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/r/1"))
                .andExpect(MockMvcResultMatchers.status().is3xxRedirection())

@@ -38,7 +38,7 @@ class UserDetailServiceTest {
     @DisplayName("shouldSuccessWhenRightToken")
     void findShortUrlByToken(){
         User user= new User();
-        user.setId(1);
+        user.setId(1L);
         user.setUsername("1");
         when(userDao.findOneByUsername("1")).thenReturn(user);
         assertEquals("1", userDetailsService.loadUserByUsername("1").getUsername());
@@ -49,7 +49,7 @@ class UserDetailServiceTest {
     @DisplayName("shouldExceptionWhenWrongToken")
     void findShortUrlByTokenFailed(){
         User user= new User();
-        user.setId(1);
+        user.setId(1L);
         user.setUsername("1");
         when(userDao.findOneByUsername("1")).thenReturn(null);
         Throwable exception = assertThrows(Exception.class, ()->userDetailsService.loadUserByUsername("1"));
