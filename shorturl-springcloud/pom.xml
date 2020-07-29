@@ -46,7 +46,6 @@
 		</plugins>
 	</build>
 <modules>
-	<module>eureka</module>
 	<module>config-server</module>
 	<module>auth-server</module>
 	<module>gateway</module>
