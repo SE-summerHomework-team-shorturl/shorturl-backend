@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    consul:
+      host: 47.102.118.113
+      port: 8500
+      discovery:
+        instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+        prefer-ip-address: true
+    config:
+      discovery:
+        enabled: true
+        service-id: config
