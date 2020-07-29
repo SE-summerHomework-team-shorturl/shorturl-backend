@@ -21,7 +21,6 @@ public class ReceiverService {
     private ShortUrlDao shortUrlDao;
     @StreamListener("dpb-exchange")
     public void onReceiver(Integer shortUrlId){
-        //System.out.println("消费者:"+ shortUrlId);
         ShortUrl shortUrl = shortUrlDao.findById(shortUrlId);
         shortUrl.setClicks(shortUrl.getClicks()+1);
         shortUrlDao.saveAndFlush(shortUrl);

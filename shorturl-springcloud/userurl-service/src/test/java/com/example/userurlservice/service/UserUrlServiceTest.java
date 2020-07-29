@@ -53,7 +53,7 @@ class UserUrlServiceTest {
     void addToUserShortUrls() throws Exception {
         String testUrl="http://www.baidu.com";
         List<ShortUrl> shortUrls = new ArrayList<ShortUrl>();
-        shortUrls.add(0,new ShortUrl(1,testUrl,1));
+        shortUrls.add(0,new ShortUrl(1L,testUrl,1L));
         when(shortUrlDao.findAllByUserId(1)).thenReturn(shortUrls);
         List<ShortUrl> afterUrls=(List<ShortUrl>)(userUrlService.findAllMyShortUrls()).getBody();
         assertEquals(shortUrls, afterUrls);
@@ -64,7 +64,7 @@ class UserUrlServiceTest {
     @WithUserDetails(value = "test",userDetailsServiceBeanName = "userDetailsService")
     void deleteUserShortUrlsSuccess() {
         String testUrl="http://www.baidu.com";
-        ShortUrl shortUrl = new ShortUrl(1,testUrl,1);
+        ShortUrl shortUrl = new ShortUrl(1L,testUrl,1L);
         when(shortUrlDao.findById(1)).thenReturn(shortUrl);
         String status=userUrlService.deleteMyShortUrlById(1).getStatus();
         assertEquals(Message.Success_Msg, status);
@@ -75,7 +75,7 @@ class UserUrlServiceTest {
     @WithUserDetails(value = "test",userDetailsServiceBeanName = "userDetailsService")
     void deleteUserShortUrlsFailed() {
         String testUrl="http://www.baidu.com";
-        ShortUrl shortUrl = new ShortUrl(1,testUrl,1);
+        ShortUrl shortUrl = new ShortUrl(1L,testUrl,1L);
         when(shortUrlDao.findById(1)).thenReturn(null);
         String status=userUrlService.deleteMyShortUrlById(1).getStatus();
         assertEquals(Message.No_URL_Msg, status);
@@ -86,7 +86,7 @@ class UserUrlServiceTest {
     @WithUserDetails(value = "test",userDetailsServiceBeanName = "userDetailsService")
     void deleteUserShortUrlsOthers() {
         String testUrl="http://www.baidu.com";
-        ShortUrl shortUrl = new ShortUrl(1,testUrl,2);
+        ShortUrl shortUrl = new ShortUrl(1L,testUrl,2L);
         when(shortUrlDao.findById(1)).thenReturn(shortUrl);
         String status=userUrlService.deleteMyShortUrlById(1).getStatus();
         assertEquals(Message.Not_Your_URL_Msg, status);
