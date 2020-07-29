@@ -6,7 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
-import static org.mockito.Mockito.when;
+
+import static org.mockito.Mockito.*;
 
 @SpringBootTest
 @ActiveProfiles("test")
@@ -24,5 +25,6 @@ class ReceiverServiceTest {
         when(shortUrlDao.findById(1)).thenReturn(testUrl);
         when(shortUrlDao.saveAndFlush(testUrl2)).thenReturn(testUrl2);
         receiverService.onReceiver(1);
+        verify(shortUrlDao, times(1)).saveAndFlush(testUrl2);
     }
 }
