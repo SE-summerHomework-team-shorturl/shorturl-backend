@@ -25,7 +25,7 @@ class ReceiverServiceTest {
         testUrl2.setClicks(1);
         when(shortUrlDao.findById(1)).thenReturn(testUrl);
         when(shortUrlDao.saveAndFlush(testUrl2)).thenReturn(testUrl2);
-        receiverService.onReceiver(1);
+        receiverService.onReceiver(1L);
         verify(shortUrlDao, times(1)).saveAndFlush(testUrl2);
          */
     }
