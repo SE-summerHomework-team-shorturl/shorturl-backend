@@ -33,7 +33,7 @@ public class AddUrlServiceImpl implements AddUrlService {
         IdWorker idWorker = dataCenter.pickAnIdWorker();
         long shortUrlId = idWorker.nextId();
         ShortUrl shortUrl = new ShortUrl(shortUrlId,url,userId);
-        shortUrl = shortUrlDao.saveAndFlush(shortUrl);
+        shortUrl = shortUrlDao.addAndFlush(shortUrl);
         return new Message(Message.Success_Msg, shortUrl);
     }
 }
