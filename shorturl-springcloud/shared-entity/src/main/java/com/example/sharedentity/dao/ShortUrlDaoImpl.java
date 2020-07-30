@@ -42,6 +42,11 @@ public class ShortUrlDaoImpl implements ShortUrlDao {
     }
 
     @Override
+    public List<ShortUrl> saveAll(List<ShortUrl> shortUrls) {
+        return shortUrlRepo.saveAll(shortUrls);
+    }
+
+    @Override
     @CacheEvict(key="#id")
     public void deleteById(long id) {
         shortUrlRepo.deleteById(id);
