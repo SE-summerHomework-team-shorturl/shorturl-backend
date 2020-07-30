@@ -1,6 +1,8 @@
 package com.example.sharedentity.entity;
 
 import com.example.sharedentity.util.Base62Encoder;
+import org.hibernate.annotations.GenericGenerator;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,6 +13,8 @@ import java.util.Objects;
 public class ShortUrl implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.AUTO, generator = "custom-id")
+    //@GenericGenerator(name = "custom-id", strategy = "com.example.sharedentity.util.IdGenerator")
     @Basic
     @Column(name = "`id`")
     private Long id;

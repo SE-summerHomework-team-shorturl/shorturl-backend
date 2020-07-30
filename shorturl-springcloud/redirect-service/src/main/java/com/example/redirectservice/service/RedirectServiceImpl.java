@@ -3,17 +3,16 @@ package com.example.redirectservice.service;
 import com.example.sharedentity.dao.ShortUrlDao;
 import com.example.sharedentity.entity.ShortUrl;
 import com.example.sharedentity.util.Base62Encoder;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.messaging.SubscribableChannel;
 import org.springframework.messaging.support.MessageBuilder;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.*;
-import javax.swing.Timer;
 
 @Service
 @Transactional(rollbackFor = Exception.class)
@@ -33,7 +32,7 @@ public class RedirectServiceImpl implements RedirectService {
             threadStorage = new ThreadLocal<>();
         ArrayList<Long> payloadList = threadStorage.get();
         if(payloadList == null) {
-            System.out.println("Current Thread is"+Thread.currentThread().getId());
+            System.out.println("Current Thread is "+Thread.currentThread().getId());
             payloadList = new ArrayList<>();
             threadStorage.set(payloadList);
         }
@@ -47,18 +46,4 @@ public class RedirectServiceImpl implements RedirectService {
         }
         return shortUrl;
     }
-    /*
-    @Scheduled(fixedDelay = 5000)
-    void sendListMessage()
-    {
-        if(threadStorage == null) return;
-        ArrayList<Long> payloadList = threadStorage.get();
-        if(payloadList == null) return;
-        System.out.println(payloadList.size());
-        sendService.send().send(MessageBuilder
-                .withPayload(payloadList)
-                .build());
-        payloadList.clear();
-        threadStorage.set(payloadList);
-    }*/
 }

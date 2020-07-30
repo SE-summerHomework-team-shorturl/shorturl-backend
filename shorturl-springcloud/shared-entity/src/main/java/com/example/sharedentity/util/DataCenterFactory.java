@@ -1,4 +1,4 @@
-package com.example.addurlservice.misc;
+package com.example.sharedentity.util;
 
 import com.example.sharedentity.util.DataCenter;
 import org.springframework.beans.factory.DisposableBean;
@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-@SuppressWarnings("all")
 public class DataCenterFactory implements DisposableBean {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
