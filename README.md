@@ -39,3 +39,8 @@ statistic-service | 数据统计服务 |:8051
 * 数据可视化：grafana
 
   默认端口:3000
+
+---
+
+对应sql和postman测试脚本：
+>\docs 
