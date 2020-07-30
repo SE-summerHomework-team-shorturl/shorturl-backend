@@ -7,6 +7,8 @@ import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 @CacheConfig(cacheNames={"statistics"})
 public class UrlStatisticDaoImpl implements UrlStatisticDao{
@@ -20,5 +22,10 @@ public class UrlStatisticDaoImpl implements UrlStatisticDao{
     @Override
     public UrlStatistic save(UrlStatistic urlStatistic) {
         return statisticRepo.save(urlStatistic);
+    }
+
+    @Override
+    public List<UrlStatistic> saveAll(List<UrlStatistic> urlStatistics) {
+        return statisticRepo.saveAll(urlStatistics);
     }
 }

@@ -22,6 +22,7 @@ import java.util.List;
 public class ShortUrlDaoImpl implements ShortUrlDao {
     @Autowired private ShortUrlRepository shortUrlRepo;
     @Autowired private UrlStatisticRepository statisticRepo;
+
     @Override
     @Cacheable(key="#id")
     public ShortUrl findById(long id) {

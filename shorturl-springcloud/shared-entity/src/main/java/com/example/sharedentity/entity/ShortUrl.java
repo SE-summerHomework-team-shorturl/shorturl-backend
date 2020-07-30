@@ -23,8 +23,7 @@ public class ShortUrl implements Serializable {
     @Column(name = "`user`")
     private Long userId;
 
-    @Basic
-    @Column(name = "`clicks`")
+    @Transient
     private Integer clicks;
 
     public ShortUrl() {
