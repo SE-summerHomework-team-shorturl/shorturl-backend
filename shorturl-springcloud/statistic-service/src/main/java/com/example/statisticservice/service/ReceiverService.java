@@ -32,6 +32,7 @@ public class ReceiverService {
 
     @StreamListener("dpb-exchange")
     public void onReceiver(Long shortUrlId) {
+        //System.out.println(Thread.currentThread().getId());
         idList.add(shortUrlId);
         if (idList.size()>=100) saveToDB();
     }
