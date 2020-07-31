@@ -36,7 +36,7 @@ public class UserUrlServiceImpl implements UserUrlService {
         ShortUrl shortUrl = shortUrlDao.findById(id);
         if (shortUrl == null)
             return new Message(Message.No_URL_Msg, null);
-        if (!shortUrl.getUserId().equals(userId))
+        if (shortUrl.getUserId() != userId)
             return new Message(Message.Not_Your_URL_Msg, null);
         shortUrlDao.deleteById(id);
         return new Message(Message.Success_Msg, null);

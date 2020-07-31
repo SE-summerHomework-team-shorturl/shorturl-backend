@@ -1,11 +1,17 @@
 package com.example.statisticservice.service;
 
 import com.example.sharedentity.dao.ShortUrlDao;
+import com.example.sharedentity.dao.UrlStatisticDao;
 import com.example.sharedentity.entity.ShortUrl;
+import com.example.sharedentity.entity.UrlStatistic;
+import io.micrometer.core.instrument.Statistic;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.mockito.Mockito.*;
 
@@ -15,18 +21,21 @@ class ReceiverServiceTest {
     @Autowired
     ReceiverService receiverService;
     @MockBean
-    private ShortUrlDao shortUrlDao;
+    private UrlStatisticDao statisticDao;
     @Test
     void onReceiver() {
-        /*
-        ShortUrl testUrl= new ShortUrl(1L,"test1.com",1L);
-        testUrl.setClicks(0);
-        ShortUrl testUrl2= new ShortUrl(1L,"test1.com",1L);
-        testUrl2.setClicks(1);
-        when(shortUrlDao.findById(1)).thenReturn(testUrl);
-        when(shortUrlDao.saveAndFlush(testUrl2)).thenReturn(testUrl2);
+
+        UrlStatistic testUrl= new UrlStatistic(1L);
+        UrlStatistic testUrl2= new UrlStatistic(1L);
+        testUrl2.setClicks(100);
+        List<UrlStatistic> lists = new ArrayList<>();
+        lists.add(testUrl2);
+        when(statisticDao.findById(1L)).thenReturn(testUrl);
+        when(statisticDao.saveAll(any())).thenReturn(lists);
+        for(int i=0;i<99;i++)
+            receiverService.onReceiver(1L);
+        verify(statisticDao, times(0)).saveAll(any());
         receiverService.onReceiver(1L);
-        verify(shortUrlDao, times(1)).saveAndFlush(testUrl2);
-         */
+        verify(statisticDao, times(1)).saveAll(any());
     }
 }
