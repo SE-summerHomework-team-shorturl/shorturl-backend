@@ -68,7 +68,7 @@ class AddUrlServiceTest {
     @WithUserDetails(value = "test",userDetailsServiceBeanName = "userDetailsService")
     void addToUserShortUrls() throws Exception {
         String testUrl="http://www.baidu.com";
-        ShortUrl shortUrl=new ShortUrl(testUrl,1);
+        ShortUrl shortUrl=new ShortUrl(testUrl,1L);
         when(shortUrlDao.saveAndFlush(shortUrl)).thenReturn(shortUrl);
         Message retMessage = addUrlService.addToMyShortUrls(testUrl);
         assertEquals(Message.Success_Msg, retMessage.getStatus());
@@ -81,7 +81,7 @@ class AddUrlServiceTest {
     @WithUserDetails(value = "test",userDetailsServiceBeanName = "userDetailsService")
     void test2() throws Exception {
         String testUrl="www.baidu.com";
-        ShortUrl shortUrl=new ShortUrl(testUrl,1);
+        ShortUrl shortUrl=new ShortUrl(testUrl,1L);
         when(shortUrlDao.saveAndFlush(shortUrl)).thenReturn(shortUrl);
         Message retMessage = addUrlService.addToMyShortUrls(testUrl);
         assertEquals(Message.Invalid_Url_Msg, retMessage.getStatus());

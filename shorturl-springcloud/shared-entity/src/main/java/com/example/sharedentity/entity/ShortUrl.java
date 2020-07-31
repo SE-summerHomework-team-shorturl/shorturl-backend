@@ -1,6 +1,8 @@
 package com.example.sharedentity.entity;
 
 import com.example.sharedentity.util.Base62Encoder;
+import org.hibernate.annotations.GenericGenerator;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,9 +13,11 @@ import java.util.Objects;
 public class ShortUrl implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.AUTO, generator = "custom-id")
+    //@GenericGenerator(name = "custom-id", strategy = "com.example.sharedentity.util.IdGenerator")
     @Basic
     @Column(name = "`id`")
-    private Integer id;
+    private Long id;
 
     @Basic
     @Column(name = "`url`")
@@ -21,27 +25,26 @@ public class ShortUrl implements Serializable {
 
     @Basic
     @Column(name = "`user`")
-    private Integer userId;
+    private Long userId;
 
-    @Basic
-    @Column(name = "`clicks`")
+    @Transient
     private Integer clicks;
 
     public ShortUrl() {
         this.clicks = 0;
     }
 
-    public ShortUrl(String url, Integer userId) {
+    public ShortUrl(String url, Long userId) {
         this.url = url;
         this.userId = userId;
         this.clicks = 0;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -53,11 +56,11 @@ public class ShortUrl implements Serializable {
         this.url = url;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
@@ -65,20 +68,11 @@ public class ShortUrl implements Serializable {
         return Base62Encoder.encode(id);
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ShortUrl shortUrl = (ShortUrl) o;
-        return Objects.equals(id, shortUrl.id) &&
-                Objects.equals(url, shortUrl.url) &&
-                Objects.equals(userId, shortUrl.userId);
-    }
-
-    public ShortUrl(Integer id, String url, Integer userId) {
+    public ShortUrl(Long id, String url, Long userId) {
         this.id = id;
         this.url = url;
         this.userId = userId;
+        this.clicks = 0;
     }
 
     public Integer getClicks() {
@@ -90,7 +84,24 @@ public class ShortUrl implements Serializable {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ShortUrl shortUrl = (ShortUrl) o;
+
+        if (id != null ? !id.equals(shortUrl.id) : shortUrl.id != null) return false;
+        if (url != null ? !url.equals(shortUrl.url) : shortUrl.url != null) return false;
+        if (userId != null ? !userId.equals(shortUrl.userId) : shortUrl.userId != null) return false;
+        return clicks != null ? clicks.equals(shortUrl.clicks) : shortUrl.clicks == null;
+    }
+
+    @Override
     public int hashCode() {
-        return Objects.hash(id, url, userId);
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (url != null ? url.hashCode() : 0);
+        result = 31 * result + (userId != null ? userId.hashCode() : 0);
+        result = 31 * result + (clicks != null ? clicks.hashCode() : 0);
+        return result;
     }
 }

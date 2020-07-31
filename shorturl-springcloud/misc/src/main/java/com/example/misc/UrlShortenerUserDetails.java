@@ -23,16 +23,11 @@ public class UrlShortenerUserDetails implements UserDetails {
         this.user = user;
     }
 
-    public User getUser() {
-        return user;
-    }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if (user.getAdmin())
-            return Collections.singletonList(new SimpleGrantedAuthority("ADMIN"));
-        else
-            return Collections.emptyList();
+        return user.getAdmin() ?
+                Collections.singletonList(new SimpleGrantedAuthority("ADMIN")) :
+                Collections.emptyList();
     }
 
     @Override
@@ -42,7 +37,7 @@ public class UrlShortenerUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return user.getUsername();
+        return user.getId().toString();
     }
 
     @Override
