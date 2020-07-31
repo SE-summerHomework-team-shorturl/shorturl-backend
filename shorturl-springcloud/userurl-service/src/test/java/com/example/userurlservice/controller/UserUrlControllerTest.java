@@ -24,6 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.HashMap;
 import java.util.HashSet;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 @AutoConfigureMockMvc
@@ -32,73 +33,25 @@ import static org.mockito.Mockito.when;
 @Transactional
 class UserUrlControllerTest{
     @Autowired
-    private MockMvc mockMvc;
+    private UserUrlController userUrlController;
     @MockBean
     private UserUrlService userUrlService;
-    static public String test_token = "fake-token";
-    /*
-    @BeforeAll
-    static public void beforeAll() {
-        RedisStandaloneConfiguration config = new RedisStandaloneConfiguration("localhost", 6379);
-        JedisConnectionFactory factory = new JedisConnectionFactory(config);
-        StringRedisTemplate template = new StringRedisTemplate(factory);
-        for (String key : template.keys("*"))
-            template.delete(key);
-        RedisTokenStore store = new RedisTokenStore(factory);
-        OAuth2AccessToken token = new DefaultOAuth2AccessToken(test_token);
-        User user = new User();
-        user.setId((int) 1L);
-        user.setUsername("bill");
-        user.setPassword("1234");
-        user.setEmail("bill@example.com");
-        user.setAdmin(false);
-        Authentication userAuth = new MyAuthentication(user);
-        OAuth2Request request = new OAuth2Request(new HashMap<>(), "client", new HashSet<>(),
-                true, new HashSet<>(), new HashSet<>(), "", new HashSet<>(), new HashMap<>());
-        OAuth2Authentication oauth = new OAuth2Authentication(request, userAuth);
-        TokenEnhancer enhancer = new UrlShortenerTokenEnhancer();
-        token = enhancer.enhance(token, oauth);
-        store.storeAccessToken(token, oauth);
-    }
-    @BeforeEach
-    void setUp() {
-    }
-
-    @AfterEach
-    void tearDown() {
-    }
 
     @Test
     @DisplayName("shouldSuccessWhenRightInput")
     void findAllMyShortUrls() throws Exception {
-        int userId=1;
         String testInfo="test info";
-        when( userUrlService.findAllMyShortUrls()).thenReturn(new Message(testInfo,null));
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/urlmanage/findurl")
-                .param("userId",String.valueOf(userId))
-                .header("Authorization", "Bearer " + test_token)
-                .contentType(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("status").value(testInfo))
-                .andDo(MockMvcResultHandlers.print())
-                .andReturn();
+        Message testMsg = new Message(testInfo,"test 1");
+        when(userUrlService.findAllMyShortUrls()).thenReturn(testMsg);
+        assertEquals(userUrlController.findAllMyShortUrls(), testMsg);
     }
 
     @Test
     @DisplayName("shouldSuccessWhenRightInput")
     void deleteMyShortUrlById() throws Exception {
-        int id=1;
         String testInfo="test info";
-        when( userUrlService.deleteMyShortUrlById(id)).thenReturn(new Message(testInfo,null));
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/urlmanage/deleteurl")
-                .param("id",String.valueOf(id))
-                .header("Authorization", "Bearer " + test_token)
-                .contentType(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("status").value(testInfo))
-                .andDo(MockMvcResultHandlers.print())
-                .andReturn();
-    }*/
+        Message testMsg = new Message(testInfo,"test 2");
+        when(userUrlService.deleteMyShortUrlById(1L)).thenReturn(testMsg);
+        assertEquals(userUrlController.deleteMyShortUrlById(1L), testMsg);
+    }
 }

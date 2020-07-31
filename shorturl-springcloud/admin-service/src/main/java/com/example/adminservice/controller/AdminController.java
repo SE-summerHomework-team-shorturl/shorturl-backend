@@ -28,7 +28,7 @@ public class AdminController {
 
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping(value = "/admin/deleteurl")
-    public Message deleteShortUrlById(@RequestParam Integer id){
+    public Message deleteShortUrlById(@RequestParam long id){
         return adminService.deleteShortUrlById(id);
     }
 }

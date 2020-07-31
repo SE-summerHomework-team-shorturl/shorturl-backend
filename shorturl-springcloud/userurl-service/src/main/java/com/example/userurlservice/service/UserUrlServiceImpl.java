@@ -27,7 +27,7 @@ public class UserUrlServiceImpl implements UserUrlService {
     }
 
     @Override
-    public Message deleteMyShortUrlById(int id) {
+    public Message deleteMyShortUrlById(long id) {
         int userId = Integer.parseInt((String) ((Jwt) SecurityContextHolder.getContext()
                 .getAuthentication().getCredentials()).getClaims().get("user_name"));
         ShortUrl shortUrl = shortUrlDao.findById(id);

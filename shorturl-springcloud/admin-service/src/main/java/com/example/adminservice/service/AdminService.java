@@ -5,5 +5,5 @@ import com.example.sharedentity.dto.Message;
 public interface AdminService {
     Message findAllUsers();
     Message findAllShortUrls();
-    Message deleteShortUrlById(Integer id);
+    Message deleteShortUrlById(long id);
 }

@@ -4,6 +4,7 @@ import com.example.adminservice.service.AdminService;
 import com.example.sharedentity.dto.Message;
 import com.example.sharedentity.entity.User;
 import org.junit.jupiter.api.*;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,6 +14,9 @@ import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.jwt.Jwt;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -21,9 +25,10 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashMap;
-import java.util.HashSet;
+import java.time.Instant;
+import java.util.*;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 @AutoConfigureMockMvc
@@ -32,86 +37,37 @@ import static org.mockito.Mockito.when;
 @Transactional
 class AdminControllerTest {
     @Autowired
-    private MockMvc mockMvc;
+    private AdminController adminController;
     @MockBean
     private AdminService adminService;
-    static public String test_token = "fake-token";
-    /*
-    @BeforeAll
-    static public void beforeAll() {
-        RedisStandaloneConfiguration config = new RedisStandaloneConfiguration("localhost", 6379);
-        JedisConnectionFactory factory = new JedisConnectionFactory(config);
-        StringRedisTemplate template = new StringRedisTemplate(factory);
-        for (String key : template.keys("*"))
-            template.delete(key);
-        RedisTokenStore store = new RedisTokenStore(factory);
-        OAuth2AccessToken token = new DefaultOAuth2AccessToken(test_token);
-        User user = new User();
-        user.setId((int) 1L);
-        user.setUsername("bill");
-        user.setPassword("1234");
-        user.setEmail("bill@example.com");
-        user.setAdmin(true);
-        Authentication userAuth = new MyAuthentication(user);
-        OAuth2Request request = new OAuth2Request(new HashMap<>(), "client", new HashSet<>(),
-                true, new HashSet<>(), new HashSet<>(), "", new HashSet<>(), new HashMap<>());
-        OAuth2Authentication oauth = new OAuth2Authentication(request, userAuth);
-        TokenEnhancer enhancer = new UrlShortenerTokenEnhancer();
-        token = enhancer.enhance(token, oauth);
-        store.storeAccessToken(token, oauth);
-    }
-    @BeforeEach
-    void setUp() {
-    }
-
-    @AfterEach
-    void tearDown() {
-    }
-
+    
     @Test
+    @WithMockUser(authorities ="ROLE_ADMIN")
     @DisplayName("shouldSuccessWhenRightInput")
     void findAllShortUrls() throws Exception {
         String testInfo="test info";
-        when( adminService.findAllShortUrls()).thenReturn(new Message(testInfo,null));
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/admin/findurl")
-                .header("Authorization", "Bearer " + test_token)
-                .contentType(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("status").value(testInfo))
-                .andDo(MockMvcResultHandlers.print())
-                .andReturn();
+        Message testMsg = new Message(testInfo,"test 1");
+        when( adminService.findAllShortUrls()).thenReturn(testMsg);
+        assertEquals(adminController.findAllShortUrls(),testMsg);
     }
 
     @Test
+    @WithMockUser(authorities ="ROLE_ADMIN")
     @DisplayName("shouldSuccessWhenRightInput")
     void findAllUsers() throws Exception {
         String testInfo="test info";
-        when( adminService.findAllUsers()).thenReturn(new Message(testInfo,null));
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/admin/finduser")
-                .header("Authorization", "Bearer " + test_token)
-                .contentType(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("status").value(testInfo))
-                .andDo(MockMvcResultHandlers.print())
-                .andReturn();
+        Message testMsg = new Message(testInfo,"test 2");
+        when( adminService.findAllUsers()).thenReturn(testMsg);
+        assertEquals(adminController.findAllUsers(),testMsg);
     }
 
     @Test
+    @WithMockUser(authorities ="ROLE_ADMIN")
     @DisplayName("shouldSuccessWhenRightInput")
     void deleteShortUrlById() throws Exception {
-        int id=1;
         String testInfo="test info";
-        when(adminService.deleteShortUrlById(id)).thenReturn(new Message(testInfo,null));
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/admin/deleteurl")
-                .param("id",String.valueOf(id))
-                .header("Authorization", "Bearer " + test_token)
-                .contentType(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("status").value(testInfo))
-                .andDo(MockMvcResultHandlers.print())
-                .andReturn();
-    }*/
+        Message testMsg = new Message(testInfo,"test 3");
+        when( adminService.deleteShortUrlById(1L)).thenReturn(testMsg);
+        assertEquals(adminController.deleteShortUrlById(1L),testMsg);
+    }
 }

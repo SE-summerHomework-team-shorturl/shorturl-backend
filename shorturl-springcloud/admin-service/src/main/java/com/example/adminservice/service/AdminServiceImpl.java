@@ -32,7 +32,7 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public Message deleteShortUrlById(Integer id) {
+    public Message deleteShortUrlById(long id) {
         shortUrlDao.deleteById(id);
         return new Message(Message.Success_Msg, null);
     }
