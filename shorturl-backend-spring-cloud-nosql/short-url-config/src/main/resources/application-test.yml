@@ -1,11 +1,11 @@
 server:
-  port: 0
+  port: 8080
 spring:
   application:
     name: config
   cloud:
     consul:
-      host: 47.102.118.113
+      host: consul
       port: 8500
       discovery:
         instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
@@ -27,4 +27,4 @@ management:
   endpoints:
     web:
       exposure:
-        include: '*'
+        include: "*"

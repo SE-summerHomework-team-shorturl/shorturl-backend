@@ -1,11 +1,9 @@
 package com.example.shorturl.user.service;
 
+import com.example.shorturl.user.dao.SequenceDao;
 import com.example.shorturl.user.dao.UserDao;
 import com.example.shorturl.user.entity.User;
-import com.example.shorturl.user.misc.DataCenterFactory;
 import com.example.shorturl.util.dto.Message;
-import com.example.shorturl.util.misc.DataCenter;
-import com.example.shorturl.util.misc.IdWorker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -15,13 +13,11 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
     @Autowired
-    private DataCenterFactory dataCenterFactory;
+    private SequenceDao sequenceDao;
 
     @Override
     public Message register(User user) {
-        DataCenter dataCenter = dataCenterFactory.getInstance();
-        IdWorker idWorker = dataCenter.pickAnIdWorker();
-        long userId = idWorker.nextId();
+        long userId = sequenceDao.addAndGetByName("user_id");
 
         user.setId(userId);
         user.setAdmin(false);

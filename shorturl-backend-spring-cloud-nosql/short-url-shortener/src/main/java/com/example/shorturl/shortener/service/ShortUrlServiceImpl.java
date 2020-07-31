@@ -1,11 +1,9 @@
 package com.example.shorturl.shortener.service;
 
-import com.example.shorturl.shortener.dao.ShortUrlDao;
+import com.example.shorturl.shortener.dao.SequenceDao;
 import com.example.shorturl.shortener.entity.ShortUrl;
-import com.example.shorturl.shortener.misc.DataCenterFactory;
 import com.example.shorturl.util.dto.Message;
-import com.example.shorturl.util.misc.DataCenter;
-import com.example.shorturl.util.misc.IdWorker;
+import com.example.shorturl.shortener.dao.ShortUrlDao;
 import org.apache.commons.validator.routines.UrlValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,7 +15,7 @@ public class ShortUrlServiceImpl implements ShortUrlService {
     @Autowired
     private ShortUrlDao shortUrlDao;
     @Autowired
-    private DataCenterFactory dataCenterFactory;
+    private SequenceDao sequenceDao;
 
     @Override
     public Message addToMyShortUrls(String url) {
@@ -28,9 +26,7 @@ public class ShortUrlServiceImpl implements ShortUrlService {
         if (!urlValidator.isValid(url))
             return new Message("INVALID_URL", null);
 
-        DataCenter dataCenter = dataCenterFactory.getInstance();
-        IdWorker idWorker = dataCenter.pickAnIdWorker();
-        long shortUrlId = idWorker.nextId();
+        long shortUrlId = sequenceDao.addAndGetByName("short_url_id");
 
         ShortUrl shortUrl = new ShortUrl();
         shortUrl.setId(shortUrlId);
