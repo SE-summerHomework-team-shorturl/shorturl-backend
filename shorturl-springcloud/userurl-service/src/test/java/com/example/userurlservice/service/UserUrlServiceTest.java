@@ -8,20 +8,27 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.*;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.Instant;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
@@ -38,11 +45,19 @@ class UserUrlServiceTest {
     @MockBean
     private ShortUrlDao shortUrlDao;
 
+    @Mock
+    private Authentication auth;
+
     @BeforeEach
     void setUp() {
-
+        Map<String,Object> headerMap = new HashMap<>();
+        headerMap.put("fake_header","fake_header");
+        Map<String,Object> map = new HashMap<>();
+        map.put("user_name","1");
+        Jwt jwt = new Jwt("faketoken", Instant.MIN,Instant.MAX,headerMap,map);
+        when(auth.getCredentials()).thenReturn(jwt);
+        SecurityContextHolder.getContext().setAuthentication(auth);
     }
-
     @AfterEach
     void tearDown() {
     }
