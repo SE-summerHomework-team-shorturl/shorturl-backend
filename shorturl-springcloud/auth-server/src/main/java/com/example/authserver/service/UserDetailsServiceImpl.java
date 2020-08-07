@@ -24,6 +24,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         User user = userDao.findOneByUsername(s);
         if (user == null)
             throw new UsernameNotFoundException("Username Not Found");
+//        System.out.println("username found");
         return new UrlShortenerUserDetails(user);
     }
 }

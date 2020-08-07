@@ -2,17 +2,18 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/addurl-service/addurl-service.iml" filepath="$PROJECT_DIR$/addurl-service/addurl-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/auth-server/auth-server.iml" filepath="$PROJECT_DIR$/auth-server/auth-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/addurl-service/addurlservice.iml" filepath="$PROJECT_DIR$/addurl-service/addurlservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/admin-service/adminservice.iml" filepath="$PROJECT_DIR$/admin-service/adminservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/auth-server/authserver.iml" filepath="$PROJECT_DIR$/auth-server/authserver.iml" />
       <module fileurl="file://$PROJECT_DIR$/config-server/config-server.iml" filepath="$PROJECT_DIR$/config-server/config-server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/eureka/eureka.iml" filepath="$PROJECT_DIR$/eureka/eureka.iml" />
       <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/misc/misc.iml" filepath="$PROJECT_DIR$/misc/misc.iml" />
-      <module fileurl="file://$PROJECT_DIR$/redirect-service/redirect-service.iml" filepath="$PROJECT_DIR$/redirect-service/redirect-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/register-service/register-service.iml" filepath="$PROJECT_DIR$/register-service/register-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/shared-entity/shared-entity.iml" filepath="$PROJECT_DIR$/shared-entity/shared-entity.iml" />
-      <module fileurl="file://$PROJECT_DIR$/shorturl-springcloud.iml" filepath="$PROJECT_DIR$/shorturl-springcloud.iml" />
-      <module fileurl="file://$PROJECT_DIR$/userurl-service/userurl-service.iml" filepath="$PROJECT_DIR$/userurl-service/userurl-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/parent.iml" filepath="$PROJECT_DIR$/parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/redirect-service/redirectservice.iml" filepath="$PROJECT_DIR$/redirect-service/redirectservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/register-service/registerservice.iml" filepath="$PROJECT_DIR$/register-service/registerservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shared-entity/sharedentity.iml" filepath="$PROJECT_DIR$/shared-entity/sharedentity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/statistic-service/statistic-service.iml" filepath="$PROJECT_DIR$/statistic-service/statistic-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/userurl-service/userurlservice.iml" filepath="$PROJECT_DIR$/userurl-service/userurlservice.iml" />
     </modules>
   </component>
 </project>

@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.Profile;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -18,7 +17,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @AutoConfigureMockMvc
@@ -45,7 +43,7 @@ class RedirectControllerTest {
     void test1() throws Exception {
         String testToken="1";
         String testUrl="http://www.baidu.com";
-        ShortUrl shortUrl= new ShortUrl(testUrl,1);
+        ShortUrl shortUrl= new ShortUrl(testUrl,1L);
         when( redirectService.findShortUrlByToken(testToken)).thenReturn(shortUrl);
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/r/1"))
                .andExpect(MockMvcResultMatchers.status().is3xxRedirection())
@@ -58,7 +56,6 @@ class RedirectControllerTest {
     void test2() throws Exception {
         String wrongToken="0";
         when( redirectService.findShortUrlByToken(wrongToken)).thenReturn(null);
-
       //  Throwable exception = assertThrows(Exception.class, () -> {
             MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/r/0"))
                     .andExpect(MockMvcResultMatchers.status().isBadRequest())

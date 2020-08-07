@@ -43,7 +43,7 @@ class RegisterServiceTest {
     @DisplayName("shouldSuccessWhenFirstRegister")
     void registerTest1() {
         Message firstMessage= registerService.register(map);
-        assertEquals("SUCCESS",firstMessage.getStatus());
+        assertEquals(Message.Success_Msg,firstMessage.getStatus());
 
     }
     @Test
@@ -51,8 +51,8 @@ class RegisterServiceTest {
     @DisplayName("shouldDupWhenDupRegister")
     void registerTest2() {
         Message firstMessage= registerService.register(map);
-        assertEquals("SUCCESS",firstMessage.getStatus());
+        assertEquals(Message.Success_Msg,firstMessage.getStatus());
         Message DupMessage= registerService.register(map);
-        assertEquals("DUP_USERNAME",DupMessage.getStatus());
+        assertEquals(Message.Dup_User_Msg,DupMessage.getStatus());
     }
 }

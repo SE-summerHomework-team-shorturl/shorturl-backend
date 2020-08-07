@@ -19,7 +19,6 @@ class RedirectServiceTest {
     @Autowired
     private RedirectService redirectService;
 
-
     @MockBean
     private ShortUrlDao shortUrlDao;
 
@@ -36,8 +35,8 @@ class RedirectServiceTest {
     @DisplayName("shouldSuccessWhenRightToken")
     void findShortUrlByToken() throws Exception {
         String testToken="1";
-        int testId=1;
-        ShortUrl shortUrl= new ShortUrl("test1.com",1);
+        long testId=1;
+        ShortUrl shortUrl= new ShortUrl("test1.com",1L);
         when(shortUrlDao.findById(testId)).thenReturn(shortUrl);
         assertEquals(shortUrl,redirectService.findShortUrlByToken(testToken));
     }

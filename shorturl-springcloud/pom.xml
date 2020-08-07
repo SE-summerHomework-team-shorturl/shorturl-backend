@@ -46,7 +46,6 @@
 		</plugins>
 	</build>
 <modules>
-	<module>eureka</module>
 	<module>config-server</module>
 	<module>auth-server</module>
 	<module>gateway</module>
@@ -56,5 +55,7 @@
 	<module>userurl-service</module>
 	<module>redirect-service</module>
 	<module>register-service</module>
+	<module>admin-service</module>
+	<module>statistic-service</module>
 </modules>
 </project>

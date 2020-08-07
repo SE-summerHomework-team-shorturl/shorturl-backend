@@ -3,16 +3,19 @@ package com.example.sharedentity.entity;
 import com.example.sharedentity.util.Base62Encoder;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "`short_urls`")
-public class ShortUrl {
+public class ShortUrl implements Serializable {
+    static private final long serialVersionUID = -1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic
     @Column(name = "`id`")
-    private Integer id;
+    private Long id;
 
     @Basic
     @Column(name = "`url`")
@@ -20,27 +23,23 @@ public class ShortUrl {
 
     @Basic
     @Column(name = "`user`")
-    private Integer userId;
+    private Long userId;
 
-    @Basic
-    @Column(name = "`clicks`")
-    private Integer clicks;
+    @Transient
+    private ShortUrlStat shortUrlStat;
 
-    public ShortUrl() {
-        this.clicks = 0;
-    }
+    public ShortUrl() {}
 
-    public ShortUrl(String url, Integer userId) {
+    public ShortUrl(String url, Long userId) {
         this.url = url;
         this.userId = userId;
-        this.clicks = 0;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -52,44 +51,44 @@ public class ShortUrl {
         this.url = url;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public ShortUrlStat getShortUrlStat() {
+        return shortUrlStat;
+    }
+
+    public void setShortUrlStat(ShortUrlStat shortUrlStat) {
+        this.shortUrlStat = shortUrlStat;
     }
 
     public String getToken() throws Exception {
         return Base62Encoder.encode(id);
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ShortUrl shortUrl = (ShortUrl) o;
-        return Objects.equals(id, shortUrl.id) &&
-                Objects.equals(url, shortUrl.url) &&
-                Objects.equals(userId, shortUrl.userId);
-    }
-
-    public ShortUrl(Integer id, String url, Integer userId) {
+    public ShortUrl(Long id, String url, Long userId) {
         this.id = id;
         this.url = url;
         this.userId = userId;
     }
 
-    public Integer getClicks() {
-        return clicks;
-    }
-
-    public void setClicks(Integer clicks) {
-        this.clicks = clicks;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        ShortUrl shortUrl = (ShortUrl) o;
+        return Objects.equals(id, shortUrl.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, url, userId);
+        return Objects.hash(id);
     }
 }
