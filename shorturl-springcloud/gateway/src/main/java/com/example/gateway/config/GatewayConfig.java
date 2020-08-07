@@ -42,6 +42,9 @@ public class GatewayConfig {
                 .route(r ->
                         r.path("/admin/**")
                                 .uri("lb://admin-service/"))
+                .route(r ->
+                        r.path("/.well-known/jwks.json")
+                                .uri("lb://auth-server"))
                 .build();
     }
 }

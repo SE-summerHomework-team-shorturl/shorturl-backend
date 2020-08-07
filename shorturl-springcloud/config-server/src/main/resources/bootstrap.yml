@@ -1,33 +1,3 @@
-server:
-  port: 8888
 spring:
   profiles:
     active: dev
-  application:
-    name: config-server
-  config:
-    name: config-server
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/SE-summerHomework-team-shorturl/shorturl-backend-config
-          username: JerryCrab
-          password: bayun3383youzi
-          default-label: master
-          search-paths: config-dev-sjc/spring-cloud
-    consul:
-      host: localhost
-      port: 8500
-      discovery:
-        service-name: config-server
-        healthCheckPath: /actuator/health
-        healthCheckInterval: 5s
-        health-check-critical-timeout: 20s
-        instanceId: config-server:8888
-        enabled: true
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
