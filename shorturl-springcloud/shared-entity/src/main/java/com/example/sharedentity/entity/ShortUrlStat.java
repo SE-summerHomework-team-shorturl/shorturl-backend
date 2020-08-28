@@ -53,11 +53,13 @@ public class ShortUrlStat {
         if (o == null || getClass() != o.getClass())
             return false;
         ShortUrlStat that = (ShortUrlStat) o;
-        return Objects.equals(id, that.id);
+        return Objects.equals(id, that.id) &&
+                Objects.equals(totalClicks, that.totalClicks) &&
+                Objects.equals(dailyClicksStats, that.dailyClicksStats);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(id, totalClicks, dailyClicksStats);
     }
 }

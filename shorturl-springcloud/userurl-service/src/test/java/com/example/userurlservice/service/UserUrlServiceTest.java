@@ -35,7 +35,6 @@ import static org.mockito.Mockito.when;
 
 @AutoConfigureMockMvc
 @SpringBootTest
-@ActiveProfiles("test")
 @Transactional
 @ContextConfiguration
 @ExtendWith(SpringExtension.class)
@@ -63,19 +62,19 @@ class UserUrlServiceTest {
     }
 
     @Test
-    @DisplayName("returnSucessWhenRightFind")
+    @DisplayName("returnSuccessWhenRightFind")
     @WithUserDetails(value = "test",userDetailsServiceBeanName = "userDetailsService")
     void addToUserShortUrls() throws Exception {
         String testUrl="http://www.baidu.com";
         List<ShortUrl> shortUrls = new ArrayList<ShortUrl>();
         shortUrls.add(0,new ShortUrl(1L,testUrl,1L));
-        when(shortUrlDao.findAllByUserId(1)).thenReturn(shortUrls);
+        when(shortUrlDao.findAllByUserIdFetchStat(1)).thenReturn(shortUrls);
         List<ShortUrl> afterUrls=(List<ShortUrl>)(userUrlService.findAllMyShortUrls()).getBody();
         assertEquals(shortUrls, afterUrls);
     }
 
     @Test
-    @DisplayName("returnSucessWhenDeleteSucceed")
+    @DisplayName("returnSuccessWhenDeleteSucceed")
     @WithUserDetails(value = "test",userDetailsServiceBeanName = "userDetailsService")
     void deleteUserShortUrlsSuccess() {
         String testUrl="http://www.baidu.com";
@@ -86,7 +85,7 @@ class UserUrlServiceTest {
     }
 
     @Test
-    @DisplayName("returnSucessWhenDeleteFail")
+    @DisplayName("returnSuccessWhenDeleteFail")
     @WithUserDetails(value = "test",userDetailsServiceBeanName = "userDetailsService")
     void deleteUserShortUrlsFailed() {
         String testUrl="http://www.baidu.com";
@@ -97,7 +96,7 @@ class UserUrlServiceTest {
     }
 
     @Test
-    @DisplayName("returnSucessWhenDeleteOthers")
+    @DisplayName("returnSuccessWhenDeleteOthers")
     @WithUserDetails(value = "test",userDetailsServiceBeanName = "userDetailsService")
     void deleteUserShortUrlsOthers() {
         String testUrl="http://www.baidu.com";

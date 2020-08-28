@@ -29,7 +29,6 @@ import static org.mockito.Mockito.when;
 
 @AutoConfigureMockMvc
 @SpringBootTest
-@ActiveProfiles("test")
 @Transactional
 class UserUrlControllerTest{
     @Autowired

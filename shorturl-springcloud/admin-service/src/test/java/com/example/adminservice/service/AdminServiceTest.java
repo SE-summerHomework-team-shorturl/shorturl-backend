@@ -18,8 +18,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.jwt.Jwt;
-import org.springframework.security.test.context.support.WithUserDetails;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,7 +33,6 @@ import static org.mockito.Mockito.when;
 
 @AutoConfigureMockMvc
 @SpringBootTest
-@ActiveProfiles("test")
 @Transactional
 @ContextConfiguration
 @ExtendWith(SpringExtension.class)
@@ -65,7 +62,7 @@ class AdminServiceTest {
     }
 
     @Test
-    @DisplayName("returnSucessWhenRightFindUsers")
+    @DisplayName("returnSuccessWhenRightFindUsers")
     void findAllUsers() throws Exception {
         List<User> users = new ArrayList<User>();
         users.add(new User(1L,"bill","1234","bill@1234.com",false));
@@ -75,17 +72,17 @@ class AdminServiceTest {
     }
 
     @Test
-    @DisplayName("returnSucessWhenRightFindShortUrls")
+    @DisplayName("returnSuccessWhenRightFindShortUrls")
     void findAllShortUrls() throws Exception {
         List<ShortUrl> shorturls = new ArrayList<ShortUrl>();
         shorturls.add(new ShortUrl(1L,"http://www.baidu.com",1L));
-        when(shortUrlDao.findAll()).thenReturn(shorturls);
+        when(shortUrlDao.findAllFetchStat()).thenReturn(shorturls);
         assertEquals(Message.Success_Msg,adminService.findAllShortUrls().getStatus());
         assertEquals(shorturls,adminService.findAllShortUrls().getBody());
     }
 
     @Test
-    @DisplayName("returnSucessWhenDelete")
+    @DisplayName("returnSuccessWhenDelete")
     void deleteUserShortUrlsOthers() {
         String status=adminService.deleteShortUrlById(1).getStatus();
         assertEquals(Message.Success_Msg, status);

@@ -84,11 +84,14 @@ public class ShortUrl implements Serializable {
         if (o == null || getClass() != o.getClass())
             return false;
         ShortUrl shortUrl = (ShortUrl) o;
-        return Objects.equals(id, shortUrl.id);
+        return Objects.equals(id, shortUrl.id) &&
+                Objects.equals(url, shortUrl.url) &&
+                Objects.equals(userId, shortUrl.userId) &&
+                Objects.equals(shortUrlStat, shortUrl.shortUrlStat);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(id, url, userId, shortUrlStat);
     }
 }

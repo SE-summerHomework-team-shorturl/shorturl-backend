@@ -1,5 +1,7 @@
 package com.example.sharedentity.dto;
 
+import java.util.Objects;
+
 public class Message {
     /* status String */
     static public String Success_Msg="SUCCESS";
@@ -34,5 +36,21 @@ public class Message {
 
     public void setBody(Object body) {
         this.body = body;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Message message = (Message) o;
+        return Objects.equals(status, message.status) &&
+                Objects.equals(body, message.body);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(status, body);
     }
 }
