@@ -17,7 +17,7 @@ spring:
           username: JerryCrab
           password: bayun3383youzi
           default-label: master
-          search-paths: config-test-sjc/spring-cloud-nosql
+          search-paths: config-prod-sjc/spring-cloud-nosql
 management:
   endpoint:
     health:
