@@ -19,10 +19,10 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @EnableJpaRepositories(basePackages = "com.example.sharedentity")
 @EnableMongoRepositories(basePackages = "com.example.sharedentity")
 @EnableBinding(value={ISendeService.class})
-public class RedirectserviceApplication {
+public class RedirectServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(RedirectserviceApplication.class, args);
+        SpringApplication.run(RedirectServiceApplication.class, args);
     }
 
 }
