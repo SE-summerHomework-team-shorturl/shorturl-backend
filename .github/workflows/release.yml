@@ -1,0 +1,117 @@
+name: Release
+on:
+  release:
+    types: [published]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up JDK 13
+        uses: actions/setup-java@v1
+        with:
+          java-version: 13
+      - name: Build shared-entity with Maven
+        run: mvn install -B -DskipTests --file shared-entity/pom.xml
+      - name: Build misc with Maven
+        run: mvn install -B -DskipTests --file misc/pom.xml
+      - name: Build config-server with Maven
+        run: mvn package -B -DskipTests --file config-server/pom.xml
+      - name: Push config-server to Github Packages
+        uses: docker/build-push-action@v1
+        with:
+          path: config-server
+          username: ${{ github.actor }}
+          password: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: se-summerhomework-team-shorturl/shorturl-backend/config-server
+          tags: latest
+      - name: Build gateway with Maven
+          run: mvn package -B -DskipTests --file gateway/pom.xml
+      - name: Push gateway to Github Packages
+        uses: docker/build-push-action@v1
+        with:
+          path: gateway
+          username: ${{ github.actor }}
+          password: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: se-summerhomework-team-shorturl/shorturl-backend/gateway
+          tags: latest
+      - name: Build auth-server with Maven
+          run: mvn package -B -DskipTests --file auth-server/pom.xml
+      - name: Push auth-server to Github Packages
+        uses: docker/build-push-action@v1
+        with:
+          path: auth-server
+          username: ${{ github.actor }}
+          password: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: se-summerhomework-team-shorturl/shorturl-backend/auth-server
+          tags: latest
+      - name: Build redirect-service with Maven
+          run: mvn package -B -DskipTests --file redirect-service/pom.xml
+      - name: Push redirect-service to Github Packages
+        uses: docker/build-push-action@v1
+        with:
+          path: redirect-service
+          username: ${{ github.actor }}
+          password: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: se-summerhomework-team-shorturl/shorturl-backend/redirect-service
+          tags: latest
+      - name: Build statistic-service with Maven
+          run: mvn package -B -DskipTests --file statistic-service/pom.xml
+      - name: Push statistic-service to Github Packages
+        uses: docker/build-push-action@v1
+        with:
+          path: statistic-service
+          username: ${{ github.actor }}
+          password: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: se-summerhomework-team-shorturl/shorturl-backend/statistic-service
+          tags: latest
+      - name: Build addurl-service with Maven
+          run: mvn package -B -DskipTests --file addurl-service/pom.xml
+      - name: Push addurl-service to Github Packages
+        uses: docker/build-push-action@v1
+        with:
+          path: addurl-service
+          username: ${{ github.actor }}
+          password: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: se-summerhomework-team-shorturl/shorturl-backend/addurl-service
+          tags: latest
+      - name: Build userurl-service with Maven
+          run: mvn package -B -DskipTests --file userurl-service/pom.xml
+      - name: Push userurl-service to Github Packages
+        uses: docker/build-push-action@v1
+        with:
+          path: userurl-service
+          username: ${{ github.actor }}
+          password: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: se-summerhomework-team-shorturl/shorturl-backend/userurl-service
+          tags: latest
+      - name: Build admin-service with Maven
+          run: mvn package -B -DskipTests --file admin-service/pom.xml
+      - name: Push admin-service to Github Packages
+        uses: docker/build-push-action@v1
+        with:
+          path: admin-service
+          username: ${{ github.actor }}
+          password: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: se-summerhomework-team-shorturl/shorturl-backend/admin-service
+          tags: latest
+      - name: Build register-service with Maven
+          run: mvn package -B -DskipTests --file register-service/pom.xml
+      - name: Push register-service to Github Packages
+        uses: docker/build-push-action@v1
+        with:
+          path: register-service
+          username: ${{ github.actor }}
+          password: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: se-summerhomework-team-shorturl/shorturl-backend/register-service
+          tags: latest

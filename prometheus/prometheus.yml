@@ -1,0 +1,26 @@
+global:
+  scrape_interval: 5s
+  evaluation_interval: 5s
+scrape_configs:
+  - job_name: prometheus
+    static_configs:
+      - targets:
+          - localhost:9090
+  - job_name: consul
+    metrics_path: /actuator/prometheus
+    consul_sd_configs:
+      - server: consul:8500
+        services:
+          - auth-server
+          - config-server
+          - gateway
+          - addurl-service
+          - redirect-service
+          - userurl-service
+          - register-service
+          - statistic-service
+          - admin-service
+    relabel_configs:
+      - source_labels:
+          - __meta_consul_service_id
+        target_label: instance

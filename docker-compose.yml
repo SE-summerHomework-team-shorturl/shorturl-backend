@@ -1,0 +1,99 @@
+version: "3.8"
+services:
+  mysql:
+    image: mysql:latest
+    volumes:
+      - mysql-data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    command: --default-authentication-plugin=mysql_native_password --max-connections=1000 --wait-timeout=300
+    deploy:
+      placement:
+        constraints:
+          - node.labels.mysql==true
+  redis:
+    build: ./redis
+    image: 127.0.0.1:5000/shorturl/redis
+    volumes:
+      - redis-data:/data
+    ports:
+      - 6379:6379
+    deploy:
+      placement:
+        constraints:
+          - node.labels.redis==true
+  mongo:
+    image: mongo:latest
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - 27017:27017
+    deploy:
+      placement:
+        constraints:
+          - node.labels.mongo==true
+  consul:
+    image: consul:latest
+    ports:
+      - 8500:8500
+    environment:
+      - CONSUL_BIND_INTERFACE=eth0
+    command: agent -server -ui -node=server-1 -bootstrap-expect=1 -client=0.0.0.0
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - 15672:15672
+  prometheus:
+    build: ./prometheus
+    image: 127.0.0.1:5000/shorturl/prometheus:latest
+    ports:
+      - 9090:9090
+  config-server:
+    build: ./config-server
+    image: 127.0.0.1:5000/shorturl/config-server:latest
+    deploy:
+      replicas: 1
+  gateway:
+    build: ./gateway
+    image: 127.0.0.1:5000/shorturl/gateway:latest
+    ports:
+      - 8080:8080
+  redirect-service:
+    build: ./redirect-service
+    image: 127.0.0.1:5000/shorturl/redirect-service:latest
+    deploy:
+      replicas: 2
+  addurl-service:
+    build: ./addurl-service
+    image: 127.0.0.1:5000/shorturl/addurl-service:latest
+    deploy:
+      replicas: 2
+  statistic-service:
+    build: ./statistic-service
+    image: 127.0.0.1:5000/shorturl/statistic-service:latest
+  auth-server:
+    build: ./auth-server
+    image: 127.0.0.1:5000/shorturl/auth-server:latest
+    deploy:
+      replicas: 1
+  admin-service:
+    build: ./admin-service
+    image: 127.0.0.1:5000/shorturl/admin-service:latest
+    deploy:
+      replicas: 1
+  register-service:
+    build: ./register-service
+    image: 127.0.0.1:5000/shorturl/register-service:latest
+    deploy:
+      replicas: 1
+  userurl-service:
+    build: ./userurl-service
+    image: 127.0.0.1:5000/shorturl/userurl-service:latest
+    deploy:
+      replicas: 1
+volumes:
+  mysql-data:
+  redis-data:
+  mongo-data:
