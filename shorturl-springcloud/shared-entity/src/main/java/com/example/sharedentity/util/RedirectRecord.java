@@ -1,7 +1,9 @@
 package com.example.sharedentity.util;
 
 import java.time.LocalDate;
-
+/*
+ @TODO  shortUrlId localDate
+ */
 public class RedirectRecord {
     private long shortUrlId;
     private LocalDate localDate;
