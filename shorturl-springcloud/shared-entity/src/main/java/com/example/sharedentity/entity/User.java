@@ -14,12 +14,12 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic
     @Column(name = "`id`")
-    private Integer id;
+    private Long id;
 
     public User(){
 
     }
-    public User(Integer id, String username, String password, String email, Boolean admin) {
+    public User(Long id, String username, String password, String email, Boolean admin) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -44,12 +44,12 @@ public class User implements Serializable {
     private Boolean admin;
 
     @JsonProperty
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
     @JsonIgnore
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -91,8 +91,10 @@ public class User implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         User user = (User) o;
         return Objects.equals(id, user.id) &&
                 Objects.equals(username, user.username) &&

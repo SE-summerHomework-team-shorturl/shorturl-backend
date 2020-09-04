@@ -1,9 +1,13 @@
 spring:
+  application:
+    name: userurl-service
   cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
     config:
-      name: sql
-      profile: dev
-      label: master
       discovery:
         enabled: true
         service-id: config-server

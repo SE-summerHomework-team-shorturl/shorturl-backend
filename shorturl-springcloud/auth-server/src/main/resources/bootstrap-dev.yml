@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: auth-server
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    config:
+      discovery:
+        enabled: true
+        service-id: config-server

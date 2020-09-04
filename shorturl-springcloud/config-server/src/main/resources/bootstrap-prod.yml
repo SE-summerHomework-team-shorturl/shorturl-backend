@@ -1,0 +1,24 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/SE-summerHomework-team-shorturl/shorturl-backend-config
+          username: JerryCrab
+          password: bayun3383youzi
+          default-label: master
+          search-paths: config-prod-sjc/spring-cloud
+    consul:
+      host: consul
+      port: 8500
+      discovery:
+        instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

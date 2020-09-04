@@ -24,7 +24,6 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 @AutoConfigureMockMvc
 @SpringBootTest
-@ActiveProfiles("test")
 @Transactional
 class RegisterControllerTest {
     @Autowired

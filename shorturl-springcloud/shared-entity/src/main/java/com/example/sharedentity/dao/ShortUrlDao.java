@@ -7,8 +7,13 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 public interface ShortUrlDao {
-    ShortUrl findById(int id);
-    List<ShortUrl> findAllByUserId(int userId);
+    ShortUrl findById(long id);
+    List<ShortUrl> findAllByUserId(long userId);
+    List<ShortUrl> findAllByUserIdFetchStat(long userId);
     ShortUrl saveAndFlush(ShortUrl shorturl);
-    void deleteById(int id);
+    ShortUrl save(ShortUrl shorturl);
+    List<ShortUrl> saveAll(List<ShortUrl> shortUrls);
+    void deleteById(long id);
+    List<ShortUrl> findAll();
+    List<ShortUrl> findAllFetchStat();
 }

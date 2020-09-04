@@ -23,6 +23,13 @@ public class GatewayConfig {
                                         .addRequestParameter("grant_type", "password")
                                         .rewritePath("/login", "/oauth/token"))
                                 .uri("lb://auth-server/"))
+                /*
+                .route(r ->
+                        r.path("/logout")
+                                .filters(f -> f
+                                        .rewritePath("/logout", "/oauth/revoke_token")
+                                .dedupeResponseHeader("Access-Control-Allow-Origin","RETAIN_UNIQUE"))
+                                .uri("lb://auth-server/"))*/
                 .route(r ->
                         r.path("/urlmanage/addurl")
                                 .uri("lb://addurl-service/"))
@@ -32,6 +39,12 @@ public class GatewayConfig {
                 .route(r ->
                         r.path("/urlmanage/deleteurl")
                                 .uri("lb://userurl-service/"))
+                .route(r ->
+                        r.path("/admin/**")
+                                .uri("lb://admin-service/"))
+                .route(r ->
+                        r.path("/.well-known/jwks.json")
+                                .uri("lb://auth-server"))
                 .build();
     }
 }

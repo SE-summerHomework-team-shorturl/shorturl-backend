@@ -21,13 +21,12 @@ public class RegisterServiceImpl implements RegisterService {
         User user = new User();
         user.setEmail(map.get("email"));
         user.setUsername(map.get("username"));
-
         user.setPassword(new BCryptPasswordEncoder().encode(map.get("password")));
 
         if (userDao.existsByUsername(user.getUsername()))
-            return new Message("DUP_USERNAME", null);
+            return new Message(Message.Dup_User_Msg, null);
         user.setAdmin(false);
         userDao.save(user);
-        return new Message("SUCCESS", null);
+        return new Message(Message.Success_Msg, null);
     }
 }

@@ -18,7 +18,7 @@ public class UserUrlController {
     }
 
     @GetMapping(value = "/urlmanage/deleteurl")
-    public Message deleteMyShortUrlById(@RequestParam(value = "id") int id) {
+    public Message deleteMyShortUrlById(@RequestParam(value = "id") long id) {
         return userUrlService.deleteMyShortUrlById(id);
     }
 }
